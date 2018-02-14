@@ -21,6 +21,10 @@ namespace Maestro_Rework.Classes
             Ativo = true;
             Verificado = false;
         }
+        public Usuario()
+        {
+
+        }
 
         public int Id { get; private set; }
         public string Login { get; private set; }

@@ -111,6 +111,7 @@
     <Compile Include="Classes\AlternativaCorreta.cs" />
     <Compile Include="Classes\AnexoConteudo.cs" />
     <Compile Include="Classes\Construtores\ConteudoConstrutor.cs" />
+    <Compile Include="Classes\Construtores\QuestionarioConstrutor.cs" />
     <Compile Include="Classes\Conteudo.cs" />
     <Compile Include="Classes\GeradorDeCodigo.cs" />
     <Compile Include="Classes\Questao.cs" />

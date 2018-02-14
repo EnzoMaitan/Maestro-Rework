@@ -17,6 +17,11 @@ namespace Maestro_Rework.Classes.Construtores
         public bool Ativo { get; private set; }
         public string CodigoAcesso { get; private set; }
 
+        public ConteudoConstrutor ParaUsuario(Usuario usuario)
+        {
+            Usuario = usuario;
+            return this;
+        }
         public ConteudoConstrutor ParaNome(string nome)
         {
             Nome = nome;

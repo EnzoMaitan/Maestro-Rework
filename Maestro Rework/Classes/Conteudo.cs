@@ -20,6 +20,10 @@ namespace Maestro_Rework.Classes
             Ativo = ativo;
             DataCriacao = DateTime.Now;
         }
+        public Conteudo()
+        {
+
+        }
 
         public int Id { get; private set; }
         public int UsuarioID { get; private set; }
