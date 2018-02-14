@@ -137,7 +137,7 @@
             this.btnAcao.TabIndex = 57;
             this.btnAcao.Text = "Cadastrar";
             this.btnAcao.UseVisualStyleBackColor = false;
-            this.btnAcao.Click += new System.EventHandler(this.btnAcao_Click);
+            this.btnAcao.Click += new System.EventHandler(this.BtnAcao_Click);
             // 
             // txtConf
             // 

@@ -8,12 +8,25 @@ namespace Maestro_Rework.Classes
 {
     public class Conteudo
     {
+        public Conteudo(Usuario usuario, string nome, string tema, string texto, DateTime dataInicio, DateTime dataFim, string codigoAcesso, bool ativo)
+        {
+            Usuario = usuario;
+            Nome = nome;
+            Tema = tema;
+            Texto = texto;
+            DataInicio = dataInicio;
+            DataFim = dataFim;
+            CodigoAcesso = codigoAcesso;
+            Ativo = ativo;
+            DataCriacao = DateTime.Now;
+        }
+
         public int Id { get; private set; }
-        public Usuario Usuario { get; private set; }
         public int UsuarioID { get; private set; }
         public IList<UsuarioConteudo> Usuarios { get; set; }
         public IList<RegistroConteudo> Registros { get; set; }
         public IList<AnexoConteudo> Anexos { get; private set; }
+        public Usuario Usuario { get; private set; }
         public string Nome { get; private set; }
         public string Tema { get; private set; }
         public string Texto { get; private set; }

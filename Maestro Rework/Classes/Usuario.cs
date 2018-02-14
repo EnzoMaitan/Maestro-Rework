@@ -8,16 +8,16 @@ namespace Maestro_Rework.Classes
 {
     public class Usuario
     {
-        public Usuario(string login, string nome, string senha, string email, int nivel, string codigoSenha, string cargo, DateTime dataCriacao)
+        public Usuario(string login, string nome, string senha, string email, int nivel, string cargo)
         {
             Login = login;
             Nome = nome;
             Senha = senha;
             Email = email;
             Nivel = nivel;
-            CodigoSenha = codigoSenha;
+            CodigoSenha = null;
             Cargo = cargo;
-            DataCriacao = dataCriacao;
+            DataCriacao = DateTime.Now;
             Ativo = true;
             Verificado = false;
         }

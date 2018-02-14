@@ -12,7 +12,7 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
         }
 
-        private void btnAcao_Click(object sender, EventArgs e)
+        private void BtnAcao_Click(object sender, EventArgs e)
         {
             using (var contexto = new MaestroContext())
             {

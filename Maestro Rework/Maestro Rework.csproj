@@ -110,7 +110,9 @@
     <Compile Include="Classes\Alternativa.cs" />
     <Compile Include="Classes\AlternativaCorreta.cs" />
     <Compile Include="Classes\AnexoConteudo.cs" />
+    <Compile Include="Classes\Construtores\ConteudoConstrutor.cs" />
     <Compile Include="Classes\Conteudo.cs" />
+    <Compile Include="Classes\GeradorDeCodigo.cs" />
     <Compile Include="Classes\Questao.cs" />
     <Compile Include="Classes\Questionario.cs" />
     <Compile Include="Classes\QuestionarioUsuario.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Classes\Construtores\UsuarioConstrutor.cs" />
     <Compile Include="Classes\UsuarioConteudo.cs" />
+    <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Forms\UsuarioCadastro.cs">
       <SubType>Form</SubType>

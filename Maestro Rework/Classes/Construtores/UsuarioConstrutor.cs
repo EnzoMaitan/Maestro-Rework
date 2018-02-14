@@ -8,17 +8,12 @@ namespace Maestro_Rework.Classes.Construtores
 {
     class UsuarioConstrutor
     {
-
         public string Login { get; private set; }
         public string Nome { get; private set; }
         public string Senha { get; private set; }
         public string Email { get; private set; }
         public int Nivel { get; private set; }
-        public bool Ativo { get; private set; }
-        public string CodigoSenha { get; private set; }
         public string Cargo { get; private set; }
-        public bool Verificado { get; private set; }
-        public DateTime DataCriacao { get; private set; }
 
         public UsuarioConstrutor ParaLogin(string login)
         {
@@ -45,26 +40,16 @@ namespace Maestro_Rework.Classes.Construtores
             Nivel = nivel;
             return this;
         }
-        public UsuarioConstrutor ParaCodigoSenha(string codigoSenha)
-        {
-            CodigoSenha = codigoSenha;
-            return this;
-        }
+
         public UsuarioConstrutor ParaCargo(string cargo)
         {
             Cargo = cargo;
             return this;
         }
-        public UsuarioConstrutor ParaDataCriacao()
-        {
-            DataCriacao = DateTime.Now;
-            return this;
-        }
 
         public Usuario Constroi()
         {
-            return new Usuario(Login, Nome, Senha, Email, Nivel, CodigoSenha, Cargo, Verificado, DataCriacao);
-
+            return new Usuario(Login, Nome, Senha, Email, Nivel, Cargo);
         }
     }
 }
