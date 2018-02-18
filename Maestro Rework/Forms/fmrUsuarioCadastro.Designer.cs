@@ -1,6 +1,6 @@
 ﻿namespace Maestro_Rework.Forms
 {
-    partial class UsuarioCadastro
+    partial class fmrUsuarioCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblErroCampos = new System.Windows.Forms.Label();
-            this.lblErroSenha = new System.Windows.Forms.Label();
-            this.lblErroLogin = new System.Windows.Forms.Label();
+            this.lblUsuarioCadastrado = new System.Windows.Forms.Label();
+            this.lblErro = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbSelecionar = new System.Windows.Forms.ComboBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -48,49 +46,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label15
+            // lblUsuarioCadastrado
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label15.Location = new System.Drawing.Point(359, 478);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(198, 24);
-            this.label15.TabIndex = 64;
-            this.label15.Text = "Usuário Cadastrado!";
+            this.lblUsuarioCadastrado.AutoSize = true;
+            this.lblUsuarioCadastrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioCadastrado.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblUsuarioCadastrado.Location = new System.Drawing.Point(359, 478);
+            this.lblUsuarioCadastrado.Name = "lblUsuarioCadastrado";
+            this.lblUsuarioCadastrado.Size = new System.Drawing.Size(198, 24);
+            this.lblUsuarioCadastrado.TabIndex = 64;
+            this.lblUsuarioCadastrado.Text = "Usuário Cadastrado!";
             // 
-            // lblErroCampos
+            // lblErro
             // 
-            this.lblErroCampos.AutoSize = true;
-            this.lblErroCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErroCampos.ForeColor = System.Drawing.Color.Coral;
-            this.lblErroCampos.Location = new System.Drawing.Point(360, 442);
-            this.lblErroCampos.Name = "lblErroCampos";
-            this.lblErroCampos.Size = new System.Drawing.Size(176, 16);
-            this.lblErroCampos.TabIndex = 63;
-            this.lblErroCampos.Text = "Preencha todos os campos!";
-            // 
-            // lblErroSenha
-            // 
-            this.lblErroSenha.AutoSize = true;
-            this.lblErroSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErroSenha.ForeColor = System.Drawing.Color.Coral;
-            this.lblErroSenha.Location = new System.Drawing.Point(555, 390);
-            this.lblErroSenha.Name = "lblErroSenha";
-            this.lblErroSenha.Size = new System.Drawing.Size(163, 16);
-            this.lblErroSenha.TabIndex = 62;
-            this.lblErroSenha.Text = "As senhas não combinam";
-            // 
-            // lblErroLogin
-            // 
-            this.lblErroLogin.AutoSize = true;
-            this.lblErroLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErroLogin.ForeColor = System.Drawing.Color.Coral;
-            this.lblErroLogin.Location = new System.Drawing.Point(555, 119);
-            this.lblErroLogin.Name = "lblErroLogin";
-            this.lblErroLogin.Size = new System.Drawing.Size(132, 16);
-            this.lblErroLogin.TabIndex = 61;
-            this.lblErroLogin.Text = "Login não disponível";
+            this.lblErro.AutoSize = true;
+            this.lblErro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErro.ForeColor = System.Drawing.Color.Coral;
+            this.lblErro.Location = new System.Drawing.Point(378, 450);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(194, 16);
+            this.lblErro.TabIndex = 61;
+            this.lblErro.Text = "ERRORERROERRORERROR";
             // 
             // label6
             // 
@@ -246,10 +222,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 587);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.lblErroCampos);
-            this.Controls.Add(this.lblErroSenha);
-            this.Controls.Add(this.lblErroLogin);
+            this.Controls.Add(this.lblUsuarioCadastrado);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbSelecionar);
             this.Controls.Add(this.btnSair);
@@ -273,10 +247,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lblErroCampos;
-        private System.Windows.Forms.Label lblErroSenha;
-        private System.Windows.Forms.Label lblErroLogin;
+        private System.Windows.Forms.Label lblUsuarioCadastrado;
+        private System.Windows.Forms.Label lblErro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbSelecionar;
         private System.Windows.Forms.Button btnSair;

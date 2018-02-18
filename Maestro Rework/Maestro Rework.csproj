@@ -125,11 +125,23 @@
     <Compile Include="Classes\UsuarioConteudo.cs" />
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="Forms\UsuarioCadastro.cs">
+    <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UsuarioCadastro.Designer.cs">
-      <DependentUpon>UsuarioCadastro.cs</DependentUpon>
+    <Compile Include="Forms\fmrLogin.Designer.cs">
+      <DependentUpon>fmrLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrMenu.Designer.cs">
+      <DependentUpon>fmrMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrUsuarioCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrUsuarioCadastro.Designer.cs">
+      <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
     </Compile>
     <Compile Include="MaestroContext.cs" />
     <Compile Include="Migrations\20180212021306_Inicial.cs" />
@@ -139,8 +151,14 @@
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\UsuarioCadastro.resx">
-      <DependentUpon>UsuarioCadastro.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fmrLogin.resx">
+      <DependentUpon>fmrLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrMenu.resx">
+      <DependentUpon>fmrMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrUsuarioCadastro.resx">
+      <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
