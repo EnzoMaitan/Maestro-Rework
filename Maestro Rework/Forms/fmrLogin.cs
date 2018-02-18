@@ -14,10 +14,11 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrLogin : Form
     {
-        static Usuario usuarioLogado = new Usuario();
+        public static Usuario usuarioLogado = new Usuario();
         public fmrLogin()
         {
             InitializeComponent();
+            lblErro.Visible = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -26,19 +27,25 @@ namespace Maestro_Rework.Forms
             {
                 using (var contexto = new MaestroContext())
                 {
-                    if (ValidarLogin(contexto))
+                    if (ValidarLogin(contexto) && CamposPreenchidos())
                     {
-                        MessageBox.Show(usuarioLogado.Nome.ToString());
                         fmrMenu fmr = new fmrMenu();
                         fmr.Show();
                         Hide();
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                lblErro.Visible = true;
+                lblErro.Text = ex.Message;
             }
+        }
+
+        private bool CamposPreenchidos()
+        {
+            if (txtLogin.Text != null && txtSenha != null) return true;
+            else throw new Exception("Preencha os Campos");
         }
 
         private bool ValidarLogin(MaestroContext contexto)
@@ -46,7 +53,7 @@ namespace Maestro_Rework.Forms
             var query = contexto.Usuarios.Where(x => x.Login == txtLogin.Text && x.Senha == txtSenha.Text);
             if (query.FirstOrDefault() != null)
             {
-                usuarioLogado = query.FirstOrDefault();
+                usuarioLogado = query.FirstOrDefault();  
                 return true;
             }
             else throw new Exception("Usuario Invalido");
@@ -56,6 +63,11 @@ namespace Maestro_Rework.Forms
         {
             fmrUsuarioCadastro fmr = new fmrUsuarioCadastro();
             fmr.Show();
+        }
+
+        private void fmrLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

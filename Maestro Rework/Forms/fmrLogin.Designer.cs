@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
+            this.lblErro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,11 +123,23 @@
             this.txtLogin.Size = new System.Drawing.Size(274, 20);
             this.txtLogin.TabIndex = 8;
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblErro.Location = new System.Drawing.Point(218, 230);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(35, 13);
+            this.lblErro.TabIndex = 16;
+            this.lblErro.Text = "label1";
+            // 
             // fmrLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(728, 545);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblRecSenha);
@@ -137,6 +150,7 @@
             this.Controls.Add(this.txtLogin);
             this.Name = "fmrLogin";
             this.Text = "fmrLogin";
+            this.Load += new System.EventHandler(this.fmrLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,5 +167,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Label lblErro;
     }
 }

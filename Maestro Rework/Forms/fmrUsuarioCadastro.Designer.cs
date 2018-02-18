@@ -30,8 +30,8 @@
         {
             this.lblUsuarioCadastrado = new System.Windows.Forms.Label();
             this.lblErro = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbSelecionar = new System.Windows.Forms.ComboBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.cboSelecionar = new System.Windows.Forms.ComboBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAcao = new System.Windows.Forms.Button();
             this.txtConf = new System.Windows.Forms.TextBox();
@@ -68,27 +68,27 @@
             this.lblErro.TabIndex = 61;
             this.lblErro.Text = "ERRORERROERRORERROR";
             // 
-            // label6
+            // lblUsuario
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(10, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 25);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "Usuário:";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUsuario.Location = new System.Drawing.Point(10, 23);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(100, 25);
+            this.lblUsuario.TabIndex = 60;
+            this.lblUsuario.Text = "Usuário:";
             // 
-            // cmbSelecionar
+            // cboSelecionar
             // 
-            this.cmbSelecionar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSelecionar.FormattingEnabled = true;
-            this.cmbSelecionar.Location = new System.Drawing.Point(14, 62);
-            this.cmbSelecionar.Name = "cmbSelecionar";
-            this.cmbSelecionar.Size = new System.Drawing.Size(174, 30);
-            this.cmbSelecionar.TabIndex = 59;
-            this.cmbSelecionar.Text = " ";
+            this.cboSelecionar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSelecionar.FormattingEnabled = true;
+            this.cboSelecionar.Location = new System.Drawing.Point(14, 62);
+            this.cboSelecionar.Name = "cboSelecionar";
+            this.cboSelecionar.Size = new System.Drawing.Size(174, 30);
+            this.cboSelecionar.TabIndex = 59;
+            this.cboSelecionar.Text = " ";
             // 
             // btnSair
             // 
@@ -217,15 +217,16 @@
             this.label1.TabIndex = 47;
             this.label1.Text = "Login";
             // 
-            // UsuarioCadastro
+            // fmrUsuarioCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(890, 587);
             this.Controls.Add(this.lblUsuarioCadastrado);
             this.Controls.Add(this.lblErro);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cmbSelecionar);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.cboSelecionar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnAcao);
             this.Controls.Add(this.txtConf);
@@ -238,7 +239,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "UsuarioCadastro";
+            this.Name = "fmrUsuarioCadastro";
             this.Text = "UsuarioCadastro";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,8 +250,8 @@
 
         private System.Windows.Forms.Label lblUsuarioCadastrado;
         private System.Windows.Forms.Label lblErro;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbSelecionar;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ComboBox cboSelecionar;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAcao;
         private System.Windows.Forms.TextBox txtConf;

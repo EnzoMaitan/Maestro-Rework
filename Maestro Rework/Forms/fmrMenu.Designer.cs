@@ -104,6 +104,7 @@
             this.tsPerfil.Name = "tsPerfil";
             this.tsPerfil.Size = new System.Drawing.Size(81, 21);
             this.tsPerfil.Text = "Meu Perfil";
+            this.tsPerfil.Click += new System.EventHandler(this.tsPerfil_Click);
             // 
             // tsGerenciar
             // 
@@ -331,14 +332,14 @@
             this.tsSair.Size = new System.Drawing.Size(42, 21);
             this.tsSair.Text = "Sair";
             // 
-            // Menu
+            // fmrMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 669);
             this.Controls.Add(this.lblCargo);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "Menu";
+            this.Name = "fmrMenu";
             this.Text = "Menu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

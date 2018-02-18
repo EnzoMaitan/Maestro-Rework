@@ -26,6 +26,10 @@ namespace Maestro_Rework.Classes
 
         }
 
+        public void AtualizarSenha(string senha)
+        {
+            Senha = senha;
+        }
         public int Id { get; private set; }
         public string Login { get; private set; }
         public string Nome { get; private set; }

@@ -15,6 +15,22 @@ namespace Maestro_Rework.Forms
         public fmrMenu()
         {
             InitializeComponent();
+            IsMdiContainer = true;
+        }
+
+        private void tsPerfil_Click(object sender, EventArgs e)
+        {
+            LimparMdiContainer();
+            fmrPerfil show = new fmrPerfil();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+        }
+
+        private void LimparMdiContainer()
+        {
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
         }
     }
 }
