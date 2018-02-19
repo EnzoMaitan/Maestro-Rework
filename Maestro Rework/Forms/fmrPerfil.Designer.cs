@@ -232,6 +232,7 @@
             this.Controls.Add(this.label1);
             this.Name = "fmrPerfil";
             this.Text = "fmrPerfil";
+            this.Load += new System.EventHandler(this.fmrPerfil_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -125,6 +125,12 @@
     <Compile Include="Classes\UsuarioConteudo.cs" />
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Forms\fmrAdicionarConteudo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrAdicionarConteudo.Designer.cs">
+      <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,9 +160,16 @@
     <Compile Include="Migrations\20180212021306_Inicial.designer.cs">
       <DependentUpon>20180212021306_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180219201330_NullLimiteDeData.cs" />
+    <Compile Include="Migrations\20180219201330_NullLimiteDeData.designer.cs">
+      <DependentUpon>20180219201330_NullLimiteDeData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\fmrAdicionarConteudo.resx">
+      <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrLogin.resx">
       <DependentUpon>fmrLogin.cs</DependentUpon>
     </EmbeddedResource>

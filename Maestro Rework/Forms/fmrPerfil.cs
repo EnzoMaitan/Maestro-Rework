@@ -101,5 +101,10 @@ namespace Maestro_Rework.Forms
                 btnSalvarSenha.Visible = false;
             }
         }
+
+        private void fmrPerfil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

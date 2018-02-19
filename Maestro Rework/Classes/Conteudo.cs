@@ -8,9 +8,9 @@ namespace Maestro_Rework.Classes
 {
     public class Conteudo
     {
-        public Conteudo(Usuario usuario, string nome, string tema, string texto, DateTime dataInicio, DateTime dataFim, string codigoAcesso, bool ativo)
+        public Conteudo(int usuarioID, string nome, string tema, string texto, DateTime? dataInicio, DateTime? dataFim, string codigoAcesso, bool ativo)
         {
-            Usuario = usuario;
+            UsuarioID = usuarioID;
             Nome = nome;
             Tema = tema;
             Texto = texto;
@@ -20,6 +20,7 @@ namespace Maestro_Rework.Classes
             Ativo = ativo;
             DataCriacao = DateTime.Now;
         }
+
         public Conteudo()
         {
 
@@ -34,8 +35,8 @@ namespace Maestro_Rework.Classes
         public string Nome { get; private set; }
         public string Tema { get; private set; }
         public string Texto { get; private set; }
-        public DateTime DataInicio { get; private set; }
-        public DateTime DataFim { get; private set; }
+        public DateTime? DataInicio { get; private set; }
+        public DateTime? DataFim { get; private set; }
         public string CodigoAcesso { get; private set; }
         public bool Ativo { get; private set; }
         public DateTime DataCriacao { get; private set; }

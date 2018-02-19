@@ -10,8 +10,8 @@ namespace Maestro_Rework.Classes.Construtores
     {
         public Usuario Usuario { get; private set; }
         public string Nome { get; private set; }
-        public DateTime DataInicio { get; private set; }
-        public DateTime DataFim { get; private set; }
+        public DateTime? DataInicio { get; private set; }
+        public DateTime? DataFim { get; private set; }
         public string CodigoAcesso { get; private set; }
         public bool Refazer { get; private set; }
         public bool Ativo { get; private set; }
@@ -26,12 +26,12 @@ namespace Maestro_Rework.Classes.Construtores
             Nome = nome;
             return this;
         }
-        public QuestionarioConstrutor ParaDataInicio(DateTime dataInicio)
+        public QuestionarioConstrutor ParaDataInicio(DateTime? dataInicio)
         {
             DataInicio = dataInicio;
             return this;
         }
-        public QuestionarioConstrutor ParaDataFim(DateTime dataFim)
+        public QuestionarioConstrutor ParaDataFim(DateTime? dataFim)
         {
             DataFim = dataFim;
             return this;

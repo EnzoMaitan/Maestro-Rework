@@ -16,6 +16,40 @@ namespace Maestro_Rework.Forms
         {
             InitializeComponent();
             IsMdiContainer = true;
+
+            OcultarFuncionalidadesPorNivel(fmrLogin.usuarioLogado.Nivel);
+        }
+
+        private void OcultarFuncionalidadesPorNivel(int nivel)
+        {
+            switch (nivel)
+            {
+                case 1:
+                    tsGerenciar.Visible = false;
+                    tsAlterar.Visible = false;
+                    tsAdicionar.Visible = false;
+                    tsStatus.Visible = false;
+                    break;
+                case 2:
+                    tsConteudo.Visible = false;
+                    tsQuestionario.Visible = false;
+                    tsGerenciar.Visible = false;
+                    tsStatusUsuario.Visible = false;
+                    break;
+                case 3:
+                    tsConteudo.Visible = false;
+                    tsQuestionario.Visible = false;
+                    tsConteudo.Visible = false;
+                    tsQuestionario.Visible = false;
+                    tsGerenciarAdministrador.Visible = false;
+                    break;
+            }
+        }
+
+        private void LimparMdiContainer()
+        {
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
         }
 
         private void tsPerfil_Click(object sender, EventArgs e)
@@ -27,10 +61,14 @@ namespace Maestro_Rework.Forms
             show.Show();
         }
 
-        private void LimparMdiContainer()
+
+        private void tsCadastrarConteudo_Click(object sender, EventArgs e)
         {
-            if (ActiveMdiChild != null)
-                ActiveMdiChild.Close();
+            LimparMdiContainer();
+            fmrAdicionarConteudo show = new fmrAdicionarConteudo();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
         }
     }
 }

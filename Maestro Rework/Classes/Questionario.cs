@@ -8,7 +8,7 @@ namespace Maestro_Rework.Classes
 {
     public class Questionario
     {
-        public Questionario(Usuario usuario, string nome, DateTime dataInicio, DateTime dataFim, string codigoAcesso, bool refazer, bool ativo)
+        public Questionario(Usuario usuario, string nome, DateTime? dataInicio, DateTime? dataFim, string codigoAcesso, bool refazer, bool ativo)
         {
             Usuario = usuario;
             Nome = nome;
@@ -29,8 +29,8 @@ namespace Maestro_Rework.Classes
 
         public Usuario Usuario { get; private set; }
         public string Nome { get; private set; }
-        public DateTime DataInicio { get; private set; }
-        public DateTime DataFim { get; private set; }
+        public DateTime? DataInicio { get; private set; }
+        public DateTime? DataFim { get; private set; }
         public string CodigoAcesso { get; private set; }
         public bool Refazer { get; private set; }
         public DateTime DataCriacao { get; private set; }

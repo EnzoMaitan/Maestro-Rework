@@ -55,13 +55,6 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private bool CamposPreenchidos()
-        {
-            if (txtConf.Text != null && txtEmail.Text != null &&
-               txtLogin.Text != null && txtNome.Text != null) return true;
-            else throw new Exception("Preencha todos os campos");
-        }
-
         private void LimparCampos()
         {
             txtConf.Text = null;
@@ -70,7 +63,12 @@ namespace Maestro_Rework.Forms
             txtNome.Text = null;
             txtSenha.Text = null;
         }
-
+        private bool CamposPreenchidos()
+        {
+            if (txtConf.Text != null && txtEmail.Text != null &&
+               txtLogin.Text != null && txtNome.Text != null) return true;
+            else throw new Exception("Preencha todos os campos");
+        }
         private bool NomeDisponivel()
         {
             using (var contexto = new MaestroContext())
