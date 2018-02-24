@@ -23,10 +23,11 @@ namespace Maestro_Rework.Forms
         {
             lblErro.Visible = false;
             lblUsuarioCadastrado.Visible = false;
+            var usuarioDAO = new UsuarioDAO();
 
             try
             {
-                if (SenhaCoincide() && NomeDisponivel() && CamposPreenchidos())
+                if (SenhaCoincide() && usuarioDAO.NomeDisponivel(txtLogin.Text) && CamposPreenchidos())
                 {
                     using (var contexto = new MaestroContext())
                     {
@@ -63,21 +64,14 @@ namespace Maestro_Rework.Forms
             txtNome.Text = null;
             txtSenha.Text = null;
         }
+
         private bool CamposPreenchidos()
         {
             if (txtConf.Text != null && txtEmail.Text != null &&
                txtLogin.Text != null && txtNome.Text != null) return true;
             else throw new Exception("Preencha todos os campos");
-        }
-        private bool NomeDisponivel()
-        {
-            using (var contexto = new MaestroContext())
-            {
-                var LoginEmUso = contexto.Usuarios.Where(x => x.Login == txtLogin.Text);
-                if (LoginEmUso.FirstOrDefault() == null) return true;
-                else throw new Exception("Login já em uso");
-            }
-        }
+        }     
+        
         private bool SenhaCoincide()
         {
             if (txtSenha.Text == txtConf.Text) return true;

@@ -8,35 +8,30 @@ using Maestro_Rework.IDAO;
 
 namespace Maestro_Rework.DAO
 {
-    class ConteudoDAO : IDisposable, IConteudoDAO
+    class QuestionarioDAO : IQuestionarioDAO
     {
         private MaestroContext contexto;
 
-        public ConteudoDAO()
+        public QuestionarioDAO()
         {
             contexto = new MaestroContext();
         }
 
-        public void Adicionar(Conteudo conteudo)
+        public void Adicionar(Questionario questionario)
         {
-            contexto.Conteudos.Add(conteudo);
+            contexto.Questionarios.Add(questionario);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Conteudo conteudo)
+        public void Atualizar(Questionario questionario)
         {
-            contexto.Conteudos.Update(conteudo);
+            contexto.Questionarios.Update(questionario);
             contexto.SaveChanges();
         }
 
-        public IList<Conteudo> Conteudo()
+        public IList<Questionario> Questionario()
         {
-            return contexto.Conteudos.ToList();
-        }
-
-        public void Dispose()
-        {
-            contexto.Dispose();
+            return contexto.Questionarios.ToList();
         }
     }
 }

@@ -30,6 +30,8 @@ namespace Maestro_Rework.Classes
         {
             Senha = senha;
         }
+
+
         public int Id { get; private set; }
         public string Login { get; private set; }
         public string Nome { get; private set; }

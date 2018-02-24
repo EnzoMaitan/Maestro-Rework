@@ -27,7 +27,8 @@ namespace Maestro_Rework.Forms
             {
                 using (var contexto = new MaestroContext())
                 {
-                    if (ValidarLogin(contexto) && CamposPreenchidos())
+                    var usuarioDAO = new UsuarioDAO();
+                    if (CamposPreenchidos()&&usuarioDAO.ValidarLogin(txtLogin.Text, txtSenha.Text))
                     {
                         fmrMenu fmr = new fmrMenu();
                         fmr.Show();
@@ -48,16 +49,6 @@ namespace Maestro_Rework.Forms
             else throw new Exception("Preencha os Campos");
         }
 
-        private bool ValidarLogin(MaestroContext contexto)
-        {
-            var query = contexto.Usuarios.Where(x => x.Login == txtLogin.Text && x.Senha == txtSenha.Text);
-            if (query.FirstOrDefault() != null)
-            {
-                usuarioLogado = query.FirstOrDefault();  
-                return true;
-            }
-            else throw new Exception("Usuario Invalido");
-        }
 
         private void lblCadastrar_Click(object sender, EventArgs e)
         {
