@@ -14,7 +14,7 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrLogin : Form
     {
-        public static Usuario usuarioLogado = new Usuario();
+        public static Usuario usuarioLogado;
         public fmrLogin()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace Maestro_Rework.Forms
                     var usuarioDAO = new UsuarioDAO();
                     if (CamposPreenchidos()&&usuarioDAO.ValidarLogin(txtLogin.Text, txtSenha.Text))
                     {
+                        usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);
                         fmrMenu fmr = new fmrMenu();
                         fmr.Show();
                         Hide();
@@ -45,8 +46,8 @@ namespace Maestro_Rework.Forms
 
         private bool CamposPreenchidos()
         {
-            if (txtLogin.Text != null && txtSenha != null) return true;
-            else throw new Exception("Preencha os Campos");
+            if (txtLogin.Text != "" && txtSenha.Text != "") return true;
+            else throw new ArgumentNullException("", "Preencha os Campos");
         }
 
 
@@ -54,11 +55,6 @@ namespace Maestro_Rework.Forms
         {
             fmrUsuarioCadastro fmr = new fmrUsuarioCadastro();
             fmr.Show();
-        }
-
-        private void fmrLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

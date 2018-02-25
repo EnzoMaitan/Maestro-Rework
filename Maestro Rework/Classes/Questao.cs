@@ -8,8 +8,19 @@ namespace Maestro_Rework.Classes
 {
     public class Questao
     {
+        public Questao(int questionarioID, IList<Alternativa> alternativas, string pergunta, double valor, byte[] imagem)
+        {
+            QuestionarioID = questionarioID;
+            Alternativas = alternativas;
+            Pergunta = pergunta;
+            Valor = valor;
+            Imagem = imagem;
+        }
+
         public int Id { get; private set; }
         public Questionario Questionario { get; private set; }
+
+
         public int QuestionarioID { get; private set; }
         public IList<Alternativa> Alternativas { get; private set; }
         public string Pergunta { get; private set; }

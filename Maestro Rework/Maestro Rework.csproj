@@ -110,7 +110,9 @@
     <Compile Include="Classes\Alternativa.cs" />
     <Compile Include="Classes\AlternativaCorreta.cs" />
     <Compile Include="Classes\AnexoConteudo.cs" />
+    <Compile Include="Classes\Construtores\AlternativaConstrutor.cs" />
     <Compile Include="Classes\Construtores\ConteudoConstrutor.cs" />
+    <Compile Include="Classes\Construtores\QuestaoConstrutor.cs" />
     <Compile Include="Classes\Construtores\QuestionarioConstrutor.cs" />
     <Compile Include="Classes\Conteudo.cs" />
     <Compile Include="Classes\GeradorDeCodigo.cs" />
@@ -131,6 +133,12 @@
     </Compile>
     <Compile Include="Forms\fmrAdicionarConteudo.Designer.cs">
       <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrAdicionarQuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrAdicionarQuestionario.Designer.cs">
+      <DependentUpon>fmrAdicionarQuestionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
@@ -173,6 +181,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\fmrAdicionarConteudo.resx">
       <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrAdicionarQuestionario.resx">
+      <DependentUpon>fmrAdicionarQuestionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrLogin.resx">
       <DependentUpon>fmrLogin.cs</DependentUpon>

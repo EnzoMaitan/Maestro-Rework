@@ -70,5 +70,14 @@ namespace Maestro_Rework.Forms
             show.Dock = DockStyle.Fill;
             show.Show();
         }
+
+        private void tsCadastrarQuestionario_Click(object sender, EventArgs e)
+        {
+            LimparMdiContainer();
+            fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+        }
     }
 }

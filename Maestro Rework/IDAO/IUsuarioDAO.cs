@@ -13,6 +13,7 @@ namespace Maestro_Rework.IDAO
         void Atualizar(Usuario usuario);
         bool NomeDisponivel(string login);
         bool ValidarLogin(string login, string senha);
+        Usuario GetUsuarioLogado(string login, string senha);
         IList<Usuario> Usuario();
     }
 }

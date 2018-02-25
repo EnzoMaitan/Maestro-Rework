@@ -33,6 +33,15 @@ namespace Maestro_Rework.DAO
             }
         }
 
+        public Usuario GetUsuarioLogado(string login, string senha)
+        {
+            using (var contexto = new MaestroContext())
+            {
+                var LoginEmUso = contexto.Usuarios.Where(x => x.Login == login);
+                return LoginEmUso.FirstOrDefault();
+            }
+        }
+
         public UsuarioDAO()
         {
             contexto = new MaestroContext();

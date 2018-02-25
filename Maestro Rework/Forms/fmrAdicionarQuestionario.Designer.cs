@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.lblErro = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblQuestionarioAdicionado = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnRemoverImg = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstQuestoes = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbSelecionar = new System.Windows.Forms.ComboBox();
+            this.cboSelecionar = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.updValor = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dateInicio = new System.Windows.Forms.DateTimePicker();
             this.dateFim = new System.Windows.Forms.DateTimePicker();
-            this.chbRefazer = new System.Windows.Forms.CheckBox();
+            this.chkRefazer = new System.Windows.Forms.CheckBox();
             this.btnAcao = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updValor)).BeginInit();
             this.SuspendLayout();
             // 
             // lblErro
@@ -87,16 +87,16 @@
             this.lblErro.TabIndex = 93;
             this.lblErro.Text = "Selecione uma alternativa como correta";
             // 
-            // label15
+            // lblQuestionarioAdicionado
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label15.Location = new System.Drawing.Point(643, 530);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(247, 24);
-            this.label15.TabIndex = 91;
-            this.label15.Text = "Questionário Adicionado!";
+            this.lblQuestionarioAdicionado.AutoSize = true;
+            this.lblQuestionarioAdicionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestionarioAdicionado.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblQuestionarioAdicionado.Location = new System.Drawing.Point(643, 530);
+            this.lblQuestionarioAdicionado.Name = "lblQuestionarioAdicionado";
+            this.lblQuestionarioAdicionado.Size = new System.Drawing.Size(247, 24);
+            this.lblQuestionarioAdicionado.TabIndex = 91;
+            this.lblQuestionarioAdicionado.Text = "Questionário Adicionado!";
             // 
             // label14
             // 
@@ -133,13 +133,13 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             // 
-            // listBox1
+            // lstQuestoes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(21, 145);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(251, 134);
-            this.listBox1.TabIndex = 87;
+            this.lstQuestoes.FormattingEnabled = true;
+            this.lstQuestoes.Location = new System.Drawing.Point(21, 145);
+            this.lstQuestoes.Name = "lstQuestoes";
+            this.lstQuestoes.Size = new System.Drawing.Size(251, 134);
+            this.lstQuestoes.TabIndex = 87;
             // 
             // label2
             // 
@@ -152,14 +152,14 @@
             this.label2.TabIndex = 86;
             this.label2.Text = "Código";
             // 
-            // cmbSelecionar
+            // cboSelecionar
             // 
-            this.cmbSelecionar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSelecionar.FormattingEnabled = true;
-            this.cmbSelecionar.Location = new System.Drawing.Point(14, 12);
-            this.cmbSelecionar.Name = "cmbSelecionar";
-            this.cmbSelecionar.Size = new System.Drawing.Size(179, 30);
-            this.cmbSelecionar.TabIndex = 85;
+            this.cboSelecionar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSelecionar.FormattingEnabled = true;
+            this.cboSelecionar.Location = new System.Drawing.Point(14, 12);
+            this.cboSelecionar.Name = "cboSelecionar";
+            this.cboSelecionar.Size = new System.Drawing.Size(179, 30);
+            this.cboSelecionar.TabIndex = 85;
             // 
             // txtCodigo
             // 
@@ -178,19 +178,19 @@
             this.pictureBox1.TabIndex = 83;
             this.pictureBox1.TabStop = false;
             // 
-            // numericUpDown1
+            // updValor
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.updValor.DecimalPlaces = 2;
+            this.updValor.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updValor.Increment = new decimal(new int[] {
             25,
             0,
             0,
             131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(462, 561);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(71, 32);
-            this.numericUpDown1.TabIndex = 82;
+            this.updValor.Location = new System.Drawing.Point(462, 561);
+            this.updValor.Name = "updValor";
+            this.updValor.Size = new System.Drawing.Size(71, 32);
+            this.updValor.TabIndex = 82;
             // 
             // label13
             // 
@@ -255,17 +255,17 @@
             this.dateFim.Size = new System.Drawing.Size(250, 20);
             this.dateFim.TabIndex = 76;
             // 
-            // chbRefazer
+            // chkRefazer
             // 
-            this.chbRefazer.AutoSize = true;
-            this.chbRefazer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRefazer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chbRefazer.Location = new System.Drawing.Point(12, 451);
-            this.chbRefazer.Name = "chbRefazer";
-            this.chbRefazer.Size = new System.Drawing.Size(209, 28);
-            this.chbRefazer.TabIndex = 75;
-            this.chbRefazer.Text = "Permitir 2 tentativas";
-            this.chbRefazer.UseVisualStyleBackColor = true;
+            this.chkRefazer.AutoSize = true;
+            this.chkRefazer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRefazer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkRefazer.Location = new System.Drawing.Point(12, 451);
+            this.chkRefazer.Name = "chkRefazer";
+            this.chkRefazer.Size = new System.Drawing.Size(209, 28);
+            this.chkRefazer.TabIndex = 75;
+            this.chkRefazer.Text = "Permitir 2 tentativas";
+            this.chkRefazer.UseVisualStyleBackColor = true;
             // 
             // btnAcao
             // 
@@ -278,6 +278,7 @@
             this.btnAcao.TabIndex = 74;
             this.btnAcao.Text = "Criar";
             this.btnAcao.UseVisualStyleBackColor = false;
+            this.btnAcao.Click += new System.EventHandler(this.btnAcao_Click);
             // 
             // btnSair
             // 
@@ -337,6 +338,7 @@
             this.btnAdicionar.TabIndex = 69;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // rdbE
             // 
@@ -456,7 +458,7 @@
             // txtAltD
             // 
             this.txtAltD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAltD.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtAltD.Location = new System.Drawing.Point(432, 347);
             this.txtAltD.Name = "txtAltD";
             this.txtAltD.Size = new System.Drawing.Size(100, 22);
@@ -465,7 +467,7 @@
             // txtAltC
             // 
             this.txtAltC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAltC.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtAltC.Location = new System.Drawing.Point(432, 321);
             this.txtAltC.Name = "txtAltC";
             this.txtAltC.Size = new System.Drawing.Size(100, 22);
@@ -474,7 +476,7 @@
             // txtAltE
             // 
             this.txtAltE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltE.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAltE.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtAltE.Location = new System.Drawing.Point(432, 373);
             this.txtAltE.Name = "txtAltE";
             this.txtAltE.Size = new System.Drawing.Size(100, 22);
@@ -483,7 +485,7 @@
             // txtAltA
             // 
             this.txtAltA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAltA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtAltA.Location = new System.Drawing.Point(432, 269);
             this.txtAltA.Name = "txtAltA";
             this.txtAltA.Size = new System.Drawing.Size(100, 22);
@@ -492,7 +494,7 @@
             // txtAltB
             // 
             this.txtAltB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAltB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtAltB.Location = new System.Drawing.Point(432, 295);
             this.txtAltB.Name = "txtAltB";
             this.txtAltB.Size = new System.Drawing.Size(100, 22);
@@ -555,23 +557,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(928, 723);
             this.Controls.Add(this.lblErro);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lblQuestionarioAdicionado);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnRemoverImg);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstQuestoes);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbSelecionar);
+            this.Controls.Add(this.cboSelecionar);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.updValor);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dateInicio);
             this.Controls.Add(this.dateFim);
-            this.Controls.Add(this.chbRefazer);
+            this.Controls.Add(this.chkRefazer);
             this.Controls.Add(this.btnAcao);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.label10);
@@ -601,7 +603,7 @@
             this.Name = "fmrAdicionarQuestionario";
             this.Text = "fmrAdicionarQuestionario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updValor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,23 +612,23 @@
         #endregion
 
         private System.Windows.Forms.Label lblErro;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblQuestionarioAdicionado;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnRemoverImg;
         private System.Windows.Forms.Button btnAlterar;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstQuestoes;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbSelecionar;
+        private System.Windows.Forms.ComboBox cboSelecionar;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown updValor;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dateInicio;
         private System.Windows.Forms.DateTimePicker dateFim;
-        private System.Windows.Forms.CheckBox chbRefazer;
+        private System.Windows.Forms.CheckBox chkRefazer;
         private System.Windows.Forms.Button btnAcao;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label label10;

@@ -8,17 +8,17 @@ namespace Maestro_Rework.Classes.Construtores
 {
     class QuestionarioConstrutor
     {
-        public Usuario Usuario { get; private set; }
+        public int UsuarioId { get; private set; }
         public string Nome { get; private set; }
         public DateTime? DataInicio { get; private set; }
         public DateTime? DataFim { get; private set; }
         public string CodigoAcesso { get; private set; }
         public bool Refazer { get; private set; }
         public bool Ativo { get; private set; }
-
+        public IList<Questao> Questoes { get; private set; }
         public QuestionarioConstrutor ParaUsuario(Usuario usuario)
         {
-            Usuario = usuario;
+            UsuarioId = usuario.Id;
             return this;
         }
         public QuestionarioConstrutor ParaNome(string nome)
@@ -46,11 +46,16 @@ namespace Maestro_Rework.Classes.Construtores
             Ativo = ativo;
             return this;
         }
+        public QuestionarioConstrutor ParaQuestoes(IList<Questao> questoes)
+        {
+            Questoes = questoes;
+            return this;
+        }
 
         public Questionario Constroi()
         {
             CodigoAcesso = GeradorDeCodigo.GerarCodigoAcesso();
-            return new Questionario(Usuario, Nome, DataInicio, DataFim, CodigoAcesso, Refazer, Ativo);
+            return new Questionario(UsuarioId, Nome, DataInicio, DataFim, CodigoAcesso, Refazer, Ativo, Questoes);
         }
     }
 }

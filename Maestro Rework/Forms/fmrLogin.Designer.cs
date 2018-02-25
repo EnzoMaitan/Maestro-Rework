@@ -150,7 +150,6 @@
             this.Controls.Add(this.txtLogin);
             this.Name = "fmrLogin";
             this.Text = "fmrLogin";
-            this.Load += new System.EventHandler(this.fmrLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

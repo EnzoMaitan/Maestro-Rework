@@ -253,6 +253,7 @@
             this.tsCadastrarQuestionario.Name = "tsCadastrarQuestionario";
             this.tsCadastrarQuestionario.Size = new System.Drawing.Size(158, 22);
             this.tsCadastrarQuestionario.Text = "Questionario";
+            this.tsCadastrarQuestionario.Click += new System.EventHandler(this.tsCadastrarQuestionario_Click);
             // 
             // tsQuestionario
             // 

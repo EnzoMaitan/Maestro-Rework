@@ -8,6 +8,13 @@ namespace Maestro_Rework.Classes
 {
     public class Alternativa
     {
+        public Alternativa(int questaoID, string texto, bool correta)
+        {
+            QuestaoID = questaoID;
+            Texto = texto;
+            Correta = correta;
+        }
+
         public int Id { get; private set; }
         public Questao Questao { get; private set; }
         public int QuestaoID { get; private set; }

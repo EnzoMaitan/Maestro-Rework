@@ -9,7 +9,6 @@ namespace Maestro_Rework.Classes.Construtores
     class ConteudoConstrutor
     {
         public int UsuarioID { get; private set; }
-        public Usuario Usuario { get; private set; }
         public string Nome { get; private set; }
         public string Tema { get; private set; }
         public string Texto { get; private set; }
@@ -58,9 +57,7 @@ namespace Maestro_Rework.Classes.Construtores
         public Conteudo Constroi()
         {
             CodigoAcesso = GeradorDeCodigo.GerarCodigoAcesso();
-                return new Conteudo(UsuarioID, Nome, Tema, Texto, DataInicio, DataFim, CodigoAcesso, Ativo);
-            
+                return new Conteudo(UsuarioID, Nome, Tema, Texto, DataInicio, DataFim, CodigoAcesso, Ativo);           
         }
-
     }
 }

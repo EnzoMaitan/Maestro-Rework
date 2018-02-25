@@ -28,25 +28,22 @@ namespace Maestro_Rework.Forms
             try
             {
                 if (SenhaCoincide() && usuarioDAO.NomeDisponivel(txtLogin.Text) && CamposPreenchidos())
-                {
-                    using (var contexto = new MaestroContext())
-                    {
-                        var usuarioDao = new UsuarioDAO();
-                        var usuarioBuilder = new UsuarioConstrutor();
+                {                  
+                    var usuarioDao = new UsuarioDAO();
+                    var usuarioBuilder = new UsuarioConstrutor();
 
-                        var usuario = usuarioBuilder.ParaNome(txtNome.Text)
-                               .ParaLogin(txtLogin.Text)
-                               .ParaSenha(txtSenha.Text)
-                               .ParaCargo("Aluno")
-                               .ParaNivel(1)
-                               .ParaEmail(txtEmail.Text)
-                               .Constroi();
+                    var usuario = usuarioBuilder.ParaNome(txtNome.Text)
+                            .ParaLogin(txtLogin.Text)
+                            .ParaSenha(txtSenha.Text)
+                            .ParaCargo("Aluno")
+                            .ParaNivel(1)
+                            .ParaEmail(txtEmail.Text)
+                            .Constroi();
 
-                        usuarioDao.Adicionar(usuario);
+                    usuarioDao.Adicionar(usuario);
 
-                        lblUsuarioCadastrado.Visible = true;
-                        LimparCampos();
-                    }
+                    lblUsuarioCadastrado.Visible = true;
+                    LimparCampos();               
                 }
             }
             catch (Exception ex)
@@ -67,15 +64,15 @@ namespace Maestro_Rework.Forms
 
         private bool CamposPreenchidos()
         {
-            if (txtConf.Text != null && txtEmail.Text != null &&
-               txtLogin.Text != null && txtNome.Text != null) return true;
-            else throw new Exception("Preencha todos os campos");
+            if (txtConf.Text != "" && txtEmail.Text != "" &&
+               txtLogin.Text != "" && txtNome.Text != "") return true;
+            else throw new  ArgumentNullException("","Preencha todos os campos");
         }     
         
         private bool SenhaCoincide()
         {
             if (txtSenha.Text == txtConf.Text) return true;
-            else throw new Exception("Senhas Não Coincidem");
+            else throw new ArgumentException("Senhas Não Coincidem");
         }
     }
 }

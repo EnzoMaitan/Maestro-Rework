@@ -54,8 +54,7 @@ namespace Maestro_Rework.Forms
             try
             {
                 CheckarCamposPreenchidos();
-                using (var contexto = new MaestroContext())
-                {
+
                     var construtorConteudo = new ConteudoConstrutor();
 
                     construtorConteudo.ParaNome(txtNome.Text)
@@ -69,7 +68,6 @@ namespace Maestro_Rework.Forms
                         construtorConteudo
                             .ParaDataFim(dtpFim.Value)
                             .ParaDataInicio(dtpInicio.Value);
-
                     }
                     else
                     {
@@ -82,8 +80,7 @@ namespace Maestro_Rework.Forms
                     conteudoDAO.Adicionar(usuario);
 
                     lblConteudoAdicionado.Visible = true;
-                    txtCodigo.Text = construtorConteudo.CodigoAcesso;
-                }
+                    txtCodigo.Text = construtorConteudo.CodigoAcesso;              
             }
             catch (Exception ex)
             {
@@ -96,7 +93,7 @@ namespace Maestro_Rework.Forms
         {
             if (txtNome.Text == "" ||
                rtfTexto.Text == "" ||
-               cboTema.Text == "") throw new Exception("Preencha Todos os campos obrigatórios");
+               cboTema.Text == "") throw new ArgumentNullException("","Preencha Todos os campos obrigatórios");
         }
     }
 }
