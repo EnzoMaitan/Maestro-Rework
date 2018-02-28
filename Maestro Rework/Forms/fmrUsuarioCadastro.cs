@@ -71,7 +71,12 @@ namespace Maestro_Rework.Forms
         
         private bool SenhaCoincide()
         {
-            if (txtSenha.Text == txtConf.Text) return true;
+            if (txtSenha.Text.Equals(txtConf.Text))
+            {
+                MessageBox.Show("a");
+                return true;
+            }
+
             else throw new ArgumentException("Senhas Não Coincidem");
         }
     }
