@@ -20,5 +20,14 @@ namespace Maestro_Rework.Classes
         public int QuestaoID { get; private set; }
         public string Texto { get; private set; }
         public bool Correta { get; private set; }
+
+        public void AlterarTexto(string novoTexto)
+        {
+            Texto = novoTexto;
+        }
+        public void AlterarCorreta(bool novaCorreta)
+        {
+            Correta = novaCorreta;
+        }
     }
 }

@@ -92,7 +92,7 @@
             this.lblQuestionarioAdicionado.AutoSize = true;
             this.lblQuestionarioAdicionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestionarioAdicionado.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblQuestionarioAdicionado.Location = new System.Drawing.Point(643, 530);
+            this.lblQuestionarioAdicionado.Location = new System.Drawing.Point(606, 420);
             this.lblQuestionarioAdicionado.Name = "lblQuestionarioAdicionado";
             this.lblQuestionarioAdicionado.Size = new System.Drawing.Size(247, 24);
             this.lblQuestionarioAdicionado.TabIndex = 91;
@@ -132,6 +132,7 @@
             this.btnAlterar.TabIndex = 88;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // lstQuestoes
             // 
@@ -140,13 +141,14 @@
             this.lstQuestoes.Name = "lstQuestoes";
             this.lstQuestoes.Size = new System.Drawing.Size(251, 134);
             this.lstQuestoes.TabIndex = 87;
+            this.lstQuestoes.SelectedValueChanged += new System.EventHandler(this.lstQuestoes_SelectedValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(736, 563);
+            this.label2.Location = new System.Drawing.Point(699, 453);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 24);
             this.label2.TabIndex = 86;
@@ -163,7 +165,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(724, 589);
+            this.txtCodigo.Location = new System.Drawing.Point(687, 479);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
@@ -272,7 +274,7 @@
             this.btnAcao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(183)))), ((int)(((byte)(82)))));
             this.btnAcao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAcao.Location = new System.Drawing.Point(819, 677);
+            this.btnAcao.Location = new System.Drawing.Point(782, 567);
             this.btnAcao.Name = "btnAcao";
             this.btnAcao.Size = new System.Drawing.Size(95, 36);
             this.btnAcao.TabIndex = 74;
@@ -285,7 +287,7 @@
             this.btnSair.BackColor = System.Drawing.Color.Coral;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSair.Location = new System.Drawing.Point(696, 677);
+            this.btnSair.Location = new System.Drawing.Point(659, 567);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(117, 36);
             this.btnSair.TabIndex = 73;
@@ -314,6 +316,7 @@
             this.btnExcluir.TabIndex = 71;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnImg
             // 
@@ -555,7 +558,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(928, 723);
+            this.ClientSize = new System.Drawing.Size(928, 666);
             this.Controls.Add(this.lblErro);
             this.Controls.Add(this.lblQuestionarioAdicionado);
             this.Controls.Add(this.label14);

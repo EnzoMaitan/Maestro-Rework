@@ -55,7 +55,7 @@ namespace Maestro_Rework.Classes.Construtores
         public Questionario Constroi()
         {
             CodigoAcesso = GeradorDeCodigo.GerarCodigoAcesso();
-            return new Questionario(UsuarioId, Nome, DataInicio, DataFim, CodigoAcesso, Refazer, Ativo);
+            return new Questionario(UsuarioId, Nome, DataInicio, DataFim, CodigoAcesso, Refazer, Ativo, Questoes);
         }
     }
 }

@@ -15,23 +15,23 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarQuestionario : Form
     {
+        private IList<Questao> questoes = new BindingList<Questao>();
+
         public fmrAdicionarQuestionario()
         {
             InitializeComponent();
             lblErro.Visible = false;
             lblQuestionarioAdicionado.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
-
-            btnAlterar.Visible = false;
-            btnExcluir.Visible = false;
             cboSelecionar.Visible = false;
+            lstQuestoes.DataSource = questoes;
         }
-
-        private IList<Questao> questoes = new List<Questao>();
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             IList<Alternativa> alternativas = new List<Alternativa>();
+            
+
             lblErro.Visible = false;
 
             try
@@ -52,7 +52,7 @@ namespace Maestro_Rework.Forms
 
                     questao = questaoConstrutor.ParaAlternativas(alternativas).Constroi();
                     questoes.Add(questao);
-                    lstQuestoes.Items.Add(questao.Pergunta);
+                    LimparCampos();
                 }
             }
             catch (Exception ex)
@@ -60,6 +60,23 @@ namespace Maestro_Rework.Forms
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
             }
+            
+        }
+
+        public void LimparCampos()
+        {
+            txtAltA.Text = "";
+            txtAltB.Text = "";       
+            txtAltC.Text = "";
+            txtAltD.Text = "";
+            txtAltE.Text = "";
+            txtPergunta.Text = "";
+            updValor.Value = 0.0m;
+            rdbA.Checked = false;
+            rdbB.Checked = false;
+            rdbC.Checked = false;
+            rdbD.Checked = false;
+            rdbE.Checked = false;
         }
 
         private bool ValorMaiorQueZero()
@@ -82,7 +99,7 @@ namespace Maestro_Rework.Forms
                 txtAltC.Text != "" && txtAltD.Text != "" &&
                 txtAltE.Text != "")
                 return true;
-            else throw new ArgumentNullException("Preencha Todos os Campos");
+            else throw new ArgumentNullException("", "Preencha Todos os Campos");
         }
 
         private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)
@@ -113,8 +130,91 @@ namespace Maestro_Rework.Forms
                         .Constroi();
 
                 questionarioDAO.Adicionar(questionario);
+
             txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
             lblQuestionarioAdicionado.Visible = true;
+
+            LimparCampos();
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+           
+
+            var questaoSelecionada = GetQuestaoSelecionada();
+            if (questaoSelecionada != null)
+                AlterarQuestao(questaoSelecionada);
+
+            AtualizarDataSource();
+        }
+
+        private void AtualizarDataSource()
+        {
+            lstQuestoes.DataSource = null;
+            lstQuestoes.DataSource = questoes;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var questaoSelecionada = GetQuestaoSelecionada();
+
+            questoes.Remove(questaoSelecionada);
+
+            LimparCampos();
+        }
+
+        private void lstQuestoes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Questao questaoSelecionada = GetQuestaoSelecionada();
+            if (questaoSelecionada != null)
+            {
+                MostrarQuestaoAtual(questaoSelecionada);
+                MostrarTextoAlternativas(questaoSelecionada);
+                MostrarAlternativaCorreta(questaoSelecionada);
+            }
+        }
+
+        private Questao GetQuestaoSelecionada()
+        {
+            return questoes.Where(x => x.Pergunta == lstQuestoes.Text).FirstOrDefault();
+        }
+
+        private void MostrarAlternativaCorreta(Questao questaoSelecionada)
+        {
+            rdbA.Checked = questaoSelecionada.Alternativas[0].Correta;
+            rdbB.Checked = questaoSelecionada.Alternativas[1].Correta;
+            rdbC.Checked = questaoSelecionada.Alternativas[2].Correta;
+            rdbD.Checked = questaoSelecionada.Alternativas[3].Correta;
+            rdbE.Checked = questaoSelecionada.Alternativas[4].Correta;
+        }
+
+        private void MostrarTextoAlternativas(Questao questaoSelecionada)
+        {
+            txtAltA.Text = questaoSelecionada.Alternativas[0].Texto;
+            txtAltB.Text = questaoSelecionada.Alternativas[1].Texto;
+            txtAltC.Text = questaoSelecionada.Alternativas[2].Texto;
+            txtAltD.Text = questaoSelecionada.Alternativas[3].Texto;
+            txtAltE.Text = questaoSelecionada.Alternativas[4].Texto;
+        }
+
+        private void MostrarQuestaoAtual(Questao questaoSelecionada)
+        {
+            txtPergunta.Text = questaoSelecionada.Pergunta;
+            //pictureBox1.Image = questaoSelecionada.Imagem;
+            updValor.Value = Convert.ToDecimal(questaoSelecionada.Valor);
+        }
+
+        private void AlterarQuestao(Questao questaoSelecionada)
+        {
+            double valorPergunta = Convert.ToDouble(updValor.Value);
+
+            var pergunta = questaoSelecionada.Pergunta;
+
+            questaoSelecionada.AlterarPergunta(txtPergunta.Text);
+            questaoSelecionada.AlterarValor(valorPergunta);
+            //questaoSelecionada.AlterarImagem();
+
+        }
+
     }
 }
