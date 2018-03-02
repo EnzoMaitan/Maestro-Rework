@@ -8,7 +8,7 @@ using Maestro_Rework.IDAO;
 
 namespace Maestro_Rework.DAO
 {
-    class QuestionarioDAO : IQuestionarioDAO
+    class QuestionarioDAO : IQuestionarioDAO, IDisposable
     {
         private MaestroContext contexto;
 
@@ -27,6 +27,11 @@ namespace Maestro_Rework.DAO
         {
             contexto.Questionarios.Update(questionario);
             contexto.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)contexto).Dispose();
         }
 
         public IList<Questionario> Questionario()

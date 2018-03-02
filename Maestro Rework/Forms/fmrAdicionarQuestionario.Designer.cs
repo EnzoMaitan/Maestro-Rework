@@ -40,11 +40,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.updValor = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dateInicio = new System.Windows.Forms.DateTimePicker();
-            this.dateFim = new System.Windows.Forms.DateTimePicker();
+            this.chkAdicionarPrazo = new System.Windows.Forms.CheckBox();
+            this.lblFim = new System.Windows.Forms.Label();
+            this.lblInicio = new System.Windows.Forms.Label();
+            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.chkRefazer = new System.Windows.Forms.CheckBox();
             this.btnAcao = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -205,57 +205,56 @@
             this.label13.TabIndex = 81;
             this.label13.Text = "Valor:";
             // 
-            // checkBox2
+            // chkAdicionarPrazo
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox2.Location = new System.Drawing.Point(18, 293);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(177, 28);
-            this.checkBox2.TabIndex = 80;
-            this.checkBox2.Text = "Adicionar Prazo";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkAdicionarPrazo.AutoSize = true;
+            this.chkAdicionarPrazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdicionarPrazo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkAdicionarPrazo.Location = new System.Drawing.Point(18, 293);
+            this.chkAdicionarPrazo.Name = "chkAdicionarPrazo";
+            this.chkAdicionarPrazo.Size = new System.Drawing.Size(177, 28);
+            this.chkAdicionarPrazo.TabIndex = 80;
+            this.chkAdicionarPrazo.Text = "Adicionar Prazo";
+            this.chkAdicionarPrazo.UseVisualStyleBackColor = true;
+            this.chkAdicionarPrazo.CheckedChanged += new System.EventHandler(this.chkAdicionarPrazo_CheckedChanged);
             // 
-            // label11
+            // lblFim
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(18, 376);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 24);
-            this.label11.TabIndex = 79;
-            this.label11.Text = "Fim";
+            this.lblFim.AutoSize = true;
+            this.lblFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFim.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblFim.Location = new System.Drawing.Point(18, 376);
+            this.lblFim.Name = "lblFim";
+            this.lblFim.Size = new System.Drawing.Size(45, 24);
+            this.lblFim.TabIndex = 79;
+            this.lblFim.Text = "Fim";
             // 
-            // label12
+            // lblInicio
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(18, 329);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 24);
-            this.label12.TabIndex = 78;
-            this.label12.Text = "Inicio";
+            this.lblInicio.AutoSize = true;
+            this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblInicio.Location = new System.Drawing.Point(18, 329);
+            this.lblInicio.Name = "lblInicio";
+            this.lblInicio.Size = new System.Drawing.Size(60, 24);
+            this.lblInicio.TabIndex = 78;
+            this.lblInicio.Text = "Inicio";
             // 
-            // dateInicio
+            // dtpInicio
             // 
-            this.dateInicio.Enabled = false;
-            this.dateInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateInicio.Location = new System.Drawing.Point(18, 356);
-            this.dateInicio.Name = "dateInicio";
-            this.dateInicio.Size = new System.Drawing.Size(250, 20);
-            this.dateInicio.TabIndex = 77;
+            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpInicio.Location = new System.Drawing.Point(18, 356);
+            this.dtpInicio.Name = "dtpInicio";
+            this.dtpInicio.Size = new System.Drawing.Size(250, 20);
+            this.dtpInicio.TabIndex = 77;
             // 
-            // dateFim
+            // dtpFim
             // 
-            this.dateFim.Enabled = false;
-            this.dateFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFim.Location = new System.Drawing.Point(18, 403);
-            this.dateFim.Name = "dateFim";
-            this.dateFim.Size = new System.Drawing.Size(250, 20);
-            this.dateFim.TabIndex = 76;
+            this.dtpFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFim.Location = new System.Drawing.Point(18, 403);
+            this.dtpFim.Name = "dtpFim";
+            this.dtpFim.Size = new System.Drawing.Size(250, 20);
+            this.dtpFim.TabIndex = 76;
             // 
             // chkRefazer
             // 
@@ -571,11 +570,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.updValor);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.dateInicio);
-            this.Controls.Add(this.dateFim);
+            this.Controls.Add(this.chkAdicionarPrazo);
+            this.Controls.Add(this.lblFim);
+            this.Controls.Add(this.lblInicio);
+            this.Controls.Add(this.dtpInicio);
+            this.Controls.Add(this.dtpFim);
             this.Controls.Add(this.chkRefazer);
             this.Controls.Add(this.btnAcao);
             this.Controls.Add(this.btnSair);
@@ -626,11 +625,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.NumericUpDown updValor;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateInicio;
-        private System.Windows.Forms.DateTimePicker dateFim;
+        private System.Windows.Forms.CheckBox chkAdicionarPrazo;
+        private System.Windows.Forms.Label lblFim;
+        private System.Windows.Forms.Label lblInicio;
+        private System.Windows.Forms.DateTimePicker dtpInicio;
+        private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.CheckBox chkRefazer;
         private System.Windows.Forms.Button btnAcao;
         private System.Windows.Forms.Button btnSair;

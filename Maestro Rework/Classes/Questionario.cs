@@ -13,13 +13,28 @@ namespace Maestro_Rework.Classes
             UsuarioId = usuarioId;
             Nome = nome;
             DataInicio = dataInicio;
-            DataFim = dataFim;
+            DataFim = dataFim;          
             CodigoAcesso = codigoAcesso;
             Refazer = refazer;
             DataCriacao = DateTime.Now;
             Ativo = ativo;
             Questoes = questoes;
+
+            if (!CheckarLimiteData()) throw new ArgumentException("A data limite deve ser após a data de inicio");
         }
+
+        private bool CheckarLimiteData()
+        {
+            bool possuiPrazo = DataInicio != null && DataFim != null;
+
+            if (possuiPrazo)
+            {
+                if (DataInicio.Value < DataFim.Value) return true;
+                else return false;
+            }
+            else return true;
+        }
+
         public Questionario()
         {
                 

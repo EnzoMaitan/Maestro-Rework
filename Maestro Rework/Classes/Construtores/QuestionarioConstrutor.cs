@@ -16,6 +16,7 @@ namespace Maestro_Rework.Classes.Construtores
         public bool Refazer { get; private set; }
         public bool Ativo { get; private set; }
         public IList<Questao> Questoes { get; private set; }
+
         public QuestionarioConstrutor ParaUsuario(Usuario usuario)
         {
             UsuarioId = usuario.Id;

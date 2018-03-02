@@ -19,6 +19,21 @@ namespace Maestro_Rework.Classes
             CodigoAcesso = codigoAcesso;
             Ativo = ativo;
             DataCriacao = DateTime.Now;
+
+            if (!CheckarLimiteData()) throw new ArgumentException("A data limite deve ser após a data de inicio");
+
+        }
+
+        private bool CheckarLimiteData()
+        {
+            bool possuiPrazo = DataInicio.Value != null && DataFim.Value != null;
+
+            if (possuiPrazo)
+            {
+                if (DataInicio.Value < DataFim.Value) return true;
+                else return false;
+            }
+            else return true;
         }
 
         public Conteudo()

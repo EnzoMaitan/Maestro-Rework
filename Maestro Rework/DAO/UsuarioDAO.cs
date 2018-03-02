@@ -63,10 +63,9 @@ namespace Maestro_Rework.DAO
         {
             return contexto.Usuarios.ToList();
         }
-
         public void Dispose()
         {
-            contexto.Dispose();
+            ((IDisposable)contexto).Dispose();
         }
     }
 }

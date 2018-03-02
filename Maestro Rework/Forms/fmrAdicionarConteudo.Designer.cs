@@ -176,7 +176,7 @@
             this.chkAdicionarPrazo.TabIndex = 61;
             this.chkAdicionarPrazo.Text = "Adicionar Prazo";
             this.chkAdicionarPrazo.UseVisualStyleBackColor = true;
-            this.chkAdicionarPrazo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chkAdicionarPrazo.CheckedChanged += new System.EventHandler(this.chkAdicionarPrazo_CheckedChanged);
             // 
             // label6
             // 

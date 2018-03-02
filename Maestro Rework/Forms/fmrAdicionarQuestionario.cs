@@ -25,6 +25,7 @@ namespace Maestro_Rework.Forms
             FormBorderStyle = FormBorderStyle.None;
             cboSelecionar.Visible = false;
             lstQuestoes.DataSource = questoes;
+            AlterarVisibilidadePrazo(false);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace Maestro_Rework.Forms
 
                     questao = questaoConstrutor.ParaAlternativas(alternativas).Constroi();
                     questoes.Add(questao);
-                    LimparCampos();
+                    LimparCamposAlternativas();
                 }
             }
             catch (Exception ex)
@@ -63,14 +64,14 @@ namespace Maestro_Rework.Forms
             
         }
 
-        public void LimparCampos()
+        public void LimparCamposAlternativas()
         {
-            txtAltA.Text = "";
-            txtAltB.Text = "";       
-            txtAltC.Text = "";
-            txtAltD.Text = "";
-            txtAltE.Text = "";
-            txtPergunta.Text = "";
+            txtAltA.Clear();
+            txtAltB.Clear();
+            txtAltC.Clear();
+            txtAltD.Clear();
+            txtAltE.Clear();
+            txtPergunta.Clear();
             updValor.Value = 0.0m;
             rdbA.Checked = false;
             rdbB.Checked = false;
@@ -115,15 +116,25 @@ namespace Maestro_Rework.Forms
         }
 
         private void btnAcao_Click(object sender, EventArgs e)
-        {            
-                var questionarioDAO = new QuestionarioDAO();
-                var questionarioConstrutor = new QuestionarioConstrutor();
+        {
+            var questionarioDAO = new QuestionarioDAO();
+            var questionarioConstrutor = new QuestionarioConstrutor();
 
-                var questionario = 
-                    questionarioConstrutor.ParaUsuario(fmrLogin.usuarioLogado)
+            try
+            {
+                if (chkAdicionarPrazo.Checked)
+                {
+                    questionarioConstrutor.ParaDataFim(dtpFim.Value);
+                    questionarioConstrutor.ParaDataInicio(dtpInicio.Value);
+                }
+                else
+                {
+                    questionarioConstrutor.ParaDataFim(null);
+                    questionarioConstrutor.ParaDataInicio(null);
+                }
+
+                var questionario =  questionarioConstrutor.ParaUsuario(fmrLogin.usuarioLogado)
                         .ParaNome(txtTitulo.Text)
-                        .ParaDataFim(dateFim.Value)
-                        .ParaDataInicio(dateInicio.Value)
                         .ParaRefazer(chkRefazer.Checked)
                         .ParaAtivo(true)
                         .ParaQuestoes(questoes)
@@ -131,10 +142,26 @@ namespace Maestro_Rework.Forms
 
                 questionarioDAO.Adicionar(questionario);
 
-            txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
-            lblQuestionarioAdicionado.Visible = true;
+                txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
+                lblQuestionarioAdicionado.Visible = true;
 
-            LimparCampos();
+                questoes.Clear();
+                LimparCamposQuestionario();
+                LimparCamposAlternativas();
+            }
+            catch (Exception ex)
+            {
+                lblErro.Visible = true;
+                lblErro.Text = ex.Message;
+            }
+        }
+
+        private void LimparCamposQuestionario()
+        {
+            txtTitulo.Clear();
+            chkRefazer.Checked = false;
+            chkAdicionarPrazo.Checked = false;
+            AtualizarDataSource();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -160,7 +187,7 @@ namespace Maestro_Rework.Forms
 
             questoes.Remove(questaoSelecionada);
 
-            LimparCampos();
+            LimparCamposAlternativas();
         }
 
         private void lstQuestoes_SelectedValueChanged(object sender, EventArgs e)
@@ -216,5 +243,24 @@ namespace Maestro_Rework.Forms
 
         }
 
+        private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
+        {
+                if (chkAdicionarPrazo.Checked)
+                {
+                    AlterarVisibilidadePrazo(true);
+                }
+                else
+                {
+                    AlterarVisibilidadePrazo(false);
+                }
+        }
+
+        private void AlterarVisibilidadePrazo(bool visibilidade)
+        {
+            lblFim.Visible = visibilidade;
+            lblInicio.Visible = visibilidade;
+            dtpFim.Visible = visibilidade;
+            dtpInicio.Visible = visibilidade;
+        }
     }
 }

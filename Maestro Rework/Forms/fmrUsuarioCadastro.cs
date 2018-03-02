@@ -55,11 +55,11 @@ namespace Maestro_Rework.Forms
 
         private void LimparCampos()
         {
-            txtConf.Text = null;
-            txtEmail.Text = null;
-            txtLogin.Text = null;
-            txtNome.Text = null;
-            txtSenha.Text = null;
+            txtConf.Clear(); 
+            txtEmail.Clear();
+            txtLogin.Clear();
+            txtNome.Clear();
+            txtSenha.Clear();
         }
 
         private bool CamposPreenchidos()
