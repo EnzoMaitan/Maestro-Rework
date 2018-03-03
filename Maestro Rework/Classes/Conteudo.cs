@@ -20,11 +20,11 @@ namespace Maestro_Rework.Classes
             Ativo = ativo;
             DataCriacao = DateTime.Now;
 
-            if (!CheckarLimiteData()) throw new ArgumentException("A data limite deve ser após a data de inicio");
+            if (!CheckarLimitePrazo()) throw new ArgumentException("A data limite deve ser após a data de inicio");
 
         }
 
-        private bool CheckarLimiteData()
+        private bool CheckarLimitePrazo()
         {
             bool possuiPrazo = DataInicio.Value != null && DataFim.Value != null;
 

@@ -20,10 +20,10 @@ namespace Maestro_Rework.Classes
             Ativo = ativo;
             Questoes = questoes;
 
-            if (!CheckarLimiteData()) throw new ArgumentException("A data limite deve ser após a data de inicio");
+            if (!CheckarLimitePrazo()) throw new ArgumentException("A data limite deve ser após a data de inicio");
         }
 
-        private bool CheckarLimiteData()
+        private bool CheckarLimitePrazo()
         {
             bool possuiPrazo = DataInicio != null && DataFim != null;
 

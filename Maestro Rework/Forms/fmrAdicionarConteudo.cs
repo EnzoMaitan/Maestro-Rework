@@ -56,6 +56,7 @@ namespace Maestro_Rework.Forms
                 CheckarCamposPreenchidos();
 
                     var construtorConteudo = new ConteudoConstrutor();
+                    var conteudoDAO = new ConteudoDAO();
 
                     construtorConteudo.ParaNome(txtNome.Text)
                         .ParaTema(cboTema.Text)
@@ -75,18 +76,28 @@ namespace Maestro_Rework.Forms
                             .ParaDataFim(null)
                             .ParaDataInicio(null);
                     }
-                    var usuario = construtorConteudo.Constroi();
-                    var conteudoDAO = new ConteudoDAO();
-                    conteudoDAO.Adicionar(usuario);
+                    var conteudo = construtorConteudo.Constroi();
+                    
+                    conteudoDAO.Adicionar(conteudo);
 
                     lblConteudoAdicionado.Visible = true;
-                    txtCodigo.Text = construtorConteudo.CodigoAcesso;              
+                    txtCodigo.Text = conteudo.CodigoAcesso;
+
+                    LimparCampos();
             }
             catch (Exception ex)
             {
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
             }
+        }
+
+        private void LimparCampos()
+        {
+            txtNome.Clear();
+            rtfTexto.Clear();
+            cboTema.Text = "";
+            listBox1.Items.Clear();
         }
 
         private void CheckarCamposPreenchidos()

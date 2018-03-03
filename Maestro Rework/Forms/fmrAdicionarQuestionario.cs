@@ -31,8 +31,6 @@ namespace Maestro_Rework.Forms
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             IList<Alternativa> alternativas = new List<Alternativa>();
-            
-
             lblErro.Visible = false;
 
             try
@@ -40,10 +38,11 @@ namespace Maestro_Rework.Forms
                 if (CamposAlternativaPreenchido() && PossuiAlternativaCorreta() && ValorMaiorQueZero()) {
                     var questaoConstrutor = new QuestaoConstrutor();
 
-                    var questao = questaoConstrutor.ParaPergunta(txtPergunta.Text)
-                                     .ParaValor(Convert.ToDouble(updValor.Value))
-                                     .ParaImagem(null)
-                                     .Constroi();
+                    var questao = questaoConstrutor
+                        .ParaPergunta(txtPergunta.Text)
+                        .ParaValor(Convert.ToDouble(updValor.Value))
+                        .ParaImagem(null)
+                        .Constroi();
 
                     alternativas.Add(AdicionaAlternativa(questao, txtAltA.Text, rdbA.Checked));
                     alternativas.Add(AdicionaAlternativa(questao, txtAltB.Text, rdbB.Checked));
@@ -60,8 +59,7 @@ namespace Maestro_Rework.Forms
             {
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
-            }
-            
+            }           
         }
 
         public void LimparCamposAlternativas()
@@ -133,16 +131,17 @@ namespace Maestro_Rework.Forms
                     questionarioConstrutor.ParaDataInicio(null);
                 }
 
-                var questionario =  questionarioConstrutor.ParaUsuario(fmrLogin.usuarioLogado)
-                        .ParaNome(txtTitulo.Text)
-                        .ParaRefazer(chkRefazer.Checked)
-                        .ParaAtivo(true)
-                        .ParaQuestoes(questoes)
-                        .Constroi();
+                var questionario =  questionarioConstrutor
+                    .ParaUsuario(fmrLogin.usuarioLogado)
+                    .ParaNome(txtTitulo.Text)
+                    .ParaRefazer(chkRefazer.Checked)
+                    .ParaAtivo(true)
+                    .ParaQuestoes(questoes)
+                    .Constroi();
 
                 questionarioDAO.Adicionar(questionario);
 
-                txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
+                txtCodigo.Text = questionario.CodigoAcesso;
                 lblQuestionarioAdicionado.Visible = true;
 
                 questoes.Clear();
@@ -165,9 +164,7 @@ namespace Maestro_Rework.Forms
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
-        {
-           
-
+        {          
             var questaoSelecionada = GetQuestaoSelecionada();
             if (questaoSelecionada != null)
                 AlterarQuestao(questaoSelecionada);
@@ -240,7 +237,6 @@ namespace Maestro_Rework.Forms
             questaoSelecionada.AlterarPergunta(txtPergunta.Text);
             questaoSelecionada.AlterarValor(valorPergunta);
             //questaoSelecionada.AlterarImagem();
-
         }
 
         private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
