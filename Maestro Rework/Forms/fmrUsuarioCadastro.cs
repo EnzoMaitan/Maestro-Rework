@@ -55,11 +55,11 @@ namespace Maestro_Rework.Forms
 
         private void LimparCampos()
         {
-            txtConf.Clear(); 
-            txtEmail.Clear();
-            txtLogin.Clear();
-            txtNome.Clear();
-            txtSenha.Clear();
+            txtConf.Text = null;
+            txtEmail.Text = null;
+            txtLogin.Text = null;
+            txtNome.Text = null;
+            txtSenha.Text = null;
         }
 
         private bool CamposPreenchidos()
@@ -71,12 +71,7 @@ namespace Maestro_Rework.Forms
         
         private bool SenhaCoincide()
         {
-            if (txtSenha.Text.Equals(txtConf.Text))
-            {
-                MessageBox.Show("a");
-                return true;
-            }
-
+            if (txtSenha.Text == txtConf.Text) return true;
             else throw new ArgumentException("Senhas Não Coincidem");
         }
     }

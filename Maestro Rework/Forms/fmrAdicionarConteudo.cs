@@ -25,7 +25,7 @@ namespace Maestro_Rework.Forms
             AlterarVisibilidadePrazo(false);
         }
 
-        private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (chkAdicionarPrazo.Checked)
             {

@@ -29,362 +29,216 @@
         private void InitializeComponent()
         {
             this.lblCargo = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tsPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAluno = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAlunoCadastrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAlunoAlterar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarProfessor = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarProfessorCadastrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarProfessorAlterar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAdministrador = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAdministradorCadastrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarAdministradorAlterar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsHistorico = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarHistoricoProfessor = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsGerenciarHistoricoAluno = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAcesso = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAlterar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAlterarConteudo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAlterarQuestionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAdicionar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsCadastrarConteudo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsCadastrarQuestionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsQuestionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsConteudo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsResultado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatus = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusConteudo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusQuestionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusUsuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusUsuarioAdministrador = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusUsuarioAluno = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsStatusUsuarioProfessor = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
-            this.lblCargo.BackColor = System.Drawing.Color.RoyalBlue;
-            this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCargo.BackColor = System.Drawing.Color.Transparent;
+            this.lblCargo.Font = new System.Drawing.Font("Bebas Neue", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCargo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCargo.Location = new System.Drawing.Point(844, 0);
+            this.lblCargo.Location = new System.Drawing.Point(77, 30);
             this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(40, 13);
+            this.lblCargo.Size = new System.Drawing.Size(48, 23);
             this.lblCargo.TabIndex = 14;
             this.lblCargo.Text = "Cargo";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.menuStrip1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsPerfil,
-            this.tsGerenciar,
-            this.tsAlterar,
-            this.tsAdicionar,
-            this.tsQuestionario,
-            this.tsConteudo,
-            this.tsResultado,
-            this.tsStatus,
-            this.tsSair});
-            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(907, 25);
-            this.menuStrip1.TabIndex = 15;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // tsPerfil
-            // 
-            this.tsPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsPerfil.Name = "tsPerfil";
-            this.tsPerfil.Size = new System.Drawing.Size(81, 21);
-            this.tsPerfil.Text = "Meu Perfil";
-            this.tsPerfil.Click += new System.EventHandler(this.tsPerfil_Click);
-            // 
-            // tsGerenciar
-            // 
-            this.tsGerenciar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsGerenciarAluno,
-            this.tsGerenciarProfessor,
-            this.tsGerenciarAdministrador,
-            this.tsHistorico,
-            this.tsAcesso});
-            this.tsGerenciar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsGerenciar.Name = "tsGerenciar";
-            this.tsGerenciar.Size = new System.Drawing.Size(83, 21);
-            this.tsGerenciar.Text = "Gerenciar";
-            // 
-            // tsGerenciarAluno
-            // 
-            this.tsGerenciarAluno.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsGerenciarAlunoCadastrar,
-            this.tsGerenciarAlunoAlterar});
-            this.tsGerenciarAluno.Name = "tsGerenciarAluno";
-            this.tsGerenciarAluno.Size = new System.Drawing.Size(166, 22);
-            this.tsGerenciarAluno.Text = "Aluno";
-            // 
-            // tsGerenciarAlunoCadastrar
-            // 
-            this.tsGerenciarAlunoCadastrar.Name = "tsGerenciarAlunoCadastrar";
-            this.tsGerenciarAlunoCadastrar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarAlunoCadastrar.Text = "Adicionar";
-            // 
-            // tsGerenciarAlunoAlterar
-            // 
-            this.tsGerenciarAlunoAlterar.Name = "tsGerenciarAlunoAlterar";
-            this.tsGerenciarAlunoAlterar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarAlunoAlterar.Text = "Alterar";
-            // 
-            // tsGerenciarProfessor
-            // 
-            this.tsGerenciarProfessor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsGerenciarProfessorCadastrar,
-            this.tsGerenciarProfessorAlterar});
-            this.tsGerenciarProfessor.Name = "tsGerenciarProfessor";
-            this.tsGerenciarProfessor.Size = new System.Drawing.Size(166, 22);
-            this.tsGerenciarProfessor.Text = "Professor";
-            // 
-            // tsGerenciarProfessorCadastrar
-            // 
-            this.tsGerenciarProfessorCadastrar.Name = "tsGerenciarProfessorCadastrar";
-            this.tsGerenciarProfessorCadastrar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarProfessorCadastrar.Text = "Adicionar";
-            // 
-            // tsGerenciarProfessorAlterar
-            // 
-            this.tsGerenciarProfessorAlterar.Name = "tsGerenciarProfessorAlterar";
-            this.tsGerenciarProfessorAlterar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarProfessorAlterar.Text = "Alterar";
-            // 
-            // tsGerenciarAdministrador
-            // 
-            this.tsGerenciarAdministrador.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsGerenciarAdministradorCadastrar,
-            this.tsGerenciarAdministradorAlterar});
-            this.tsGerenciarAdministrador.Name = "tsGerenciarAdministrador";
-            this.tsGerenciarAdministrador.Size = new System.Drawing.Size(166, 22);
-            this.tsGerenciarAdministrador.Text = "Administrador";
-            // 
-            // tsGerenciarAdministradorCadastrar
-            // 
-            this.tsGerenciarAdministradorCadastrar.Name = "tsGerenciarAdministradorCadastrar";
-            this.tsGerenciarAdministradorCadastrar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarAdministradorCadastrar.Text = "Adicionar";
-            // 
-            // tsGerenciarAdministradorAlterar
-            // 
-            this.tsGerenciarAdministradorAlterar.Name = "tsGerenciarAdministradorAlterar";
-            this.tsGerenciarAdministradorAlterar.Size = new System.Drawing.Size(138, 22);
-            this.tsGerenciarAdministradorAlterar.Text = "Alterar";
-            // 
-            // tsHistorico
-            // 
-            this.tsHistorico.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsGerenciarHistoricoProfessor,
-            this.tsGerenciarHistoricoAluno});
-            this.tsHistorico.Name = "tsHistorico";
-            this.tsHistorico.Size = new System.Drawing.Size(166, 22);
-            this.tsHistorico.Text = "Historico";
-            // 
-            // tsGerenciarHistoricoProfessor
-            // 
-            this.tsGerenciarHistoricoProfessor.Name = "tsGerenciarHistoricoProfessor";
-            this.tsGerenciarHistoricoProfessor.Size = new System.Drawing.Size(132, 22);
-            this.tsGerenciarHistoricoProfessor.Text = "Professor";
-            // 
-            // tsGerenciarHistoricoAluno
-            // 
-            this.tsGerenciarHistoricoAluno.Name = "tsGerenciarHistoricoAluno";
-            this.tsGerenciarHistoricoAluno.Size = new System.Drawing.Size(132, 22);
-            this.tsGerenciarHistoricoAluno.Text = "Aluno";
-            // 
-            // tsAcesso
-            // 
-            this.tsAcesso.Name = "tsAcesso";
-            this.tsAcesso.Size = new System.Drawing.Size(166, 22);
-            this.tsAcesso.Text = "Acesso";
-            // 
-            // tsAlterar
-            // 
-            this.tsAlterar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsAlterarConteudo,
-            this.tsAlterarQuestionario});
-            this.tsAlterar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsAlterar.Name = "tsAlterar";
-            this.tsAlterar.Size = new System.Drawing.Size(62, 21);
-            this.tsAlterar.Text = "Alterar";
-            // 
-            // tsAlterarConteudo
-            // 
-            this.tsAlterarConteudo.Name = "tsAlterarConteudo";
-            this.tsAlterarConteudo.Size = new System.Drawing.Size(158, 22);
-            this.tsAlterarConteudo.Text = "Conteudo";
-            // 
-            // tsAlterarQuestionario
-            // 
-            this.tsAlterarQuestionario.Name = "tsAlterarQuestionario";
-            this.tsAlterarQuestionario.Size = new System.Drawing.Size(158, 22);
-            this.tsAlterarQuestionario.Text = "Questionario";
-            // 
-            // tsAdicionar
-            // 
-            this.tsAdicionar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsCadastrarConteudo,
-            this.tsCadastrarQuestionario});
-            this.tsAdicionar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsAdicionar.Name = "tsAdicionar";
-            this.tsAdicionar.Size = new System.Drawing.Size(82, 21);
-            this.tsAdicionar.Text = "Adicionar";
-            // 
-            // tsCadastrarConteudo
-            // 
-            this.tsCadastrarConteudo.Name = "tsCadastrarConteudo";
-            this.tsCadastrarConteudo.Size = new System.Drawing.Size(158, 22);
-            this.tsCadastrarConteudo.Text = "Conteudo";
-            this.tsCadastrarConteudo.Click += new System.EventHandler(this.tsCadastrarConteudo_Click);
-            // 
-            // tsCadastrarQuestionario
-            // 
-            this.tsCadastrarQuestionario.Name = "tsCadastrarQuestionario";
-            this.tsCadastrarQuestionario.Size = new System.Drawing.Size(158, 22);
-            this.tsCadastrarQuestionario.Text = "Questionario";
-            this.tsCadastrarQuestionario.Click += new System.EventHandler(this.tsCadastrarQuestionario_Click);
-            // 
-            // tsQuestionario
-            // 
-            this.tsQuestionario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsQuestionario.Name = "tsQuestionario";
-            this.tsQuestionario.Size = new System.Drawing.Size(102, 21);
-            this.tsQuestionario.Text = "Questionario";
-            // 
-            // tsConteudo
-            // 
-            this.tsConteudo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsConteudo.Name = "tsConteudo";
-            this.tsConteudo.Size = new System.Drawing.Size(87, 21);
-            this.tsConteudo.Text = "Conteudo";
-            // 
-            // tsResultado
-            // 
-            this.tsResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsResultado.Name = "tsResultado";
-            this.tsResultado.Size = new System.Drawing.Size(84, 21);
-            this.tsResultado.Text = "Resultado";
-            // 
-            // tsStatus
-            // 
-            this.tsStatus.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsStatusConteudo,
-            this.tsStatusQuestionario,
-            this.tsStatusUsuario});
-            this.tsStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsStatus.Name = "tsStatus";
-            this.tsStatus.Size = new System.Drawing.Size(58, 21);
-            this.tsStatus.Text = "Status";
-            // 
-            // tsStatusConteudo
-            // 
-            this.tsStatusConteudo.Name = "tsStatusConteudo";
-            this.tsStatusConteudo.Size = new System.Drawing.Size(158, 22);
-            this.tsStatusConteudo.Text = "Conteúdo";
-            // 
-            // tsStatusQuestionario
-            // 
-            this.tsStatusQuestionario.Name = "tsStatusQuestionario";
-            this.tsStatusQuestionario.Size = new System.Drawing.Size(158, 22);
-            this.tsStatusQuestionario.Text = "Questionario";
-            // 
-            // tsStatusUsuario
-            // 
-            this.tsStatusUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsStatusUsuarioAdministrador,
-            this.tsStatusUsuarioAluno,
-            this.tsStatusUsuarioProfessor});
-            this.tsStatusUsuario.Name = "tsStatusUsuario";
-            this.tsStatusUsuario.Size = new System.Drawing.Size(158, 22);
-            this.tsStatusUsuario.Text = "Usuários";
-            // 
-            // tsStatusUsuarioAdministrador
-            // 
-            this.tsStatusUsuarioAdministrador.Name = "tsStatusUsuarioAdministrador";
-            this.tsStatusUsuarioAdministrador.Size = new System.Drawing.Size(166, 22);
-            this.tsStatusUsuarioAdministrador.Text = "Administrador";
-            // 
-            // tsStatusUsuarioAluno
-            // 
-            this.tsStatusUsuarioAluno.Name = "tsStatusUsuarioAluno";
-            this.tsStatusUsuarioAluno.Size = new System.Drawing.Size(166, 22);
-            this.tsStatusUsuarioAluno.Text = "Aluno";
-            // 
-            // tsStatusUsuarioProfessor
-            // 
-            this.tsStatusUsuarioProfessor.Name = "tsStatusUsuarioProfessor";
-            this.tsStatusUsuarioProfessor.Size = new System.Drawing.Size(166, 22);
-            this.tsStatusUsuarioProfessor.Text = "Professor";
-            // 
-            // tsSair
-            // 
-            this.tsSair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tsSair.Name = "tsSair";
-            this.tsSair.Size = new System.Drawing.Size(42, 21);
-            this.tsSair.Text = "Sair";
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(8)))), ((int)(((byte)(17)))));
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button9);
+            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblCargo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 585);
+            this.panel1.TabIndex = 15;
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button9.Location = new System.Drawing.Point(45, 537);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(101, 36);
+            this.button9.TabIndex = 24;
+            this.button9.Text = "Sair";
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(0, 478);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(200, 40);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "Status";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(-3, 352);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(200, 40);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Resultado";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(-3, 306);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(200, 40);
+            this.button6.TabIndex = 21;
+            this.button6.Text = "Conteudo";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(-3, 260);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(200, 40);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Questionario";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button1
+            // 
+            this.button1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.Location = new System.Drawing.Point(-3, 53);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 40);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Meu Perfil";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(0, 195);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 40);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Acesso";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(0, 149);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 40);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Professor";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(0, 103);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(200, 40);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Aluno";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // fmrMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 669);
-            this.Controls.Add(this.lblCargo);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(1059, 585);
+            this.Controls.Add(this.panel1);
             this.Name = "fmrMenu";
             this.Text = "Menu";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tsPerfil;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAluno;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAlunoCadastrar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAlunoAlterar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarProfessor;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarProfessorCadastrar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarProfessorAlterar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAdministrador;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAdministradorCadastrar;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarAdministradorAlterar;
-        private System.Windows.Forms.ToolStripMenuItem tsHistorico;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarHistoricoProfessor;
-        private System.Windows.Forms.ToolStripMenuItem tsGerenciarHistoricoAluno;
-        private System.Windows.Forms.ToolStripMenuItem tsAcesso;
-        private System.Windows.Forms.ToolStripMenuItem tsAlterar;
-        private System.Windows.Forms.ToolStripMenuItem tsAlterarConteudo;
-        private System.Windows.Forms.ToolStripMenuItem tsAlterarQuestionario;
-        private System.Windows.Forms.ToolStripMenuItem tsAdicionar;
-        private System.Windows.Forms.ToolStripMenuItem tsCadastrarConteudo;
-        private System.Windows.Forms.ToolStripMenuItem tsCadastrarQuestionario;
-        private System.Windows.Forms.ToolStripMenuItem tsQuestionario;
-        private System.Windows.Forms.ToolStripMenuItem tsConteudo;
-        private System.Windows.Forms.ToolStripMenuItem tsResultado;
-        private System.Windows.Forms.ToolStripMenuItem tsStatus;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusConteudo;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusQuestionario;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusUsuario;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusUsuarioAdministrador;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusUsuarioAluno;
-        private System.Windows.Forms.ToolStripMenuItem tsStatusUsuarioProfessor;
-        private System.Windows.Forms.ToolStripMenuItem tsSair;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

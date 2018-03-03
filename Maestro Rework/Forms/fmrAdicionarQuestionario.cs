@@ -15,18 +15,19 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarQuestionario : Form
     {
-        private IList<Questao> questoes = new BindingList<Questao>();
-
         public fmrAdicionarQuestionario()
         {
             InitializeComponent();
             lblErro.Visible = false;
             lblQuestionarioAdicionado.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
+
+            btnAlterar.Visible = false;
+            btnExcluir.Visible = false;
             cboSelecionar.Visible = false;
-            lstQuestoes.DataSource = questoes;
-            AlterarVisibilidadePrazo(false);
         }
+
+        private IList<Questao> questoes = new List<Questao>();
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -52,13 +53,14 @@ namespace Maestro_Rework.Forms
 
                     questao = questaoConstrutor.ParaAlternativas(alternativas).Constroi();
                     questoes.Add(questao);
-                    LimparCamposAlternativas();
+                    lstQuestoes.Items.Add(questao.Pergunta);
                 }
             }
             catch (Exception ex)
             {
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
+<<<<<<< HEAD
             }           
         }
 
@@ -76,6 +78,9 @@ namespace Maestro_Rework.Forms
             rdbC.Checked = false;
             rdbD.Checked = false;
             rdbE.Checked = false;
+=======
+            }
+>>>>>>> design
         }
 
         private bool ValorMaiorQueZero()
@@ -98,7 +103,7 @@ namespace Maestro_Rework.Forms
                 txtAltC.Text != "" && txtAltD.Text != "" &&
                 txtAltE.Text != "")
                 return true;
-            else throw new ArgumentNullException("", "Preencha Todos os Campos");
+            else throw new ArgumentNullException("Preencha Todos os Campos");
         }
 
         private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)
@@ -114,10 +119,11 @@ namespace Maestro_Rework.Forms
         }
 
         private void btnAcao_Click(object sender, EventArgs e)
-        {
-            var questionarioDAO = new QuestionarioDAO();
-            var questionarioConstrutor = new QuestionarioConstrutor();
+        {            
+                var questionarioDAO = new QuestionarioDAO();
+                var questionarioConstrutor = new QuestionarioConstrutor();
 
+<<<<<<< HEAD
             try
             {
                 if (chkAdicionarPrazo.Checked)
@@ -257,6 +263,21 @@ namespace Maestro_Rework.Forms
             lblInicio.Visible = visibilidade;
             dtpFim.Visible = visibilidade;
             dtpInicio.Visible = visibilidade;
+=======
+                var questionario = 
+                    questionarioConstrutor.ParaUsuario(fmrLogin.usuarioLogado)
+                        .ParaNome(txtTitulo.Text)
+                        .ParaDataFim(dateFim.Value)
+                        .ParaDataInicio(dateInicio.Value)
+                        .ParaRefazer(chkRefazer.Checked)
+                        .ParaAtivo(true)
+                        .ParaQuestoes(questoes)
+                        .Constroi();
+
+                questionarioDAO.Adicionar(questionario);
+            txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
+            lblQuestionarioAdicionado.Visible = true;
+>>>>>>> design
         }
     }
 }
