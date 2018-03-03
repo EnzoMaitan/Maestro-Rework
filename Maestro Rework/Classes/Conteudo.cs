@@ -26,7 +26,7 @@ namespace Maestro_Rework.Classes
 
         private bool CheckarLimitePrazo()
         {
-            bool possuiPrazo = DataInicio.Value != null && DataFim.Value != null;
+            bool possuiPrazo = DataInicio != null && DataFim != null;
 
             if (possuiPrazo)
             {

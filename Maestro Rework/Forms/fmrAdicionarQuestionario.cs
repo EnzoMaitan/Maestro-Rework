@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Maestro_Rework.Classes;
 using Maestro_Rework.Classes.Construtores;
 using Maestro_Rework.DAO;
+using System.IO;
 
 namespace Maestro_Rework.Forms
 {
@@ -22,9 +23,9 @@ namespace Maestro_Rework.Forms
             lblQuestionarioAdicionado.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
 
-            btnAlterar.Visible = false;
-            btnExcluir.Visible = false;
             cboSelecionar.Visible = false;
+
+            AlterarVisibilidadePrazo(false);
         }
 
         private IList<Questao> questoes = new List<Questao>();
@@ -38,11 +39,11 @@ namespace Maestro_Rework.Forms
             {
                 if (CamposAlternativaPreenchido() && PossuiAlternativaCorreta() && ValorMaiorQueZero()) {
                     var questaoConstrutor = new QuestaoConstrutor();
-
+    
                     var questao = questaoConstrutor
                         .ParaPergunta(txtPergunta.Text)
                         .ParaValor(Convert.ToDouble(updValor.Value))
-                        .ParaImagem(null)
+                        .ParaImagem(DefinirImagem())
                         .Constroi();
 
                     alternativas.Add(AdicionaAlternativa(questao, txtAltA.Text, rdbA.Checked));
@@ -51,16 +52,21 @@ namespace Maestro_Rework.Forms
                     alternativas.Add(AdicionaAlternativa(questao, txtAltD.Text, rdbD.Checked));
                     alternativas.Add(AdicionaAlternativa(questao, txtAltE.Text, rdbE.Checked));
 
-                    questao = questaoConstrutor.ParaAlternativas(alternativas).Constroi();
+                    questao = questaoConstrutor
+                        .ParaAlternativas(alternativas)
+                        .Constroi();
+
                     questoes.Add(questao);
-                    lstQuestoes.Items.Add(questao.Pergunta);
+
+                    LimparCamposAlternativas();
+                    AtualizarDataSource();
                 }
             }
             catch (Exception ex)
             {
+               
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
-<<<<<<< HEAD
             }           
         }
 
@@ -78,9 +84,6 @@ namespace Maestro_Rework.Forms
             rdbC.Checked = false;
             rdbD.Checked = false;
             rdbE.Checked = false;
-=======
-            }
->>>>>>> design
         }
 
         private bool ValorMaiorQueZero()
@@ -120,10 +123,9 @@ namespace Maestro_Rework.Forms
 
         private void btnAcao_Click(object sender, EventArgs e)
         {            
-                var questionarioDAO = new QuestionarioDAO();
-                var questionarioConstrutor = new QuestionarioConstrutor();
+            var questionarioDAO = new QuestionarioDAO();
+            var questionarioConstrutor = new QuestionarioConstrutor();
 
-<<<<<<< HEAD
             try
             {
                 if (chkAdicionarPrazo.Checked)
@@ -191,6 +193,8 @@ namespace Maestro_Rework.Forms
             questoes.Remove(questaoSelecionada);
 
             LimparCamposAlternativas();
+
+            AtualizarDataSource();
         }
 
         private void lstQuestoes_SelectedValueChanged(object sender, EventArgs e)
@@ -230,8 +234,23 @@ namespace Maestro_Rework.Forms
         private void MostrarQuestaoAtual(Questao questaoSelecionada)
         {
             txtPergunta.Text = questaoSelecionada.Pergunta;
-            //pictureBox1.Image = questaoSelecionada.Imagem;
+
+            CarregarImagem(questaoSelecionada);
+
             updValor.Value = Convert.ToDecimal(questaoSelecionada.Valor);
+        }
+
+        private void CarregarImagem(Questao questaoSelecionada)
+        {
+            if (questaoSelecionada.Imagem != null)
+            {
+                MemoryStream stream = new MemoryStream(questaoSelecionada.Imagem);   
+                pictureBox1.Image = Image.FromStream(stream);               
+            }
+            else
+            {
+                pictureBox1.Image = null;           
+            }
         }
 
         private void AlterarQuestao(Questao questaoSelecionada)
@@ -242,7 +261,22 @@ namespace Maestro_Rework.Forms
 
             questaoSelecionada.AlterarPergunta(txtPergunta.Text);
             questaoSelecionada.AlterarValor(valorPergunta);
-            //questaoSelecionada.AlterarImagem();
+            questaoSelecionada.AlterarImagem(DefinirImagem());
+        }
+
+        private byte[] DefinirImagem()
+        {
+            byte[] imagem = null;
+            try
+            {
+                imagem = ConverterFoto(pictureBox1);
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return imagem;
         }
 
         private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
@@ -263,21 +297,38 @@ namespace Maestro_Rework.Forms
             lblInicio.Visible = visibilidade;
             dtpFim.Visible = visibilidade;
             dtpInicio.Visible = visibilidade;
-=======
-                var questionario = 
-                    questionarioConstrutor.ParaUsuario(fmrLogin.usuarioLogado)
-                        .ParaNome(txtTitulo.Text)
-                        .ParaDataFim(dateFim.Value)
-                        .ParaDataInicio(dateInicio.Value)
-                        .ParaRefazer(chkRefazer.Checked)
-                        .ParaAtivo(true)
-                        .ParaQuestoes(questoes)
-                        .Constroi();
-
-                questionarioDAO.Adicionar(questionario);
-            txtCodigo.Text = questionarioConstrutor.CodigoAcesso;
-            lblQuestionarioAdicionado.Visible = true;
->>>>>>> design
         }
+
+        private void btnImg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    openFileDialog1.OpenFile();
+                    pictureBox1.ImageLocation = openFileDialog1.FileName;
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void btnRemoverImg_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+        }
+
+        private byte[] ConverterFoto(PictureBox pictureBox)
+        {
+            using (var stream = new MemoryStream())
+            {
+                pictureBox.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                stream.Seek(0, SeekOrigin.Begin);
+                byte[] bArray = new byte[stream.Length];
+                stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
+                return bArray;
+            }
+        }
+     
     }
 }

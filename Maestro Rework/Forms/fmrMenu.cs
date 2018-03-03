@@ -22,28 +22,6 @@ namespace Maestro_Rework.Forms
 
         private void OcultarFuncionalidadesPorNivel(int nivel)
         {
-            switch (nivel)
-            {
-                case 1:
-                    tsGerenciar.Visible = false;
-                    tsAlterar.Visible = false;
-                    tsAdicionar.Visible = false;
-                    tsStatus.Visible = false;
-                    break;
-                case 2:
-                    tsConteudo.Visible = false;
-                    tsQuestionario.Visible = false;
-                    tsGerenciar.Visible = false;
-                    tsStatusUsuario.Visible = false;
-                    break;
-                case 3:
-                    tsConteudo.Visible = false;
-                    tsQuestionario.Visible = false;
-                    tsConteudo.Visible = false;
-                    tsQuestionario.Visible = false;
-                    tsGerenciarAdministrador.Visible = false;
-                    break;
-            }
         }
 
         private void LimparMdiContainer()
@@ -80,19 +58,22 @@ namespace Maestro_Rework.Forms
             show.Show();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-
+            LimparMdiContainer();
+            fmrAdicionarConteudo show = new fmrAdicionarConteudo();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
+            LimparMdiContainer();
+            fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
         }
     }
 }

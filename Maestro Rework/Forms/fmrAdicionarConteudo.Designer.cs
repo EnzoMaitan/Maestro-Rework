@@ -33,15 +33,15 @@
             this.lblConteudo = new System.Windows.Forms.Label();
             this.cboSelecionar = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.btnApagar = new System.Windows.Forms.Button();
+            this.btnApagarAnexos = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstAnexosAdicionados = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cboTema = new System.Windows.Forms.ComboBox();
             this.chkAdicionarPrazo = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnImport = new System.Windows.Forms.Button();
+            this.btnArquivos = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblFim = new System.Windows.Forms.Label();
             this.lblInicio = new System.Windows.Forms.Label();
@@ -54,6 +54,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblErro = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblConteudoAdicionado
@@ -106,17 +108,18 @@
             this.txtCodigo.Size = new System.Drawing.Size(154, 20);
             this.txtCodigo.TabIndex = 67;
             // 
-            // btnApagar
+            // btnApagarAnexos
             // 
-            this.btnApagar.BackColor = System.Drawing.Color.Coral;
-            this.btnApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApagar.ForeColor = System.Drawing.Color.White;
-            this.btnApagar.Location = new System.Drawing.Point(123, 296);
-            this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(97, 23);
-            this.btnApagar.TabIndex = 66;
-            this.btnApagar.Text = "Apagar";
-            this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagarAnexos.BackColor = System.Drawing.Color.Coral;
+            this.btnApagarAnexos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApagarAnexos.ForeColor = System.Drawing.Color.White;
+            this.btnApagarAnexos.Location = new System.Drawing.Point(123, 296);
+            this.btnApagarAnexos.Name = "btnApagarAnexos";
+            this.btnApagarAnexos.Size = new System.Drawing.Size(97, 23);
+            this.btnApagarAnexos.TabIndex = 66;
+            this.btnApagarAnexos.Text = "Apagar";
+            this.btnApagarAnexos.UseVisualStyleBackColor = false;
+            this.btnApagarAnexos.Click += new System.EventHandler(this.btnApagarAnexos_Click);
             // 
             // btnImg
             // 
@@ -125,6 +128,7 @@
             this.btnImg.Size = new System.Drawing.Size(33, 23);
             this.btnImg.TabIndex = 65;
             this.btnImg.UseVisualStyleBackColor = true;
+            this.btnImg.Click += new System.EventHandler(this.btnImg_Click);
             // 
             // label8
             // 
@@ -137,13 +141,13 @@
             this.label8.TabIndex = 64;
             this.label8.Text = "Imagem de Capa";
             // 
-            // listBox1
+            // lstAnexosAdicionados
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(17, 247);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(203, 43);
-            this.listBox1.TabIndex = 63;
+            this.lstAnexosAdicionados.FormattingEnabled = true;
+            this.lstAnexosAdicionados.Location = new System.Drawing.Point(17, 247);
+            this.lstAnexosAdicionados.Name = "lstAnexosAdicionados";
+            this.lstAnexosAdicionados.Size = new System.Drawing.Size(203, 43);
+            this.lstAnexosAdicionados.TabIndex = 63;
             // 
             // label7
             // 
@@ -189,13 +193,14 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Criar conteúdo";
             // 
-            // btnImport
+            // btnArquivos
             // 
-            this.btnImport.Location = new System.Drawing.Point(189, 209);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(33, 23);
-            this.btnImport.TabIndex = 59;
-            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnArquivos.Location = new System.Drawing.Point(189, 209);
+            this.btnArquivos.Name = "btnArquivos";
+            this.btnArquivos.Size = new System.Drawing.Size(33, 23);
+            this.btnArquivos.TabIndex = 59;
+            this.btnArquivos.UseVisualStyleBackColor = true;
+            this.btnArquivos.Click += new System.EventHandler(this.btnArquivos_Click);
             // 
             // label5
             // 
@@ -334,15 +339,15 @@
             this.Controls.Add(this.lblConteudo);
             this.Controls.Add(this.cboSelecionar);
             this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.btnApagar);
+            this.Controls.Add(this.btnApagarAnexos);
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstAnexosAdicionados);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboTema);
             this.Controls.Add(this.chkAdicionarPrazo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.btnArquivos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblFim);
             this.Controls.Add(this.lblInicio);
@@ -368,15 +373,15 @@
         private System.Windows.Forms.Label lblConteudo;
         private System.Windows.Forms.ComboBox cboSelecionar;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.Button btnApagarAnexos;
         private System.Windows.Forms.Button btnImg;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstAnexosAdicionados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboTema;
         private System.Windows.Forms.CheckBox chkAdicionarPrazo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnArquivos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblFim;
         private System.Windows.Forms.Label lblInicio;
@@ -389,5 +394,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblErro;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }

@@ -11,9 +11,10 @@ using System;
 namespace Maestro_Rework.Migrations
 {
     [DbContext(typeof(MaestroContext))]
-    partial class MaestroContextModelSnapshot : ModelSnapshot
+    [Migration("20180303210819_nomeAnexo")]
+    partial class nomeAnexo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
