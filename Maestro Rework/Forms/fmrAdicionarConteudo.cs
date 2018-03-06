@@ -52,17 +52,17 @@ namespace Maestro_Rework.Forms
             lblErro.Visible = false;
             lblConteudoAdicionado.Visible = false;
             txtCodigo.Text = null;
-            Conteudo conteudoCriado;
+            Conteudo conteudo;
            
             try
             {
                 CheckarCamposPreenchidos();
 
-                conteudoCriado = AdicionarConteudo();
-                AdicionarAnexos(conteudoCriado);
+                conteudo = AdicionarConteudo();
+                AdicionarAnexos(conteudo);
 
                 lblConteudoAdicionado.Visible = true;
-                txtCodigo.Text = conteudoCriado.CodigoAcesso;
+                txtCodigo.Text = conteudo.CodigoAcesso;
 
                 LimparCampos();
             }
@@ -75,15 +75,18 @@ namespace Maestro_Rework.Forms
 
         private  void AdicionarAnexos(Conteudo conteudoCriado)
         {
-            if ((openFileDialog1.FileName.Length > 0) || (openFileDialog2.FileName.Length > 0))
+            bool possuiArquivoAdicionado = 
+                (openFileDialog1.FileName.Length > 0) || (openFileDialog2.FileName.Length > 0);
+
+            if (possuiArquivoAdicionado)
             {
-                var addAnexo = new AdicionarAnexos();
+                var addAnexo = new ConversorDeAnexos();
                 AdicionarImagem(conteudoCriado, addAnexo);
                 AdicionarArquivos(conteudoCriado, addAnexo);
             }
         }
 
-        private void AdicionarArquivos(Conteudo conteudoCriado, AdicionarAnexos addAnexo)
+        private void AdicionarArquivos(Conteudo conteudoCriado, ConversorDeAnexos addAnexo)
         {
             var anexoConteudoDAO = new AnexoConteudoDAO();
 
@@ -93,9 +96,11 @@ namespace Maestro_Rework.Forms
             {
                 var anexos = new AnexoConteudoConstrutor();
 
+                string nomeArquivo = openFileDialog1.SafeFileName.ToString();
+
                 var arquivo = anexos.ParaConteudo(conteudoCriado)
                     .ParaImagem(null)
-                    .ParaNome(openFileDialog1.SafeFileName.ToString())
+                    .ParaNome(nomeArquivo)
                     .ParaAnexo(addAnexo.databaseFilePut(arquivosSelecionados))
                     .Constroi();
 
@@ -103,18 +108,18 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private void AdicionarImagem(Conteudo conteudoCriado, AdicionarAnexos addAnexo)
+        private void AdicionarImagem(Conteudo conteudoCriado, ConversorDeAnexos addAnexo)
         {
             var anexoConteudoDAO = new AnexoConteudoDAO();
             var anexoConstrutor = new AnexoConteudoConstrutor();
             
             var imagem = addAnexo.databaseFilePut(Path.GetFullPath(openFileDialog2.FileName));
-            string nomeArquivo = openFileDialog2.SafeFileName.ToString();
+            string nomeImagem = openFileDialog2.SafeFileName.ToString();
 
             var anexoImagem = anexoConstrutor.ParaConteudo(conteudoCriado)
                     .ParaImagem(imagem)
                     .ParaAnexo(null)
-                    .ParaNome(nomeArquivo)
+                    .ParaNome(nomeImagem)
                     .Constroi();
 
             anexoConteudoDAO.Adicionar(anexoImagem);

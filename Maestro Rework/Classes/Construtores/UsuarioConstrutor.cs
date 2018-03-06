@@ -12,8 +12,6 @@ namespace Maestro_Rework.Classes.Construtores
         public string Nome { get; private set; }
         public string Senha { get; private set; }
         public string Email { get; private set; }
-        public int Nivel { get; private set; }
-        public string Cargo { get; private set; }
 
         public UsuarioConstrutor ParaLogin(string login)
         {
@@ -35,21 +33,20 @@ namespace Maestro_Rework.Classes.Construtores
             Email = email;
             return this;
         }
-        public UsuarioConstrutor ParaNivel(int nivel)
+
+        public Aluno ConstroiAluno()
         {
-            Nivel = nivel;
-            return this;
+            return new Aluno(Login, Nome, Senha, Email);
         }
 
-        public UsuarioConstrutor ParaCargo(string cargo)
+        public Professor ConstroiProfessor()
         {
-            Cargo = cargo;
-            return this;
+            return new Professor(Login, Nome, Senha, Email);
         }
 
-        public Usuario Constroi()
+        public Administrador ConstroiAdministrador()
         {
-            return new Usuario(Login, Nome, Senha, Email, Nivel, Cargo);
+            return new Administrador(Login, Nome, Senha, Email);
         }
     }
 }

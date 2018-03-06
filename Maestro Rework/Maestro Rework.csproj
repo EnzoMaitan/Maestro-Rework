@@ -108,8 +108,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdicionarAnexos.cs" />
+    <Compile Include="Classes\Administrador.cs" />
     <Compile Include="Classes\Alternativa.cs" />
     <Compile Include="Classes\AlternativaCorreta.cs" />
+    <Compile Include="Classes\Aluno.cs" />
     <Compile Include="Classes\AnexoConteudo.cs" />
     <Compile Include="Classes\Construtores\AlternativaConstrutor.cs" />
     <Compile Include="Classes\Construtores\AnexoConteudoConstrutor.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Classes\Construtores\QuestionarioConstrutor.cs" />
     <Compile Include="Classes\Conteudo.cs" />
     <Compile Include="Classes\GeradorDeCodigo.cs" />
+    <Compile Include="Classes\Professor.cs" />
     <Compile Include="Classes\Questao.cs" />
     <Compile Include="Classes\Questionario.cs" />
     <Compile Include="Classes\QuestionarioUsuario.cs" />

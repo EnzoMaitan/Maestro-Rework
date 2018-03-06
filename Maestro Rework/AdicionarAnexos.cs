@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Maestro_Rework
 {
-    public class AdicionarAnexos
+    public class ConversorDeAnexos
     {
         public static string caminho;
         public byte[] databaseFilePut(string _caminho)

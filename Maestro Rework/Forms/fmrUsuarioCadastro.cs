@@ -32,15 +32,13 @@ namespace Maestro_Rework.Forms
                     var usuarioDao = new UsuarioDAO();
                     var usuarioBuilder = new UsuarioConstrutor();
 
-                    var usuario = usuarioBuilder.ParaNome(txtNome.Text)
+                    var aluno = usuarioBuilder.ParaNome(txtNome.Text)
                             .ParaLogin(txtLogin.Text)
                             .ParaSenha(txtSenha.Text)
-                            .ParaCargo("Aluno")
-                            .ParaNivel(1)
                             .ParaEmail(txtEmail.Text)
-                            .Constroi();
+                            .ConstroiAluno();
 
-                    usuarioDao.Adicionar(usuario);
+                    usuarioDao.Adicionar(aluno);
 
                     lblUsuarioCadastrado.Visible = true;
                     LimparCampos();               

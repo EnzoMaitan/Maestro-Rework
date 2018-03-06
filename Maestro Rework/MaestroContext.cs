@@ -15,11 +15,19 @@ namespace Maestro_Rework
         public DbSet<RegistroUsuario> RegistroUsuarios { get; private set; }
         public DbSet<RegistroConteudo> RegistroConteudos { get; private set; }
         public DbSet<RegistraQuestionario> RegistroQuestionarios { get; private set; }
+
         public DbSet<Usuario> Usuarios { get; set; }
+
         public DbSet<UsuarioConteudo> UsuarioConteudos { get; private set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Usuario>().HasDiscriminator<int>("Nivel")
+                .HasValue<Aluno>(1)
+                .HasValue<Professor>(2)
+                .HasValue<Administrador>(3);
+
             modelBuilder
                 .Entity<UsuarioConteudo>()
                 .HasKey(uc => new { uc.UsuarioID, uc.ConteudoID });
