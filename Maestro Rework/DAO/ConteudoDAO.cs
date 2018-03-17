@@ -29,10 +29,7 @@ namespace Maestro_Rework.DAO
             contexto.SaveChanges();
         }
 
-        public IList<Conteudo> Conteudo()
-        {
-            return contexto.Conteudos.ToList();
-        }
+        public IList<Conteudo> Conteudo() => contexto.Conteudos.ToList();
 
         public void Dispose()
         {

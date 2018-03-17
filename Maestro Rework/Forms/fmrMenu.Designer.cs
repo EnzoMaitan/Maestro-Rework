@@ -28,125 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnAluno = new System.Windows.Forms.Button();
+            this.btnProfessor = new System.Windows.Forms.Button();
+            this.btnAcesso = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnStatus = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblCargo
+            // lblNome
             // 
-            this.lblCargo.AutoSize = true;
-            this.lblCargo.BackColor = System.Drawing.Color.Transparent;
-            this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCargo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCargo.Location = new System.Drawing.Point(77, 30);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(61, 24);
-            this.lblCargo.TabIndex = 14;
-            this.lblCargo.Text = "Cargo";
+            this.lblNome.AutoSize = true;
+            this.lblNome.BackColor = System.Drawing.Color.Transparent;
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblNome.Location = new System.Drawing.Point(77, 30);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(62, 24);
+            this.lblNome.TabIndex = 14;
+            this.lblNome.Text = "Nome";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(8)))), ((int)(((byte)(17)))));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.btnAluno);
+            this.panel1.Controls.Add(this.btnProfessor);
+            this.panel1.Controls.Add(this.btnAcesso);
+            this.panel1.Controls.Add(this.btnSair);
+            this.panel1.Controls.Add(this.btnStatus);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.lblCargo);
+            this.panel1.Controls.Add(this.btnPerfil);
+            this.panel1.Controls.Add(this.lblNome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 585);
             this.panel1.TabIndex = 15;
             // 
-            // button4
+            // btnAluno
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 103);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 40);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "Aluno";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnAluno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnAluno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAluno.FlatAppearance.BorderSize = 0;
+            this.btnAluno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAluno.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAluno.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAluno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAluno.Location = new System.Drawing.Point(0, 103);
+            this.btnAluno.Name = "btnAluno";
+            this.btnAluno.Size = new System.Drawing.Size(200, 40);
+            this.btnAluno.TabIndex = 25;
+            this.btnAluno.Text = "Aluno";
+            this.btnAluno.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnProfessor
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 149);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 40);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "Professor";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnProfessor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnProfessor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnProfessor.FlatAppearance.BorderSize = 0;
+            this.btnProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfessor.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfessor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnProfessor.Location = new System.Drawing.Point(0, 149);
+            this.btnProfessor.Name = "btnProfessor";
+            this.btnProfessor.Size = new System.Drawing.Size(200, 40);
+            this.btnProfessor.TabIndex = 25;
+            this.btnProfessor.Text = "Professor";
+            this.btnProfessor.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAcesso
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(0, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 40);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Acesso";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAcesso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnAcesso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAcesso.FlatAppearance.BorderSize = 0;
+            this.btnAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcesso.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcesso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAcesso.Location = new System.Drawing.Point(0, 195);
+            this.btnAcesso.Name = "btnAcesso";
+            this.btnAcesso.Size = new System.Drawing.Size(200, 40);
+            this.btnAcesso.TabIndex = 25;
+            this.btnAcesso.Text = "Acesso";
+            this.btnAcesso.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnSair
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(45, 537);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(101, 36);
-            this.button9.TabIndex = 24;
-            this.button9.Text = "Sair";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSair.Location = new System.Drawing.Point(45, 537);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(101, 36);
+            this.btnSair.TabIndex = 24;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // button8
+            // btnStatus
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(0, 478);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(200, 40);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "Status";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnStatus.Location = new System.Drawing.Point(0, 478);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(200, 40);
+            this.btnStatus.TabIndex = 23;
+            this.btnStatus.Text = "Status";
+            this.btnStatus.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
@@ -195,22 +196,23 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button1
+            // btnPerfil
             // 
-            this.button1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Yellow;
-            this.button1.Location = new System.Drawing.Point(-3, 53);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Meu Perfil";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPerfil.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.ForeColor = System.Drawing.Color.Yellow;
+            this.btnPerfil.Location = new System.Drawing.Point(-3, 53);
+            this.btnPerfil.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(200, 40);
+            this.btnPerfil.TabIndex = 16;
+            this.btnPerfil.Text = "Meu Perfil";
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // fmrMenu
             // 
@@ -228,16 +230,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPerfil;
+        private System.Windows.Forms.Button btnAluno;
+        private System.Windows.Forms.Button btnProfessor;
+        private System.Windows.Forms.Button btnAcesso;
     }
 }

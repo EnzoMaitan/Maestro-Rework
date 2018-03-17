@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-
 namespace Maestro_Rework.Classes
 {
     public static class GeradorDeCodigo

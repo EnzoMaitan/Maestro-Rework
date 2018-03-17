@@ -34,9 +34,6 @@ namespace Maestro_Rework.DAO
             ((IDisposable)contexto).Dispose();
         }
 
-        public IList<Questionario> Questionario()
-        {
-            return contexto.Questionarios.ToList();
-        }
+        public IList<Questionario> Questionario() => contexto.Questionarios.ToList();
     }
 }

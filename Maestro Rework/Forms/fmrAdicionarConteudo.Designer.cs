@@ -36,7 +36,7 @@
             this.btnApagarAnexos = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.lstAnexosAdicionados = new System.Windows.Forms.ListBox();
+            this.lstAnexoAdicionados = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cboTema = new System.Windows.Forms.ComboBox();
             this.chkAdicionarPrazo = new System.Windows.Forms.CheckBox();
@@ -54,8 +54,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblErro = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.ofdArquivosAnexo = new System.Windows.Forms.OpenFileDialog();
+            this.ofdImagemDeCapa = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // lblConteudoAdicionado
@@ -143,11 +143,11 @@
             // 
             // lstAnexosAdicionados
             // 
-            this.lstAnexosAdicionados.FormattingEnabled = true;
-            this.lstAnexosAdicionados.Location = new System.Drawing.Point(17, 247);
-            this.lstAnexosAdicionados.Name = "lstAnexosAdicionados";
-            this.lstAnexosAdicionados.Size = new System.Drawing.Size(203, 43);
-            this.lstAnexosAdicionados.TabIndex = 63;
+            this.lstAnexoAdicionados.FormattingEnabled = true;
+            this.lstAnexoAdicionados.Location = new System.Drawing.Point(17, 247);
+            this.lstAnexoAdicionados.Name = "lstAnexosAdicionados";
+            this.lstAnexoAdicionados.Size = new System.Drawing.Size(203, 43);
+            this.lstAnexoAdicionados.TabIndex = 63;
             // 
             // label7
             // 
@@ -342,7 +342,7 @@
             this.Controls.Add(this.btnApagarAnexos);
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lstAnexosAdicionados);
+            this.Controls.Add(this.lstAnexoAdicionados);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboTema);
             this.Controls.Add(this.chkAdicionarPrazo);
@@ -376,7 +376,7 @@
         private System.Windows.Forms.Button btnApagarAnexos;
         private System.Windows.Forms.Button btnImg;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox lstAnexosAdicionados;
+        private System.Windows.Forms.ListBox lstAnexoAdicionados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboTema;
         private System.Windows.Forms.CheckBox chkAdicionarPrazo;
@@ -394,7 +394,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblErro;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.OpenFileDialog ofdArquivosAnexo;
+        private System.Windows.Forms.OpenFileDialog ofdImagemDeCapa;
     }
 }

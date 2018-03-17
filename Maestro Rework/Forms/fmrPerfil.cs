@@ -56,7 +56,7 @@ namespace Maestro_Rework.Forms
                 txtNome.Text = usuario.Nome;
                 txtLogin.Text = usuario.Login;
                 txtEmail.Text = usuario.Email;
-                CheckarEmailConfirmado();
+                usuario.CheckarEmailConfirmado();
               
             }
             catch (Exception ex)
@@ -66,19 +66,12 @@ namespace Maestro_Rework.Forms
                 if(ex.Message.Contains("Email Não Confirmado"))chkAlterarSenha.Enabled = false;             
             }
         }
-
-        private bool CheckarEmailConfirmado()
-        {
-            var usuario = GetUsuarioAtualizado(fmrLogin.usuarioLogado);
-            if (usuario.Verificado) return true;
-            else throw new Exception("Email Não Confirmado");
-        }
-
+      
         private Usuario GetUsuarioAtualizado(Usuario usuario)
         {
             using (var contexto = new MaestroContext())
             {
-                return contexto.Usuarios.Where(x => x.Id == usuario.Id).FirstOrDefault();
+                return contexto.Usuarios.FirstOrDefault(x => x.Id == usuario.Id);
             }
         }
 
@@ -103,6 +96,11 @@ namespace Maestro_Rework.Forms
         }
 
         private void fmrPerfil_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
 
         }

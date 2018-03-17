@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Maestro_Rework.Classes;
 
 namespace Maestro_Rework.IDAO
@@ -11,7 +7,7 @@ namespace Maestro_Rework.IDAO
     {
         void Adicionar(Usuario usuario);
         void Atualizar(Usuario usuario);
-        bool NomeDisponivel(string login);
+        bool LoginDisponivel(string login);
         bool ValidarLogin(string login, string senha);
         Usuario GetUsuarioLogado(string login, string senha);
         IList<Usuario> Usuario();

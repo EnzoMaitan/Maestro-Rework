@@ -32,25 +32,29 @@ namespace Maestro_Rework.Forms
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            IList<Alternativa> alternativas = new List<Alternativa>();
+            IList<Alternativa> alternativas;
             lblErro.Visible = false;
 
             try
             {
-                if (CamposAlternativaPreenchido() && PossuiAlternativaCorreta() && ValorMaiorQueZero()) {
+                if (CamposAlternativaPreenchido() && PossuiAlternativaCorreta() && ValorMaiorQueZero())
+                {
                     var questaoConstrutor = new QuestaoConstrutor();
-    
+
                     var questao = questaoConstrutor
                         .ParaPergunta(txtPergunta.Text)
                         .ParaValor(Convert.ToDouble(updValor.Value))
                         .ParaImagem(DefinirImagem())
                         .Constroi();
 
-                    alternativas.Add(AdicionaAlternativa(questao, txtAltA.Text, rdbA.Checked));
-                    alternativas.Add(AdicionaAlternativa(questao, txtAltB.Text, rdbB.Checked));
-                    alternativas.Add(AdicionaAlternativa(questao, txtAltC.Text, rdbC.Checked));
-                    alternativas.Add(AdicionaAlternativa(questao, txtAltD.Text, rdbD.Checked));
-                    alternativas.Add(AdicionaAlternativa(questao, txtAltE.Text, rdbE.Checked));
+                    alternativas = new List<Alternativa>
+                    {
+                        AdicionaAlternativa(questao, txtAltA.Text, rdbA.Checked),
+                        AdicionaAlternativa(questao, txtAltB.Text, rdbB.Checked),
+                        AdicionaAlternativa(questao, txtAltC.Text, rdbC.Checked),
+                        AdicionaAlternativa(questao, txtAltD.Text, rdbD.Checked),
+                        AdicionaAlternativa(questao, txtAltE.Text, rdbE.Checked),
+                    };
 
                     questao = questaoConstrutor
                         .ParaAlternativas(alternativas)
@@ -64,10 +68,9 @@ namespace Maestro_Rework.Forms
             }
             catch (Exception ex)
             {
-               
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
-            }           
+            }
         }
 
         public void LimparCamposAlternativas()
@@ -94,9 +97,9 @@ namespace Maestro_Rework.Forms
 
         private bool PossuiAlternativaCorreta()
         {
-            if (rdbA.Checked != false || rdbB.Checked != false ||
-                rdbC.Checked != false || rdbD.Checked != false ||
-                rdbE.Checked != false) return true;
+            if (rdbA.Checked || rdbB.Checked ||
+                rdbC.Checked || rdbD.Checked ||
+                rdbE.Checked) return true;
             else throw new ArgumentNullException("", "Selecione uma Alternativa Correta");
         }
 
@@ -111,56 +114,62 @@ namespace Maestro_Rework.Forms
 
         private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)
         {
-            using (var alternativaConstrutor = new AlternativaConstrutor())
-            {
-                return alternativaConstrutor
-                               .ParaTexto(texto)
-                               .ParaCorreta(correta)
-                               .ParaQuestao(questaoAtual)
-                               .Constroi();
-            }
+            var alternativaConstrutor = new AlternativaConstrutor();
+           
+            return alternativaConstrutor
+                    .ParaTexto(texto)
+                    .ParaCorreta(correta)
+                    .ParaQuestao(questaoAtual)
+                    .Constroi();           
         }
 
         private void btnAcao_Click(object sender, EventArgs e)
         {            
-            var questionarioDAO = new QuestionarioDAO();
-            var questionarioConstrutor = new QuestionarioConstrutor();
-
             try
             {
-                if (chkAdicionarPrazo.Checked)
-                {
-                    questionarioConstrutor.ParaDataFim(dtpFim.Value);
-                    questionarioConstrutor.ParaDataInicio(dtpInicio.Value);
-                }
-                else
-                {
-                    questionarioConstrutor.ParaDataFim(null);
-                    questionarioConstrutor.ParaDataInicio(null);
-                }
+                var questionarioAdicionado = AdicionarQuestionario();
 
-                var questionario =  questionarioConstrutor
-                    .ParaUsuario(fmrLogin.usuarioLogado)
-                    .ParaNome(txtTitulo.Text)
-                    .ParaRefazer(chkRefazer.Checked)
-                    .ParaAtivo(true)
-                    .ParaQuestoes(questoes)
-                    .Constroi();
-
-                questionarioDAO.Adicionar(questionario);
-
-                txtCodigo.Text = questionario.CodigoAcesso;
+                txtCodigo.Text = questionarioAdicionado.CodigoAcesso;
                 lblQuestionarioAdicionado.Visible = true;
 
                 questoes.Clear();
+
                 LimparCamposQuestionario();
                 LimparCamposAlternativas();
             }
-            catch (Exception ex)
+            catch (Exception erro)
             {
                 lblErro.Visible = true;
-                lblErro.Text = ex.Message;
+                lblErro.Text = erro.Message;
             }
+        }
+
+        private Questionario AdicionarQuestionario()
+        {
+            var questionarioDAO = new QuestionarioDAO();
+            var questionarioConstrutor = new QuestionarioConstrutor();
+
+            if (chkAdicionarPrazo.Checked)
+            {
+                questionarioConstrutor.ParaDataFim(dtpFim.Value);
+                questionarioConstrutor.ParaDataInicio(dtpInicio.Value);
+            }
+            else
+            {
+                questionarioConstrutor.ParaDataFim(null);
+                questionarioConstrutor.ParaDataInicio(null);
+            }
+
+            var questionario = questionarioConstrutor
+                .ParaUsuario(fmrLogin.usuarioLogado)
+                .ParaNome(txtTitulo.Text)
+                .ParaRefazer(chkRefazer.Checked)
+                .ParaAtivo(true)
+                .ParaQuestoes(questoes)
+                .Constroi();
+
+            questionarioDAO.Adicionar(questionario);
+            return questionario;
         }
 
         private void LimparCamposQuestionario()
@@ -208,10 +217,9 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private Questao GetQuestaoSelecionada()
-        {
-            return questoes.Where(x => x.Pergunta == lstQuestoes.Text).FirstOrDefault();
-        }
+        private Questao GetQuestaoSelecionada() => 
+            questoes.Where(x => x.Pergunta == lstQuestoes.Text).FirstOrDefault();
+        
 
         private void MostrarAlternativaCorreta(Questao questaoSelecionada)
         {
@@ -303,21 +311,18 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                openFileDialog1.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                ofdImagemDaQuestao.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
+                if (ofdImagemDaQuestao.ShowDialog() == DialogResult.OK)
                 {
-                    openFileDialog1.OpenFile();
-                    pictureBox1.ImageLocation = openFileDialog1.FileName;
+                    ofdImagemDaQuestao.OpenFile();
+                    pictureBox1.ImageLocation = ofdImagemDaQuestao.FileName;
                 }
             }
             catch (Exception) { }
         }
 
-        private void btnRemoverImg_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = null;
-        }
-
+        private void btnRemoverImg_Click(object sender, EventArgs e) => pictureBox1.Image = null;
+        
         private byte[] ConverterFoto(PictureBox pictureBox)
         {
             using (var stream = new MemoryStream())

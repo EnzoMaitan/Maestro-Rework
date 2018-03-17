@@ -8,12 +8,10 @@ namespace Maestro_Rework.Classes
 {
     public abstract class Usuario
     {
-        public void AtualizarSenha(string senha)
-        {
-            Senha = senha;
-        }
-
         public int Id { get; protected set; }
+        public IList<UsuarioConteudo> Conteudos { get; set; }
+        public IList<RegistroUsuario> Registros { get; set; }
+
         public string Login { get; protected set; }
         public string Nome { get; protected set; }
         public string Senha { get; protected set; }
@@ -24,7 +22,15 @@ namespace Maestro_Rework.Classes
         public string Cargo { get; protected set; }
         public bool Verificado { get; protected set; }
         public DateTime DataCriacao { get; protected set; }
-        public IList<UsuarioConteudo> Conteudos { get; set; }
-        public IList<RegistroUsuario> Registros { get; set; }
+
+        public bool CheckarEmailConfirmado()
+        {
+            if (Verificado) return true;
+            else throw new Exception("Email Não Confirmado");
+        }
+        public void AtualizarSenha(string senha)
+        {
+            Senha = senha;
+        }
     }
 }

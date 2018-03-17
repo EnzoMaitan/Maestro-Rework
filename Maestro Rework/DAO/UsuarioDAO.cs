@@ -16,14 +16,14 @@ namespace Maestro_Rework.DAO
         {
             using (var contexto = new MaestroContext())
             {
-                var query = contexto.Usuarios.Where(x => x.Login == login && x.Senha == senha);
+                var query = contexto.Usuarios.Where(x => x.Login.Equals(login) && x.Senha.Equals(senha));
                 if (query.FirstOrDefault() != null)
                     return true;
                 else throw new Exception("Usuario Invalido");
             }
         }
 
-        public bool NomeDisponivel(string login)
+        public bool LoginDisponivel(string login)
         {
             using (var contexto = new MaestroContext())
             {
@@ -59,10 +59,8 @@ namespace Maestro_Rework.DAO
             contexto.SaveChanges();
         }
 
-        public IList<Usuario> Usuario()
-        {
-            return contexto.Usuarios.ToList();
-        }
+        public IList<Usuario> Usuario() => contexto.Usuarios.ToList();
+        
 
         public void Dispose()
         {

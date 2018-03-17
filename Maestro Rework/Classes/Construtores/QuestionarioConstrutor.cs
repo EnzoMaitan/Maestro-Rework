@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Maestro_Rework.Classes.Construtores
 {
-    class QuestionarioConstrutor
+    public class QuestionarioConstrutor
     {
         public int UsuarioId { get; private set; }
         public string Nome { get; private set; }

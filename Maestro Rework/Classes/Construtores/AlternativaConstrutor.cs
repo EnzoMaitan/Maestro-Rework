@@ -7,7 +7,7 @@ using Maestro_Rework.Classes;
 
 namespace Maestro_Rework.Classes.Construtores
 {
-    class AlternativaConstrutor : IDisposable
+    class AlternativaConstrutor
     {
         public int QuestaoID { get; private set; }
         public string Texto { get; private set; }
@@ -34,11 +34,6 @@ namespace Maestro_Rework.Classes.Construtores
         public Alternativa Constroi()
         {
             return new Alternativa(QuestaoID, Texto, Correta);
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
         }
     }
 }

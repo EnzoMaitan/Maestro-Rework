@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Maestro_Rework.Classes;
 
 namespace Maestro_Rework.Forms
 {
@@ -18,6 +19,7 @@ namespace Maestro_Rework.Forms
             IsMdiContainer = true;
 
             OcultarFuncionalidadesPorNivel(fmrLogin.usuarioLogado.Nivel);
+            lblNome.Text = $"Olá, {fmrLogin.usuarioLogado.Nome}";          
         }
 
         private void OcultarFuncionalidadesPorNivel(int nivel)
@@ -30,38 +32,28 @@ namespace Maestro_Rework.Forms
                 ActiveMdiChild.Close();
         }
 
-        private void tsPerfil_Click(object sender, EventArgs e)
-        {
-            LimparMdiContainer();
-            fmrPerfil show = new fmrPerfil();
-            show.MdiParent = this;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-        }
+        //private void tsCadastrarConteudo_Click(object sender, EventArgs e)
+        //{
+        //    LimparMdiContainer();
+        //    fmrAdicionarConteudo show = new fmrAdicionarConteudo();
+        //    show.MdiParent = this;
+        //    show.Dock = DockStyle.Fill;
+        //    show.Show();
+        //}
 
-
-        private void tsCadastrarConteudo_Click(object sender, EventArgs e)
-        {
-            LimparMdiContainer();
-            fmrAdicionarConteudo show = new fmrAdicionarConteudo();
-            show.MdiParent = this;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-        }
-
-        private void tsCadastrarQuestionario_Click(object sender, EventArgs e)
-        {
-            LimparMdiContainer();
-            fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
-            show.MdiParent = this;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-        }
+        //private void tsCadastrarQuestionario_Click(object sender, EventArgs e)
+        //{
+        //    LimparMdiContainer();
+        //    fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
+        //    show.MdiParent = this;
+        //    show.Dock = DockStyle.Fill;
+        //    show.Show();
+        //}
 
         private void button6_Click(object sender, EventArgs e)
         {
             LimparMdiContainer();
-            fmrAdicionarConteudo show = new fmrAdicionarConteudo();
+            var show = new fmrAdicionarConteudo();
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -70,10 +62,27 @@ namespace Maestro_Rework.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             LimparMdiContainer();
-            fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
+            var show = new fmrAdicionarQuestionario();
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            LimparMdiContainer();
+            var show = new fmrPerfil();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            var show = new fmrLogin();
+            fmrLogin.usuarioLogado = null;
+            show.Show();
+            Close();          
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Maestro_Rework
     public class ConversorDeAnexos
     {
         public static string caminho;
-        public byte[] databaseFilePut(string _caminho)
+        public byte[] DatabaseFilePut(string _caminho)
         {
             caminho = _caminho;
             byte[] file;

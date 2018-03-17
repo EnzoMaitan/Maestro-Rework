@@ -25,6 +25,7 @@ namespace Maestro_Rework.Forms
             cboSelecionar.Visible = false;
             lblConteudoAdicionado.Visible = false;
             AlterarVisibilidadePrazo(false);
+            ConfigurarFileDialogs();          
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace Maestro_Rework.Forms
         private  void AdicionarAnexos(Conteudo conteudoCriado)
         {
             bool possuiArquivoAdicionado = 
-                (openFileDialog1.FileName.Length > 0) || (openFileDialog2.FileName.Length > 0);
+                (ofdArquivosAnexo.FileName.Length > 0) || (ofdImagemDeCapa.FileName.Length > 0);
 
             if (possuiArquivoAdicionado)
             {
@@ -90,18 +91,18 @@ namespace Maestro_Rework.Forms
         {
             var anexoConteudoDAO = new AnexoConteudoDAO();
 
-            string[] anexoArquivos = openFileDialog1.FileNames;
+            string[] anexoArquivos = ofdArquivosAnexo.FileNames;
 
             foreach (var arquivosSelecionados in anexoArquivos)
             {
                 var anexos = new AnexoConteudoConstrutor();
 
-                string nomeArquivo = openFileDialog1.SafeFileName.ToString();
+                string nomeArquivo = ofdArquivosAnexo.SafeFileName.ToString();
 
                 var arquivo = anexos.ParaConteudo(conteudoCriado)
                     .ParaImagem(null)
                     .ParaNome(nomeArquivo)
-                    .ParaAnexo(addAnexo.databaseFilePut(arquivosSelecionados))
+                    .ParaAnexo(addAnexo.DatabaseFilePut(arquivosSelecionados))
                     .Constroi();
 
                 anexoConteudoDAO.Adicionar(arquivo);
@@ -113,8 +114,8 @@ namespace Maestro_Rework.Forms
             var anexoConteudoDAO = new AnexoConteudoDAO();
             var anexoConstrutor = new AnexoConteudoConstrutor();
             
-            var imagem = addAnexo.databaseFilePut(Path.GetFullPath(openFileDialog2.FileName));
-            string nomeImagem = openFileDialog2.SafeFileName.ToString();
+            var imagem = addAnexo.DatabaseFilePut(Path.GetFullPath(ofdImagemDeCapa.FileName));
+            string nomeImagem = ofdImagemDeCapa.SafeFileName.ToString();
 
             var anexoImagem = anexoConstrutor.ParaConteudo(conteudoCriado)
                     .ParaImagem(imagem)
@@ -127,7 +128,6 @@ namespace Maestro_Rework.Forms
 
         private Conteudo AdicionarConteudo()
         {
-            Conteudo conteudoCriado;
             var construtorConteudo = new ConteudoConstrutor();
             var conteudoDAO = new ConteudoDAO();
             construtorConteudo.ParaNome(txtNome.Text)
@@ -148,7 +148,7 @@ namespace Maestro_Rework.Forms
                     .ParaDataFim(null)
                     .ParaDataInicio(null);
             }
-            conteudoCriado = construtorConteudo.Constroi();
+            var conteudoCriado = construtorConteudo.Constroi();
 
             conteudoDAO.Adicionar(conteudoCriado);
 
@@ -160,7 +160,7 @@ namespace Maestro_Rework.Forms
             txtNome.Clear();
             rtfTexto.Clear();
             cboTema.Text = "";
-            lstAnexosAdicionados.Items.Clear();
+            lstAnexoAdicionados.Items.Clear();
         }
 
         private void CheckarCamposPreenchidos()
@@ -172,38 +172,55 @@ namespace Maestro_Rework.Forms
 
         private void btnImg_Click(object sender, EventArgs e)
         {
-            openFileDialog2.Reset();
-            openFileDialog2.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
-            openFileDialog2.ShowDialog();
-            openFileDialog2.OpenFile();
-            lstAnexosAdicionados.Items.Add(Path.GetFileName(openFileDialog2.FileName.ToString()));
+            ofdImagemDeCapa.Reset();
+            ConfigurarFileDialogs();
+
+            if (ofdImagemDeCapa.ShowDialog() == DialogResult.OK)
+            {         
+                ofdImagemDeCapa.OpenFile();
+                lstAnexoAdicionados.Items.Add(GetNomeArquivo(ofdImagemDeCapa));
+            }
         }
 
         private void btnApagarAnexos_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Reset();
-            openFileDialog2.Reset();
-            lstAnexosAdicionados.DataSource = null;
-            lstAnexosAdicionados.Items.Clear();
+            ofdArquivosAnexo.Reset();
+            ofdImagemDeCapa.Reset();
+            lstAnexoAdicionados.DataSource = null;
+            lstAnexoAdicionados.Items.Clear();
         }
 
         private void btnArquivos_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Anexos(*.docx;*.ppt;*.doc;*.xls;*.pdf,*.txt;)|*.docx;*.ppt;*.doc;*.xls;*.pdf,*.txt";
-            openFileDialog1.Multiselect = true;
-            openFileDialog1.RestoreDirectory = true;
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            ofdArquivosAnexo.Reset();
+            ConfigurarFileDialogs();
+
+            if (ofdArquivosAnexo.ShowDialog() == DialogResult.OK)
             {
-                lstAnexosAdicionados.DataSource = null;
-                lstAnexosAdicionados.Items.Clear();
-                openFileDialog1.OpenFile();
-                string[] anexos = openFileDialog1.FileNames;
-                foreach (string y in anexos)
+                lstAnexoAdicionados.DataSource = null;
+                lstAnexoAdicionados.Items.Clear();
+
+                ofdArquivosAnexo.OpenFile();
+                string[] anexos = ofdArquivosAnexo.FileNames;
+                foreach (string arquivo in anexos)
                 {
-                    lstAnexosAdicionados.Items.Add(Path.GetFileName(openFileDialog2.FileName.ToString()));
-                    lstAnexosAdicionados.Items.Add(Path.GetFileName(y));
+                    if(ofdImagemDeCapa.FileNames.Count() > 0)
+                     lstAnexoAdicionados.Items.Add(GetNomeArquivo(ofdImagemDeCapa));
+
+                    lstAnexoAdicionados.Items.Add(Path.GetFileName(arquivo));
                 }
             }
+        }
+
+        private string GetNomeArquivo(OpenFileDialog fileDialog)=>
+         Path.GetFileName(fileDialog.FileName.ToString());
+
+        private void ConfigurarFileDialogs()
+        {
+            ofdImagemDeCapa.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
+            ofdArquivosAnexo.Filter = "Anexos(*.docx;*.ppt;*.doc;*.xls;*.pdf,*.txt;)|*.docx;*.ppt;*.doc;*.xls;*.pdf,*.txt";
+            ofdArquivosAnexo.Multiselect = true;
+            ofdArquivosAnexo.RestoreDirectory = true;
         }
     }
 }

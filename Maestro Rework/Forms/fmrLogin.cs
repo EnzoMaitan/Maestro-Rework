@@ -25,16 +25,14 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                using (var contexto = new MaestroContext())
+                var usuarioDAO = new UsuarioDAO();
+
+                if (CamposPreenchidos()&&usuarioDAO.ValidarLogin(txtLogin.Text, txtSenha.Text))
                 {
-                    var usuarioDAO = new UsuarioDAO();
-                    if (CamposPreenchidos()&&usuarioDAO.ValidarLogin(txtLogin.Text, txtSenha.Text))
-                    {
-                        usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);
-                        fmrMenu fmr = new fmrMenu();
-                        fmr.Show();
-                        Hide();
-                    }
+                    usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);
+                    fmrMenu fmr = new fmrMenu();
+                    fmr.Show();
+                    Hide();
                 }
             }
             catch (Exception ex)
