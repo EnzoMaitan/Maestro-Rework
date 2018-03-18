@@ -134,17 +134,29 @@
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="Forms\fmrAdicionarConteudo.cs">
+    <Compile Include="Forms\fmrAdicionarQuestao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fmrAdicionarConteudo.Designer.cs">
-      <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    <Compile Include="Forms\fmrAdicionarQuestao.Designer.cs">
+      <DependentUpon>fmrAdicionarQuestao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrContCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrContCodigo.Designer.cs">
+      <DependentUpon>fmrContCodigo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrAdicionarQuestionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\fmrAdicionarQuestionario.Designer.cs">
       <DependentUpon>fmrAdicionarQuestionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrListaQuestionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrListaQuestionarios.Designer.cs">
+      <DependentUpon>fmrListaQuestionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
@@ -164,11 +176,35 @@
     <Compile Include="Forms\fmrPerfil.Designer.cs">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmrQuestCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrQuestCodigo.Designer.cs">
+      <DependentUpon>fmrQuestCodigo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmrUsuarioCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\fmrUsuarioCadastro.Designer.cs">
       <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrGerencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrGerencia.Designer.cs">
+      <DependentUpon>fmrGerencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrCodigoCont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrCodigoCont.Designer.cs">
+      <DependentUpon>fmrCodigoCont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrContText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrContText.Designer.cs">
+      <DependentUpon>fmrContText.cs</DependentUpon>
     </Compile>
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
@@ -194,11 +230,17 @@
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\fmrAdicionarConteudo.resx">
-      <DependentUpon>fmrAdicionarConteudo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fmrAdicionarQuestao.resx">
+      <DependentUpon>fmrAdicionarQuestao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrContCodigo.resx">
+      <DependentUpon>fmrContCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrAdicionarQuestionario.resx">
       <DependentUpon>fmrAdicionarQuestionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrListaQuestionarios.resx">
+      <DependentUpon>fmrListaQuestionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrLogin.resx">
       <DependentUpon>fmrLogin.cs</DependentUpon>
@@ -209,8 +251,20 @@
     <EmbeddedResource Include="Forms\fmrPerfil.resx">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrQuestCodigo.resx">
+      <DependentUpon>fmrQuestCodigo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrUsuarioCadastro.resx">
       <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrGerencia.resx">
+      <DependentUpon>fmrGerencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrCodigoCont.resx">
+      <DependentUpon>fmrCodigoCont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrContText.resx">
+      <DependentUpon>fmrContText.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

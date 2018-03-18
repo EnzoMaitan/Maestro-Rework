@@ -59,7 +59,7 @@ namespace Maestro_Rework.Forms
         private void button6_Click(object sender, EventArgs e)
         {
             LimparMdiContainer();
-            var show = new fmrAdicionarConteudo();
+            var show = new fmrContCodigo();
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();

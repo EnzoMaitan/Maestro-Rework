@@ -14,9 +14,9 @@ using System.IO;
 
 namespace Maestro_Rework.Forms
 {
-    public partial class fmrAdicionarConteudo : Form
+    public partial class fmrContCodigo : Form
     {
-        public fmrAdicionarConteudo()
+        public fmrContCodigo()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
