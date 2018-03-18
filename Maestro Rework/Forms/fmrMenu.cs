@@ -18,12 +18,18 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
             IsMdiContainer = true;
 
-            OcultarFuncionalidadesPorNivel(fmrLogin.usuarioLogado.Nivel);
+            OcultarFuncionalidadesPorNivel();
             lblNome.Text = $"Olá, {fmrLogin.usuarioLogado.Nome}";          
         }
 
-        private void OcultarFuncionalidadesPorNivel(int nivel)
+        private void OcultarFuncionalidadesPorNivel()
         {
+            if (fmrLogin.usuarioLogado is Aluno)
+            { }
+            if (fmrLogin.usuarioLogado is Professor)
+            { }
+            if (fmrLogin.usuarioLogado is Administrador)
+            { }
         }
 
         private void LimparMdiContainer()

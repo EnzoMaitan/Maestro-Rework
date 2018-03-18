@@ -12,8 +12,7 @@ namespace Maestro_Rework.Classes.Construtores
         public string Nome { get; private set; }
         public string Tema { get; private set; }
         public string Texto { get; private set; }
-        public DateTime? DataInicio { get; private set; }
-        public DateTime? DataFim { get; private set; }
+
         public bool Ativo { get; private set; }
         public string CodigoAcesso { get; private set; }
 
@@ -37,16 +36,6 @@ namespace Maestro_Rework.Classes.Construtores
             Texto = texto;
             return this;
         }
-        public ConteudoConstrutor ParaDataInicio(DateTime? dataInicio)
-        {
-            DataInicio = dataInicio;
-            return this;
-        }
-        public ConteudoConstrutor ParaDataFim(DateTime? dataFim)
-        {
-            DataFim = dataFim;
-            return this;
-        }
 
         public ConteudoConstrutor ParaAtivo(bool ativo)
         {
@@ -57,7 +46,7 @@ namespace Maestro_Rework.Classes.Construtores
         public Conteudo Constroi()
         {
             CodigoAcesso = GeradorDeCodigo.GerarCodigoAcesso();
-                return new Conteudo(UsuarioID, Nome, Tema, Texto, DataInicio, DataFim, CodigoAcesso, Ativo);           
+                return new Conteudo(UsuarioID, Nome, Tema, Texto, CodigoAcesso, Ativo);           
         }
     }
 }

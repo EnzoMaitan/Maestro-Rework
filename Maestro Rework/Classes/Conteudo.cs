@@ -8,33 +8,17 @@ namespace Maestro_Rework.Classes
 {
     public class Conteudo
     {
-        public Conteudo(int usuarioID, string nome, string tema, string texto, DateTime? dataInicio, DateTime? dataFim, string codigoAcesso, bool ativo)
+        public Conteudo(int usuarioID, string nome, string tema, string texto, string codigoAcesso, bool ativo)
         {
             UsuarioID = usuarioID;
             Nome = nome;
             Tema = tema;
             Texto = texto;
-            DataInicio = dataInicio;
-            DataFim = dataFim;
             CodigoAcesso = codigoAcesso;
             Ativo = ativo;
             DataCriacao = DateTime.Now;
-
-            if (!CheckarLimitePrazo()) throw new ArgumentException("A data limite deve ser após a data de inicio");
-
         }
 
-        private bool CheckarLimitePrazo()
-        {
-            bool possuiPrazo = DataInicio != null && DataFim != null;
-
-            if (possuiPrazo)
-            {
-                if (DataInicio.Value < DataFim.Value) return true;
-                else return false;
-            }
-            else return true;
-        }
 
         public Conteudo()
         {
@@ -50,8 +34,6 @@ namespace Maestro_Rework.Classes
         public string Nome { get; private set; }
         public string Tema { get; private set; }
         public string Texto { get; private set; }
-        public DateTime? DataInicio { get; private set; }
-        public DateTime? DataFim { get; private set; }
         public string CodigoAcesso { get; private set; }
         public bool Ativo { get; private set; }
         public DateTime DataCriacao { get; private set; }

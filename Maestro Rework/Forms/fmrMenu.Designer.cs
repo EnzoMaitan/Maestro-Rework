@@ -35,9 +35,9 @@
             this.btnAcesso = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnResultado = new System.Windows.Forms.Button();
+            this.btnConteudo = new System.Windows.Forms.Button();
+            this.btnQuestionario = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,9 +62,9 @@
             this.panel1.Controls.Add(this.btnAcesso);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnStatus);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.btnResultado);
+            this.panel1.Controls.Add(this.btnConteudo);
+            this.panel1.Controls.Add(this.btnQuestionario);
             this.panel1.Controls.Add(this.btnPerfil);
             this.panel1.Controls.Add(this.lblNome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -149,52 +149,52 @@
             this.btnStatus.Text = "Status";
             this.btnStatus.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnResultado
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(-3, 352);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(200, 40);
-            this.button7.TabIndex = 22;
-            this.button7.Text = "Resultado";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnResultado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnResultado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnResultado.FlatAppearance.BorderSize = 0;
+            this.btnResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResultado.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResultado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnResultado.Location = new System.Drawing.Point(-3, 352);
+            this.btnResultado.Name = "btnResultado";
+            this.btnResultado.Size = new System.Drawing.Size(200, 40);
+            this.btnResultado.TabIndex = 22;
+            this.btnResultado.Text = "Resultado";
+            this.btnResultado.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnConteudo
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(-3, 306);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(200, 40);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Conteudo";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnConteudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnConteudo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnConteudo.FlatAppearance.BorderSize = 0;
+            this.btnConteudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConteudo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConteudo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConteudo.Location = new System.Drawing.Point(-3, 306);
+            this.btnConteudo.Name = "btnConteudo";
+            this.btnConteudo.Size = new System.Drawing.Size(200, 40);
+            this.btnConteudo.TabIndex = 21;
+            this.btnConteudo.Text = "Conteudo";
+            this.btnConteudo.UseVisualStyleBackColor = false;
+            this.btnConteudo.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // btnQuestionario
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(-3, 260);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(200, 40);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Questionario";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnQuestionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(80)))), ((int)(((byte)(33)))));
+            this.btnQuestionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnQuestionario.FlatAppearance.BorderSize = 0;
+            this.btnQuestionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuestionario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuestionario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnQuestionario.Location = new System.Drawing.Point(-3, 260);
+            this.btnQuestionario.Name = "btnQuestionario";
+            this.btnQuestionario.Size = new System.Drawing.Size(200, 40);
+            this.btnQuestionario.TabIndex = 20;
+            this.btnQuestionario.Text = "Questionario";
+            this.btnQuestionario.UseVisualStyleBackColor = false;
+            this.btnQuestionario.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnPerfil
             // 
@@ -234,9 +234,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnStatus;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnResultado;
+        private System.Windows.Forms.Button btnConteudo;
+        private System.Windows.Forms.Button btnQuestionario;
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Button btnAluno;
         private System.Windows.Forms.Button btnProfessor;

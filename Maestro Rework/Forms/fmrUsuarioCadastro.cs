@@ -27,12 +27,17 @@ namespace Maestro_Rework.Forms
 
             try
             {
-                if (SenhaCoincide() && usuarioDAO.LoginDisponivel(txtLogin.Text) && CamposPreenchidos())
+                if (SenhaCoincide() && usuarioDAO.LoginDisponivel(txtLogin.Text))
                 {
                     CadastrarAluno();
                     LimparCampos();
-                    lblUsuarioCadastrado.Visible = true;                               
+                    lblUsuarioCadastrado.Visible = true;
                 }
+            }
+            catch (ArgumentNullException ex)
+            {
+                lblErro.Visible = true;
+                lblErro.Text = $"Preencha o campo de {ex.ParamName}";
             }
             catch (Exception ex)
             {
@@ -40,7 +45,6 @@ namespace Maestro_Rework.Forms
                 lblErro.Text = ex.Message;
             }
         }
-
         private void CadastrarAluno()
         {
             var usuarioDao = new UsuarioDAO();
@@ -62,13 +66,6 @@ namespace Maestro_Rework.Forms
             txtLogin.Clear();
             txtNome.Clear();
             txtSenha.Clear();
-        }
-
-        private bool CamposPreenchidos()
-        {
-            if (txtConf.Text != "" && txtEmail.Text != "" &&
-               txtLogin.Text != "" && txtNome.Text != "") return true;
-            else throw new ArgumentNullException("", "Preencha todos os campos");
         }
 
         private bool SenhaCoincide()

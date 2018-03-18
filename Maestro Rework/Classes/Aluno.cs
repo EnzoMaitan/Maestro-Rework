@@ -14,6 +14,11 @@ namespace Maestro_Rework.Classes
         }
         public Aluno(string login, string nome, string senha, string email)
         {
+            if (string.IsNullOrWhiteSpace(login)) throw new ArgumentNullException(nameof(login));
+            if (string.IsNullOrWhiteSpace(nome)) throw new ArgumentNullException(nameof(nome));
+            if (string.IsNullOrWhiteSpace(senha)) throw new ArgumentNullException(nameof(senha));
+            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentNullException(nameof(email));
+
             Login = login;
             Nome = nome;
             Senha = senha;

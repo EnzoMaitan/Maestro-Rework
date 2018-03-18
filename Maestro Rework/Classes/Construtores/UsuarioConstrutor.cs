@@ -20,7 +20,7 @@ namespace Maestro_Rework.Classes.Construtores
         }
         public UsuarioConstrutor ParaNome(string nome)
         {
-            Nome = nome;
+            Nome = nome ?? throw new ArgumentNullException(nameof(nome));
             return this;
         }
         public UsuarioConstrutor ParaSenha(string senha)

@@ -39,14 +39,9 @@
             this.lstAnexoAdicionados = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cboTema = new System.Windows.Forms.ComboBox();
-            this.chkAdicionarPrazo = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnArquivos = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblFim = new System.Windows.Forms.Label();
-            this.lblInicio = new System.Windows.Forms.Label();
-            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.rtfTexto = new System.Windows.Forms.RichTextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnAcao = new System.Windows.Forms.Button();
@@ -141,11 +136,11 @@
             this.label8.TabIndex = 64;
             this.label8.Text = "Imagem de Capa";
             // 
-            // lstAnexosAdicionados
+            // lstAnexoAdicionados
             // 
             this.lstAnexoAdicionados.FormattingEnabled = true;
             this.lstAnexoAdicionados.Location = new System.Drawing.Point(17, 247);
-            this.lstAnexoAdicionados.Name = "lstAnexosAdicionados";
+            this.lstAnexoAdicionados.Name = "lstAnexoAdicionados";
             this.lstAnexoAdicionados.Size = new System.Drawing.Size(203, 43);
             this.lstAnexoAdicionados.TabIndex = 63;
             // 
@@ -168,19 +163,6 @@
             this.cboTema.Name = "cboTema";
             this.cboTema.Size = new System.Drawing.Size(153, 30);
             this.cboTema.TabIndex = 49;
-            // 
-            // chkAdicionarPrazo
-            // 
-            this.chkAdicionarPrazo.AutoSize = true;
-            this.chkAdicionarPrazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAdicionarPrazo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkAdicionarPrazo.Location = new System.Drawing.Point(12, 349);
-            this.chkAdicionarPrazo.Name = "chkAdicionarPrazo";
-            this.chkAdicionarPrazo.Size = new System.Drawing.Size(177, 28);
-            this.chkAdicionarPrazo.TabIndex = 61;
-            this.chkAdicionarPrazo.Text = "Adicionar Prazo";
-            this.chkAdicionarPrazo.UseVisualStyleBackColor = true;
-            this.chkAdicionarPrazo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
@@ -212,45 +194,6 @@
             this.label5.Size = new System.Drawing.Size(153, 24);
             this.label5.TabIndex = 58;
             this.label5.Text = "Importar Anexo";
-            // 
-            // lblFim
-            // 
-            this.lblFim.AutoSize = true;
-            this.lblFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFim.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFim.Location = new System.Drawing.Point(8, 435);
-            this.lblFim.Name = "lblFim";
-            this.lblFim.Size = new System.Drawing.Size(45, 24);
-            this.lblFim.TabIndex = 57;
-            this.lblFim.Text = "Fim";
-            // 
-            // lblInicio
-            // 
-            this.lblInicio.AutoSize = true;
-            this.lblInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInicio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblInicio.Location = new System.Drawing.Point(8, 388);
-            this.lblInicio.Name = "lblInicio";
-            this.lblInicio.Size = new System.Drawing.Size(60, 24);
-            this.lblInicio.TabIndex = 56;
-            this.lblInicio.Text = "Inicio";
-            // 
-            // dtpInicio
-            // 
-            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInicio.Location = new System.Drawing.Point(12, 415);
-            this.dtpInicio.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(226, 20);
-            this.dtpInicio.TabIndex = 55;
-            // 
-            // dtpFim
-            // 
-            this.dtpFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFim.Location = new System.Drawing.Point(12, 462);
-            this.dtpFim.Name = "dtpFim";
-            this.dtpFim.Size = new System.Drawing.Size(226, 20);
-            this.dtpFim.TabIndex = 54;
             // 
             // rtfTexto
             // 
@@ -345,14 +288,9 @@
             this.Controls.Add(this.lstAnexoAdicionados);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboTema);
-            this.Controls.Add(this.chkAdicionarPrazo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnArquivos);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblFim);
-            this.Controls.Add(this.lblInicio);
-            this.Controls.Add(this.dtpInicio);
-            this.Controls.Add(this.dtpFim);
             this.Controls.Add(this.rtfTexto);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnAcao);
@@ -379,14 +317,9 @@
         private System.Windows.Forms.ListBox lstAnexoAdicionados;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboTema;
-        private System.Windows.Forms.CheckBox chkAdicionarPrazo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnArquivos;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblFim;
-        private System.Windows.Forms.Label lblInicio;
-        private System.Windows.Forms.DateTimePicker dtpInicio;
-        private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.RichTextBox rtfTexto;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAcao;

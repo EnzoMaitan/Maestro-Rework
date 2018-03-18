@@ -32,5 +32,6 @@ namespace Maestro_Rework.Classes
         {
             Senha = senha;
         }
+
     }
 }

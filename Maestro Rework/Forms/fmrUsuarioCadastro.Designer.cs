@@ -62,7 +62,7 @@
             this.lblErro.AutoSize = true;
             this.lblErro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErro.ForeColor = System.Drawing.Color.Coral;
-            this.lblErro.Location = new System.Drawing.Point(378, 450);
+            this.lblErro.Location = new System.Drawing.Point(363, 450);
             this.lblErro.Name = "lblErro";
             this.lblErro.Size = new System.Drawing.Size(194, 16);
             this.lblErro.TabIndex = 61;

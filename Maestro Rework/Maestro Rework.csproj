@@ -187,6 +187,10 @@
     <Compile Include="Migrations\20180303210819_nomeAnexo.designer.cs">
       <DependentUpon>20180303210819_nomeAnexo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180317234216_RemovendoPrazoConteudo.cs" />
+    <Compile Include="Migrations\20180317234216_RemovendoPrazoConteudo.designer.cs">
+      <DependentUpon>20180317234216_RemovendoPrazoConteudo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 
 namespace Maestro_Rework.Migrations
@@ -79,10 +82,6 @@ namespace Maestro_Rework.Migrations
                     b.Property<string>("CodigoAcesso");
 
                     b.Property<DateTime>("DataCriacao");
-
-                    b.Property<DateTime?>("DataFim");
-
-                    b.Property<DateTime?>("DataInicio");
 
                     b.Property<string>("Nome");
 
@@ -249,6 +248,8 @@ namespace Maestro_Rework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+
+                    b.HasDiscriminator<int>("Nivel");
                 });
 
             modelBuilder.Entity("Maestro_Rework.Classes.UsuarioConteudo", b =>
@@ -264,6 +265,36 @@ namespace Maestro_Rework.Migrations
                     b.HasIndex("ConteudoID");
 
                     b.ToTable("UsuarioConteudos");
+                });
+
+            modelBuilder.Entity("Maestro_Rework.Classes.Administrador", b =>
+                {
+                    b.HasBaseType("Maestro_Rework.Classes.Usuario");
+
+
+                    b.ToTable("Administrador");
+
+                    b.HasDiscriminator().HasValue(3);
+                });
+
+            modelBuilder.Entity("Maestro_Rework.Classes.Aluno", b =>
+                {
+                    b.HasBaseType("Maestro_Rework.Classes.Usuario");
+
+
+                    b.ToTable("Aluno");
+
+                    b.HasDiscriminator().HasValue(1);
+                });
+
+            modelBuilder.Entity("Maestro_Rework.Classes.Professor", b =>
+                {
+                    b.HasBaseType("Maestro_Rework.Classes.Usuario");
+
+
+                    b.ToTable("Professor");
+
+                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("Maestro_Rework.Classes.Alternativa", b =>
