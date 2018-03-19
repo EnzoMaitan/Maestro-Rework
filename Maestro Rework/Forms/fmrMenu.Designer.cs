@@ -92,7 +92,7 @@
             this.btnConteudo.TabIndex = 21;
             this.btnConteudo.Text = "Conteudo";
             this.btnConteudo.UseVisualStyleBackColor = false;
-            this.btnConteudo.Click += new System.EventHandler(this.button6_Click);
+            this.btnConteudo.Click += new System.EventHandler(this.btnConteudo_Click);
             // 
             // btnQuestionario
             // 
@@ -108,7 +108,7 @@
             this.btnQuestionario.TabIndex = 20;
             this.btnQuestionario.Text = "Questionario";
             this.btnQuestionario.UseVisualStyleBackColor = false;
-            this.btnQuestionario.Click += new System.EventHandler(this.button5_Click);
+            this.btnQuestionario.Click += new System.EventHandler(this.btnQuestionario_Click);
             // 
             // btnPerfil
             // 

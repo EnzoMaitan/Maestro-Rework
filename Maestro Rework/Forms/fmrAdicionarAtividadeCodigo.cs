@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace Maestro_Rework.Forms
 {
-    public partial class fmrGerencia : Form
+    public partial class fmrAdicionarConteudo3 : Form
     {
-        public fmrGerencia()
+        public fmrAdicionarConteudo3(string codigoAcesso)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            lblCodigo.Text = codigoAcesso;
         }
 
-        private void fmrGerencia_Load(object sender, EventArgs e)
+        private void btnConcluir_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            Close();
         }
     }
 }

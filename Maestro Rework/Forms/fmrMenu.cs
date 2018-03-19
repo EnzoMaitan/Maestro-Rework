@@ -56,24 +56,6 @@ namespace Maestro_Rework.Forms
         //    show.Show();
         //}
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            LimparMdiContainer();
-            var show = new fmrContCodigo();
-            show.MdiParent = this;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            LimparMdiContainer();
-            var show = new fmrAdicionarQuestionario();
-            show.MdiParent = this;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-        }
-
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             LimparMdiContainer();
@@ -89,6 +71,26 @@ namespace Maestro_Rework.Forms
             fmrLogin.usuarioLogado = null;
             show.Show();
             Close();          
+        }
+
+        private void btnQuestionario_Click(object sender, EventArgs e)
+        {
+            const string tipoDeAtividade = "QUESTIONARIO";
+            LimparMdiContainer();
+            var show = new fmrGerenciarAtividade(tipoDeAtividade);
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+        }
+
+        private void btnConteudo_Click(object sender, EventArgs e)
+        {
+            const string tipoDeAtividade = "CONTEUDO";
+            LimparMdiContainer();
+            var show = new fmrGerenciarAtividade(tipoDeAtividade);
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
         }
     }
 }

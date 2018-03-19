@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Maestro_Rework.Forms
 {
-    public partial class fffAdicionarConteudo3 : Form
+    public partial class fmrListaQuestoes : Form
     {
-        public fffAdicionarConteudo3()
+        public fmrListaQuestoes()
         {
             InitializeComponent();
         }

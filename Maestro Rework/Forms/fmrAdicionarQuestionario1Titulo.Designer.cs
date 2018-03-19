@@ -1,6 +1,6 @@
 ﻿namespace Maestro_Rework.Forms
 {
-    partial class fmrAdicionarQuestionario
+    partial class fmrAdicionarQuestionario1Titulo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarQuestionario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarQuestionario1Titulo));
             this.ofdImagemDaQuestao = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -114,6 +114,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Avançar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -132,7 +133,7 @@
             this.button3.Text = "Voltar";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // fmrAdicionarQuestionario
+            // fmrAdicionarQuestionario1Titulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,7 +147,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "fmrAdicionarQuestionario";
+            this.Name = "fmrAdicionarQuestionario1Titulo";
             this.Text = "fmrAdicionarQuestionario";
             this.ResumeLayout(false);
             this.PerformLayout();
