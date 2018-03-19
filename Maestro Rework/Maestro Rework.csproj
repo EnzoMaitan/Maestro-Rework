@@ -206,6 +206,12 @@
     <Compile Include="Forms\fmrContText.Designer.cs">
       <DependentUpon>fmrContText.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AnexoConteudo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnexoConteudo.Designer.cs">
+      <DependentUpon>AnexoConteudo.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrContText.resx">
       <DependentUpon>fmrContText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AnexoConteudo.resx">
+      <DependentUpon>AnexoConteudo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
