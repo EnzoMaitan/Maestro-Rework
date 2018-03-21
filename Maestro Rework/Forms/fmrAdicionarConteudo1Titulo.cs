@@ -18,8 +18,7 @@ namespace Maestro_Rework.Forms
     {
         private string nomeDaImagemCapa;
         private byte[] imagemDeCapa;
-        private string tituloDoConteudo;
-        private string temaDoConteudo;
+        private ConteudoConstrutor conteudoConstrutor;
 
         public fmrAdicionarConteudo1Titulo()
         {
@@ -28,26 +27,26 @@ namespace Maestro_Rework.Forms
             ConfigurarFileDialog();
         }
 
-        public fmrAdicionarConteudo1Titulo(string tituloDoConteudo, byte[] imagemDeCapa, string nomeDaImagemCapa, string temaDoConteudo)
-        {
+        public fmrAdicionarConteudo1Titulo(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa, string nomeDaImagemCapa)
+        {         
             InitializeComponent();
-            this.imagemDeCapa = imagemDeCapa;
-            this.tituloDoConteudo = tituloDoConteudo;
-            this.nomeDaImagemCapa = nomeDaImagemCapa;
-            this.temaDoConteudo = temaDoConteudo;
 
+            this.imagemDeCapa = imagemDeCapa;
+            this.conteudoConstrutor = conteudoConstrutor;
             MostrarNomeDoArquivo();
-            txtTitulo.Text = tituloDoConteudo;
-            cboTema.SelectedText = temaDoConteudo;
+            txtTitulo.Text = conteudoConstrutor.Nome;
+            cboTema.Text = conteudoConstrutor.Tema;
             FormBorderStyle = FormBorderStyle.None;
             ConfigurarFileDialog();          
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            this.tituloDoConteudo = txtTitulo.Text;
-            this.temaDoConteudo = cboTema.Text;
-            var show = new fmrAdicionarConteudo2Texto(tituloDoConteudo, imagemDeCapa, nomeDaImagemCapa, temaDoConteudo);
+            conteudoConstrutor = new ConteudoConstrutor();
+
+            conteudoConstrutor.ParaNome(txtTitulo.Text);
+            conteudoConstrutor.ParaTema(cboTema.Text);
+            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -85,10 +84,13 @@ namespace Maestro_Rework.Forms
 
         private void MostrarNomeDoArquivo()
         {
-            if(ofdImagemDeCapa.FileName.Length > 0)
-             this.nomeDaImagemCapa = ofdImagemDeCapa.SafeFileName.ToString();
-
-            txtImagemDeCapa.Text = nomeDaImagemCapa;
+            if (ofdImagemDeCapa.FileName.Length > 0)
+            {
+                nomeDaImagemCapa = ofdImagemDeCapa.SafeFileName.ToString();
+                txtImagemDeCapa.Text = nomeDaImagemCapa;
+            }
+            else
+                nomeDaImagemCapa = null;
         }
 
         private byte[] AdicionarImagem(ConversorDeAnexos addAnexo) =>

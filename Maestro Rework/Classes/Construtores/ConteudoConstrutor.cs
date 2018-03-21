@@ -13,7 +13,6 @@ namespace Maestro_Rework.Classes.Construtores
         public string Tema { get; private set; }
         public string Texto { get; private set; }
 
-        public bool Ativo { get; private set; }
         public string CodigoAcesso { get; private set; }
 
         public ConteudoConstrutor ParaUsuario(Usuario usuario)
@@ -37,16 +36,10 @@ namespace Maestro_Rework.Classes.Construtores
             return this;
         }
 
-        public ConteudoConstrutor ParaAtivo(bool ativo)
-        {
-            Ativo = ativo;
-            return this;
-        }
-
         public Conteudo Constroi()
         {
             CodigoAcesso = GeradorDeCodigo.GerarCodigoAcesso();
-                return new Conteudo(UsuarioID, Nome, Tema, Texto, CodigoAcesso, Ativo);           
+                return new Conteudo(UsuarioID, Nome, Tema, Texto, CodigoAcesso);           
         }
     }
 }

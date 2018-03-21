@@ -8,14 +8,14 @@ namespace Maestro_Rework.Classes
 {
     public class Conteudo
     {
-        public Conteudo(int usuarioID, string nome, string tema, string texto, string codigoAcesso, bool ativo)
+        public Conteudo(int usuarioID, string nome, string tema, string texto, string codigoAcesso)
         {
             UsuarioID = usuarioID;
             Nome = nome;
             Tema = tema;
             Texto = texto;
             CodigoAcesso = codigoAcesso;
-            Ativo = ativo;
+            Ativo = true;
             DataCriacao = DateTime.Now;
         }
 

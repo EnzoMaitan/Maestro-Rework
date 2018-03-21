@@ -38,5 +38,10 @@ namespace Maestro_Rework.Classes.Construtores
         {
             return new AnexoConteudo(ConteudoID, Anexo, Imagem, Nome);
         }
+
+        internal object ParaNome(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

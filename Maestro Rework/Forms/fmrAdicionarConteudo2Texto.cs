@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maestro_Rework.Classes.Construtores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,43 +14,25 @@ namespace Maestro_Rework.Forms
     public partial class fmrAdicionarConteudo2Texto : Form
     {
         private byte[] imagemDeCapa;
-        private string tituloDoConteudo;
         private string nomeDaImagemCapa;
-        private string texto;
-        private string temaDoConteudo;
+        private ConteudoConstrutor conteudoConstrutor;
 
-        public fmrAdicionarConteudo2Texto(string tituloDoConteudo, byte[] imagemDeCapa, string nomeDaImagemCapa, string temaDoConteudo)
+        public fmrAdicionarConteudo2Texto(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa, string nomeDaImagemCapa)
         {
-            this.tituloDoConteudo = tituloDoConteudo;
+            this.conteudoConstrutor = conteudoConstrutor;
             this.imagemDeCapa = imagemDeCapa;
             this.nomeDaImagemCapa = nomeDaImagemCapa;
-            this.temaDoConteudo = temaDoConteudo;
-
             InitializeComponent();
+
+            rtfTextoConteudo.Text = conteudoConstrutor.Texto;
 
             FormBorderStyle = FormBorderStyle.None;
         }
-
-        public fmrAdicionarConteudo2Texto(string tituloDoConteudo, byte[] imagemDeCapa, string nomeDaImagemCapa, string temaDoConteudo, string texto)
-        {
-            this.tituloDoConteudo = tituloDoConteudo;
-            this.imagemDeCapa = imagemDeCapa;
-            this.nomeDaImagemCapa = nomeDaImagemCapa;
-            this.texto = texto;
-            this.temaDoConteudo = temaDoConteudo;
-
-            InitializeComponent();
-
-            rtfTextoConteudo.Text = texto;
-
-            FormBorderStyle = FormBorderStyle.None;
-        }
-
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            this.texto = rtfTextoConteudo.Text;
+            conteudoConstrutor.ParaTexto(rtfTextoConteudo.Text);
 
-            var show = new fmrAdicionarConteudo3Anexos(tituloDoConteudo, imagemDeCapa, nomeDaImagemCapa, temaDoConteudo, texto);
+            var show = new fmrAdicionarConteudo3Anexos(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -58,7 +41,7 @@ namespace Maestro_Rework.Forms
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            var show = new fmrAdicionarConteudo1Titulo(tituloDoConteudo, imagemDeCapa, nomeDaImagemCapa, temaDoConteudo);
+            var show = new fmrAdicionarConteudo1Titulo(conteudoConstrutor,imagemDeCapa, nomeDaImagemCapa);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();

@@ -18,19 +18,14 @@ namespace Maestro_Rework.Forms
     {
         //TODO - arrumar o nome salvo do arquivo no banco
         private byte[] imagemDeCapa;
-        private string tituloDoConteudo;
         private string nomeDaImagemCapa;
-        private string texto;
-        private string codigoDeAcesso;
-        private string temaDoConteudo;
+        private ConteudoConstrutor conteudoConstrutor;
 
-        public fmrAdicionarConteudo3Anexos(string tituloDoConteudo,byte[] imagemDeCapa,string nomeDaImagemCapa, string texto, string temaDoConteudo)
+        public fmrAdicionarConteudo3Anexos(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa,string nomeDaImagemCapa)
         {
-            this.tituloDoConteudo = tituloDoConteudo;
+            this.conteudoConstrutor = conteudoConstrutor;
             this.imagemDeCapa = imagemDeCapa;
             this.nomeDaImagemCapa = nomeDaImagemCapa;
-            this.texto = texto;
-            this.temaDoConteudo = temaDoConteudo;
 
             InitializeComponent();
 
@@ -39,17 +34,16 @@ namespace Maestro_Rework.Forms
 
         private void btnCriar_Click(object sender, EventArgs e)
         {
-            Conteudo conteudo;
             try
             {
-                conteudo = AdicionarConteudo();
-
+                var conteudo = AdicionarConteudo();
+                
                 AdicionarAnexos(conteudo);
+
                 AdicionarImagemDeCapa(conteudo);
+                
 
-                codigoDeAcesso = conteudo.CodigoAcesso;
-
-                var show = new fmrAdicionarConteudo3(codigoDeAcesso);
+                var show = new fmrAdicionarConteudo3(conteudo.CodigoAcesso);
                 show.MdiParent = ActiveForm;
                 show.Dock = DockStyle.Fill;
                 show.Show();
@@ -61,10 +55,9 @@ namespace Maestro_Rework.Forms
             }
         }
 
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            var show = new fmrAdicionarConteudo2Texto(tituloDoConteudo, imagemDeCapa, nomeDaImagemCapa,temaDoConteudo, texto);
+            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -92,15 +85,12 @@ namespace Maestro_Rework.Forms
 
         private Conteudo AdicionarConteudo()
         {
-            var construtorConteudo = new ConteudoConstrutor();
             var conteudoDAO = new ConteudoDAO();
-            construtorConteudo.ParaNome(tituloDoConteudo)
-                .ParaTema(temaDoConteudo)
-                .ParaAtivo(true)
-                .ParaTexto(tituloDoConteudo)
+
+            conteudoConstrutor
                 .ParaUsuario(fmrLogin.usuarioLogado);
 
-            var conteudoCriado = construtorConteudo.Constroi();
+            var conteudoCriado = conteudoConstrutor.Constroi();
 
             conteudoDAO.Adicionar(conteudoCriado);
 
@@ -128,16 +118,19 @@ namespace Maestro_Rework.Forms
 
         private void AdicionarImagemDeCapa(Conteudo conteudoCriado)
         {
-            var anexoConteudoDAO = new AnexoConteudoDAO();
-            var anexoConstrutor = new AnexoConteudoConstrutor();
+            if (imagemDeCapa != null)
+            {
+                var anexoConteudoDAO = new AnexoConteudoDAO();
+                var anexoConstrutor = new AnexoConteudoConstrutor();
 
-            var anexoImagem = anexoConstrutor.ParaConteudo(conteudoCriado)
-                    .ParaImagem(imagemDeCapa)
-                    .ParaAnexo(null)
-                    .ParaNome(nomeDaImagemCapa)
-                    .Constroi();
+                var anexoImagem = anexoConstrutor.ParaConteudo(conteudoCriado)
+                        .ParaImagem(imagemDeCapa)
+                        .ParaAnexo(null)
+                        .ParaNome(nomeDaImagemCapa)
+                        .Constroi();
 
-            anexoConteudoDAO.Adicionar(anexoImagem);
+                anexoConteudoDAO.Adicionar(anexoImagem);
+            }
         }
 
         private void AdicionarArquivos(Conteudo conteudoCriado, ConversorDeAnexos addAnexo)
@@ -150,11 +143,9 @@ namespace Maestro_Rework.Forms
             {
                 var anexos = new AnexoConteudoConstrutor();
 
-                string nome = ofdArquivosAnexo.SafeFileName;
-
                 var arquivo = anexos.ParaConteudo(conteudoCriado)
                     .ParaImagem(null)
-                    .ParaNome(nome)
+                    .ParaNome(Path.GetFileNameWithoutExtension(arquivosSelecionado))
                     .ParaAnexo(addAnexo.DatabaseFilePut(arquivosSelecionado))
                     .Constroi();
 
