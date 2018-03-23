@@ -16,16 +16,38 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarQuestionario1Titulo : Form
     {
+        private QuestionarioConstrutor questionarioConstrutor;
+
         public fmrAdicionarQuestionario1Titulo()
         {
-            //InitializeComponent();
-            //lblErro.Visible = false;
-            //lblQuestionarioAdicionado.Visible = false;
-            //FormBorderStyle = FormBorderStyle.None;
+            InitializeComponent();
 
-            //cboSelecionar.Visible = false;
+            FormBorderStyle = FormBorderStyle.None;
 
-            //AlterarVisibilidadePrazo(false);
+            AlterarVisibilidadePrazo(false);
+        }
+
+        
+        public fmrAdicionarQuestionario1Titulo(QuestionarioConstrutor questionarioConstrutor)
+        {
+            this.questionarioConstrutor = questionarioConstrutor;
+
+            InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.None;
+
+            txtTitulo.Text = questionarioConstrutor.Nome;
+
+
+            var possuiPrazo = questionarioConstrutor.DataFim != null && questionarioConstrutor.DataInicio != null;
+
+            if (possuiPrazo)
+            {              
+                dtpFim.Value = (DateTime)questionarioConstrutor.DataFim;
+                dtpInicio.Value = (DateTime)questionarioConstrutor.DataInicio;
+            }
+            AlterarVisibilidadePrazo(possuiPrazo);
+
         }
 
         //private IList<Questao> questoes = new List<Questao>();
@@ -115,7 +137,7 @@ namespace Maestro_Rework.Forms
         //private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)
         //{
         //    var alternativaConstrutor = new AlternativaConstrutor();
-           
+
         //    return alternativaConstrutor
         //            .ParaTexto(texto)
         //            .ParaCorreta(correta)
@@ -219,7 +241,7 @@ namespace Maestro_Rework.Forms
 
         //private Questao GetQuestaoSelecionada() => 
         //    questoes.Where(x => x.Pergunta == lstQuestoes.Text).FirstOrDefault();
-        
+
 
         //private void MostrarAlternativaCorreta(Questao questaoSelecionada)
         //{
@@ -287,25 +309,6 @@ namespace Maestro_Rework.Forms
         //    return imagem;
         //}
 
-        //private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
-        //{
-        //        if (chkAdicionarPrazo.Checked)
-        //        {
-        //            AlterarVisibilidadePrazo(true);
-        //        }
-        //        else
-        //        {
-        //            AlterarVisibilidadePrazo(false);
-        //        }
-        //}
-
-        //private void AlterarVisibilidadePrazo(bool visibilidade)
-        //{
-        //    lblFim.Visible = visibilidade;
-        //    lblInicio.Visible = visibilidade;
-        //    dtpFim.Visible = visibilidade;
-        //    dtpInicio.Visible = visibilidade;
-        //}
 
         //private void btnImg_Click(object sender, EventArgs e)
         //{
@@ -322,7 +325,7 @@ namespace Maestro_Rework.Forms
         //}
 
         //private void btnRemoverImg_Click(object sender, EventArgs e) => pictureBox1.Image = null;
-        
+
         //private byte[] ConverterFoto(PictureBox pictureBox)
         //{
         //    using (var stream = new MemoryStream())
@@ -335,7 +338,53 @@ namespace Maestro_Rework.Forms
         //    }
         //}
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAvancar_Click(object sender, EventArgs e)
+        {
+            questionarioConstrutor = new QuestionarioConstrutor();
+
+            questionarioConstrutor.ParaNome(txtTitulo.Text);
+            AdicionarPrazoAoConstrutor();
+
+            var show = new fmrAdicionarQuestionario2ListaQuestoes(questionarioConstrutor);
+            show.MdiParent = ActiveForm;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+            Close();
+        }
+
+        private void AdicionarPrazoAoConstrutor()
+        {
+            if (chkAdicionarPrazo.Checked)
+            {
+                questionarioConstrutor.ParaDataFim(dtpFim.Value);
+                questionarioConstrutor.ParaDataInicio(dtpInicio.Value);
+            }
+            else
+            {
+                questionarioConstrutor.ParaDataFim(null);
+                questionarioConstrutor.ParaDataInicio(null);
+            }
+        }
+
+        private void chkAdicionarPrazo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAdicionarPrazo.Checked)
+            {
+                AlterarVisibilidadePrazo(true);
+            }
+            else
+            {
+                AlterarVisibilidadePrazo(false);
+            }
+        }
+
+        private void AlterarVisibilidadePrazo(bool visibilidade)
+        {
+            dtpFim.Visible = visibilidade;
+            dtpInicio.Visible = visibilidade;
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
 
         }

@@ -13,15 +13,13 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarConteudo2Texto : Form
     {
-        private byte[] imagemDeCapa;
-        private string nomeDaImagemCapa;
+        private AnexoConteudoConstrutor anexoConteudoConstrutor;
         private ConteudoConstrutor conteudoConstrutor;
 
-        public fmrAdicionarConteudo2Texto(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa, string nomeDaImagemCapa)
+        public fmrAdicionarConteudo2Texto(ConteudoConstrutor conteudoConstrutor, AnexoConteudoConstrutor anexoConteudoConstrutor)
         {
             this.conteudoConstrutor = conteudoConstrutor;
-            this.imagemDeCapa = imagemDeCapa;
-            this.nomeDaImagemCapa = nomeDaImagemCapa;
+            this.anexoConteudoConstrutor = anexoConteudoConstrutor;
             InitializeComponent();
 
             rtfTextoConteudo.Text = conteudoConstrutor.Texto;
@@ -32,7 +30,7 @@ namespace Maestro_Rework.Forms
         {
             conteudoConstrutor.ParaTexto(rtfTextoConteudo.Text);
 
-            var show = new fmrAdicionarConteudo3Anexos(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
+            var show = new fmrAdicionarConteudo3Anexos(conteudoConstrutor, anexoConteudoConstrutor);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -41,7 +39,7 @@ namespace Maestro_Rework.Forms
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            var show = new fmrAdicionarConteudo1Titulo(conteudoConstrutor,imagemDeCapa, nomeDaImagemCapa);
+            var show = new fmrAdicionarConteudo1Titulo(conteudoConstrutor, anexoConteudoConstrutor);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();

@@ -16,8 +16,7 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarConteudo1Titulo : Form
     {
-        private string nomeDaImagemCapa;
-        private byte[] imagemDeCapa;
+        private AnexoConteudoConstrutor anexoConteudoConstrutor;
         private ConteudoConstrutor conteudoConstrutor;
 
         public fmrAdicionarConteudo1Titulo()
@@ -27,13 +26,16 @@ namespace Maestro_Rework.Forms
             ConfigurarFileDialog();
         }
 
-        public fmrAdicionarConteudo1Titulo(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa, string nomeDaImagemCapa)
+        public fmrAdicionarConteudo1Titulo(ConteudoConstrutor conteudoConstrutor, AnexoConteudoConstrutor anexoConteudoConstrutor)
         {         
             InitializeComponent();
 
-            this.imagemDeCapa = imagemDeCapa;
+
+            this.anexoConteudoConstrutor = anexoConteudoConstrutor;
             this.conteudoConstrutor = conteudoConstrutor;
+
             MostrarNomeDoArquivo();
+
             txtTitulo.Text = conteudoConstrutor.Nome;
             cboTema.Text = conteudoConstrutor.Tema;
             FormBorderStyle = FormBorderStyle.None;
@@ -43,10 +45,11 @@ namespace Maestro_Rework.Forms
         private void btnAvancar_Click(object sender, EventArgs e)
         {
             conteudoConstrutor = new ConteudoConstrutor();
+            anexoConteudoConstrutor = new AnexoConteudoConstrutor();
 
             conteudoConstrutor.ParaNome(txtTitulo.Text);
             conteudoConstrutor.ParaTema(cboTema.Text);
-            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
+            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, anexoConteudoConstrutor);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -72,7 +75,7 @@ namespace Maestro_Rework.Forms
             {
                 var addAnexo = new ConversorDeAnexos();
 
-                imagemDeCapa = AdicionarImagem(addAnexo);
+                anexoConteudoConstrutor.ParaImagem(AdicionarImagem(addAnexo));
                 MostrarNomeDoArquivo();
             }
         }
@@ -86,11 +89,9 @@ namespace Maestro_Rework.Forms
         {
             if (ofdImagemDeCapa.FileName.Length > 0)
             {
-                nomeDaImagemCapa = ofdImagemDeCapa.SafeFileName.ToString();
-                txtImagemDeCapa.Text = nomeDaImagemCapa;
+                anexoConteudoConstrutor.ParaNome(ofdImagemDeCapa.SafeFileName.ToString());
+                txtImagemDeCapa.Text = anexoConteudoConstrutor.Nome;
             }
-            else
-                nomeDaImagemCapa = null;
         }
 
         private byte[] AdicionarImagem(ConversorDeAnexos addAnexo) =>

@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Maestro_Rework.Classes.Construtores;
 
 namespace Maestro_Rework.Forms
 {
-    public partial class fmrListaQuestionarios : Form
+    public partial class fmrAdicionarQuestionario3AdicionarQuestao : Form
     {
-        public fmrListaQuestionarios()
+        public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor)
         {
             InitializeComponent();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,16 +16,13 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarConteudo3Anexos : Form
     {
-        //TODO - arrumar o nome salvo do arquivo no banco
-        private byte[] imagemDeCapa;
-        private string nomeDaImagemCapa;
         private ConteudoConstrutor conteudoConstrutor;
+        private AnexoConteudoConstrutor anexoConteudoConstrutor;
 
-        public fmrAdicionarConteudo3Anexos(ConteudoConstrutor conteudoConstrutor, byte[] imagemDeCapa,string nomeDaImagemCapa)
+        public fmrAdicionarConteudo3Anexos(ConteudoConstrutor conteudoConstrutor, AnexoConteudoConstrutor anexoConteudoConstrutor)
         {
             this.conteudoConstrutor = conteudoConstrutor;
-            this.imagemDeCapa = imagemDeCapa;
-            this.nomeDaImagemCapa = nomeDaImagemCapa;
+            this.anexoConteudoConstrutor = anexoConteudoConstrutor;
 
             InitializeComponent();
 
@@ -57,7 +54,7 @@ namespace Maestro_Rework.Forms
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, imagemDeCapa, nomeDaImagemCapa);
+            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, anexoConteudoConstrutor);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -118,15 +115,15 @@ namespace Maestro_Rework.Forms
 
         private void AdicionarImagemDeCapa(Conteudo conteudoCriado)
         {
-            if (imagemDeCapa != null)
+            if (anexoConteudoConstrutor.Imagem != null)
             {
                 var anexoConteudoDAO = new AnexoConteudoDAO();
                 var anexoConstrutor = new AnexoConteudoConstrutor();
 
                 var anexoImagem = anexoConstrutor.ParaConteudo(conteudoCriado)
-                        .ParaImagem(imagemDeCapa)
+                        .ParaImagem(anexoConteudoConstrutor.Imagem)
                         .ParaAnexo(null)
-                        .ParaNome(nomeDaImagemCapa)
+                        .ParaNome(anexoConteudoConstrutor.Nome)
                         .Constroi();
 
                 anexoConteudoDAO.Adicionar(anexoImagem);

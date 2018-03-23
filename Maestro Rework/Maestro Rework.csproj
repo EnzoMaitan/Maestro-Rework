@@ -134,11 +134,11 @@
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="Forms\fmrAdicionarQuestao.cs">
+    <Compile Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fmrAdicionarQuestao.Designer.cs">
-      <DependentUpon>fmrAdicionarQuestao.cs</DependentUpon>
+    <Compile Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.Designer.cs">
+      <DependentUpon>fmrAdicionarQuestionario3AdicionarQuestao.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrAdicionarConteudo1Titulo.cs">
       <SubType>Form</SubType>
@@ -152,11 +152,11 @@
     <Compile Include="Forms\fmrAdicionarQuestionario1Titulo.Designer.cs">
       <DependentUpon>fmrAdicionarQuestionario1Titulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\fmrListaQuestionarios.cs">
+    <Compile Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fmrListaQuestionarios.Designer.cs">
-      <DependentUpon>fmrListaQuestionarios.cs</DependentUpon>
+    <Compile Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.Designer.cs">
+      <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
@@ -175,12 +175,6 @@
     </Compile>
     <Compile Include="Forms\fmrPerfil.Designer.cs">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fmrQuestCodigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\fmrQuestCodigo.Designer.cs">
-      <DependentUpon>fmrQuestCodigo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrUsuarioCadastro.cs">
       <SubType>Form</SubType>
@@ -236,8 +230,8 @@
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\fmrAdicionarQuestao.resx">
-      <DependentUpon>fmrAdicionarQuestao.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.resx">
+      <DependentUpon>fmrAdicionarQuestionario3AdicionarQuestao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrAdicionarConteudo1Titulo.resx">
       <DependentUpon>fmrAdicionarConteudo1Titulo.cs</DependentUpon>
@@ -245,8 +239,8 @@
     <EmbeddedResource Include="Forms\fmrAdicionarQuestionario1Titulo.resx">
       <DependentUpon>fmrAdicionarQuestionario1Titulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fmrListaQuestionarios.resx">
-      <DependentUpon>fmrListaQuestionarios.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.resx">
+      <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrLogin.resx">
       <DependentUpon>fmrLogin.cs</DependentUpon>
@@ -256,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrPerfil.resx">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fmrQuestCodigo.resx">
-      <DependentUpon>fmrQuestCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrUsuarioCadastro.resx">
       <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
