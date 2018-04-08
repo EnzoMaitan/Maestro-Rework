@@ -17,6 +17,18 @@ namespace Maestro_Rework.Classes.Construtores
         public bool Ativo { get; private set; }
         public IList<Questao> Questoes { get; private set; }
 
+        private bool CheckarLimitePrazo()
+        {
+            bool possuiPrazo = DataInicio != null && DataFim != null;
+
+            if (possuiPrazo)
+            {
+                if (DataInicio.Value < DataFim.Value) return true;
+                else return false;
+            }
+            else return true;
+        }
+
         public QuestionarioConstrutor ParaUsuario(Usuario usuario)
         {
             UsuarioId = usuario.Id;
@@ -35,6 +47,7 @@ namespace Maestro_Rework.Classes.Construtores
         public QuestionarioConstrutor ParaDataFim(DateTime? dataFim)
         {
             DataFim = dataFim;
+            if (!CheckarLimitePrazo()) throw new ArgumentException("A data limite deve ser após a data de inicio");
             return this;
         }
         public QuestionarioConstrutor ParaRefazer(bool refazer)

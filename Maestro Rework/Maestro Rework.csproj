@@ -206,6 +206,7 @@
     <Compile Include="Forms\fmrAdicionarConteudo3Anexos.Designer.cs">
       <DependentUpon>fmrAdicionarConteudo3Anexos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MostrarErro.cs" />
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />
@@ -289,6 +290,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Imagens\deletar.ico" />
+    <Content Include="Imagens\editar.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

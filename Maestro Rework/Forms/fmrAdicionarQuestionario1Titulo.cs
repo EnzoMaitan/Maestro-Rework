@@ -22,6 +22,8 @@ namespace Maestro_Rework.Forms
         {
             InitializeComponent();
 
+            lblErro.Visible = false;
+
             FormBorderStyle = FormBorderStyle.None;
 
             AlterarVisibilidadePrazo(false);
@@ -33,6 +35,8 @@ namespace Maestro_Rework.Forms
             this.questionarioConstrutor = questionarioConstrutor;
 
             InitializeComponent();
+
+            lblErro.Visible = false;
 
             FormBorderStyle = FormBorderStyle.None;
 
@@ -340,16 +344,37 @@ namespace Maestro_Rework.Forms
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            questionarioConstrutor = new QuestionarioConstrutor();
+            try
+            {
+                CamposPreenchidos();
 
-            questionarioConstrutor.ParaNome(txtTitulo.Text);
-            AdicionarPrazoAoConstrutor();
+                questionarioConstrutor = new QuestionarioConstrutor();
 
-            var show = new fmrAdicionarQuestionario2ListaQuestoes(questionarioConstrutor);
-            show.MdiParent = ActiveForm;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-            Close();
+                questionarioConstrutor.ParaNome(txtTitulo.Text);
+                AdicionarPrazoAoConstrutor();
+
+                var show = new fmrAdicionarQuestionario2ListaQuestoes(questionarioConstrutor);
+                show.MdiParent = ActiveForm;
+                show.Dock = DockStyle.Fill;
+                show.Show();
+                Close();
+            }
+            catch (ArgumentNullException ex) when (ex.Message.Contains("Titulo"))
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+            catch (ArgumentException ex) when (ex.Message.Contains("Data"))
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+
+        }
+
+        private bool CamposPreenchidos()
+        {
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+                throw new ArgumentNullException("Titulo", "Preencha o campo");
+            else return true;        
         }
 
         private void AdicionarPrazoAoConstrutor()

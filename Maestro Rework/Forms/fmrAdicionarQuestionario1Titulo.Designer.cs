@@ -38,6 +38,7 @@
             this.dtpFim = new System.Windows.Forms.DateTimePicker();
             this.btnAvancar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.lblErro = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ofdImagemDaQuestao
@@ -135,12 +136,22 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.Location = new System.Drawing.Point(373, 472);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(48, 13);
+            this.lblErro.TabIndex = 8;
+            this.lblErro.Text = "lblERRO";
+            // 
             // fmrAdicionarQuestionario1Titulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.btnAvancar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dtpFim);
@@ -166,5 +177,6 @@
         private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.Button btnAvancar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Label lblErro;
     }
 }

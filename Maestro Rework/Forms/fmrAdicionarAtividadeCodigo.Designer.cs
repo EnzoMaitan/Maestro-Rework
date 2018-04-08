@@ -1,6 +1,6 @@
 ﻿namespace Maestro_Rework.Forms
 {
-    partial class fmrAdicionarConteudo3
+    partial class fmrAdicionarAtividadeCodigo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarConteudo3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarAtividadeCodigo));
             this.btnConcluir = new System.Windows.Forms.Button();
             this.lblAtividadeAdicionada = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarQuestionario3AdicionarQuestao));
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.txtQuestao = new System.Windows.Forms.TextBox();
+            this.txtPergunta = new System.Windows.Forms.TextBox();
             this.lblQuestao = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.btnAdicionarImagem = new System.Windows.Forms.Button();
             this.btnVisualizarImagem = new System.Windows.Forms.Button();
             this.updValor = new System.Windows.Forms.NumericUpDown();
+            this.ofdImagemDaQuestao = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.updValor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,15 +91,16 @@
             this.btnVoltar.TabIndex = 11;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // txtQuestao
+            // txtPergunta
             // 
-            this.txtQuestao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuestao.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuestao.Location = new System.Drawing.Point(256, 79);
-            this.txtQuestao.Name = "txtQuestao";
-            this.txtQuestao.Size = new System.Drawing.Size(315, 38);
-            this.txtQuestao.TabIndex = 13;
+            this.txtPergunta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPergunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPergunta.Location = new System.Drawing.Point(256, 79);
+            this.txtPergunta.Name = "txtPergunta";
+            this.txtPergunta.Size = new System.Drawing.Size(315, 38);
+            this.txtPergunta.TabIndex = 13;
             // 
             // lblQuestao
             // 
@@ -313,6 +315,10 @@
             this.updValor.Size = new System.Drawing.Size(120, 20);
             this.updValor.TabIndex = 18;
             // 
+            // ofdImagemDaQuestao
+            // 
+            this.ofdImagemDaQuestao.FileName = "openFileDialog1";
+            // 
             // fmrAdicionarQuestionario3AdicionarQuestao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +345,7 @@
             this.Controls.Add(this.txtC);
             this.Controls.Add(this.txtB);
             this.Controls.Add(this.txtA);
-            this.Controls.Add(this.txtQuestao);
+            this.Controls.Add(this.txtPergunta);
             this.Controls.Add(this.lblQuestao);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnVoltar);
@@ -355,7 +361,7 @@
 
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.TextBox txtQuestao;
+        private System.Windows.Forms.TextBox txtPergunta;
         private System.Windows.Forms.Label lblQuestao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -377,5 +383,6 @@
         private System.Windows.Forms.Button btnAdicionarImagem;
         private System.Windows.Forms.Button btnVisualizarImagem;
         private System.Windows.Forms.NumericUpDown updValor;
+        private System.Windows.Forms.OpenFileDialog ofdImagemDaQuestao;
     }
 }

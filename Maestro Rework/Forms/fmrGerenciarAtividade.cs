@@ -37,6 +37,7 @@ namespace Maestro_Rework.Forms
             }
             else if (_tipoDeAtividade == "QUESTIONARIO")
             {
+                fmrAdicionarQuestionario2ListaQuestoes.questoes.Clear();
                 var show = new fmrAdicionarQuestionario1Titulo();
                 show.MdiParent = ActiveForm;
                 show.Dock = DockStyle.Fill;

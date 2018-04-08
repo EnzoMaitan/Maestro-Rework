@@ -39,6 +39,7 @@
             this.btnAvancar = new System.Windows.Forms.Button();
             this.lblTema = new System.Windows.Forms.Label();
             this.cboTema = new System.Windows.Forms.ComboBox();
+            this.lblErro = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -149,12 +150,22 @@
             this.cboTema.Size = new System.Drawing.Size(315, 39);
             this.cboTema.TabIndex = 6;
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.Location = new System.Drawing.Point(414, 388);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(48, 13);
+            this.lblErro.TabIndex = 7;
+            this.lblErro.Text = "lblERRO";
+            // 
             // fmrAdicionarConteudo1Titulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.cboTema);
             this.Controls.Add(this.lblTema);
             this.Controls.Add(this.btnAvancar);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.Button btnAvancar;
         private System.Windows.Forms.Label lblTema;
         private System.Windows.Forms.ComboBox cboTema;
+        private System.Windows.Forms.Label lblErro;
     }
 }

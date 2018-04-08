@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrAdicionarQuestionario2ListaQuestoes));
-            this.btnAvancar = new System.Windows.Forms.Button();
+            this.btnConcluir = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dtgQuestoes = new System.Windows.Forms.DataGridView();
             this.btnAdicionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgQuestoes)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAvancar
+            // btnConcluir
             // 
-            this.btnAvancar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAvancar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAvancar.FlatAppearance.BorderSize = 0;
-            this.btnAvancar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAvancar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvancar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAvancar.Image = ((System.Drawing.Image)(resources.GetObject("btnAvancar.Image")));
-            this.btnAvancar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAvancar.Location = new System.Drawing.Point(671, 534);
-            this.btnAvancar.Name = "btnAvancar";
-            this.btnAvancar.Size = new System.Drawing.Size(176, 39);
-            this.btnAvancar.TabIndex = 8;
-            this.btnAvancar.Text = "Avançar";
-            this.btnAvancar.UseVisualStyleBackColor = false;
-            this.btnAvancar.Click += new System.EventHandler(this.btnAvancar_Click);
+            this.btnConcluir.BackColor = System.Drawing.Color.Transparent;
+            this.btnConcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConcluir.FlatAppearance.BorderSize = 0;
+            this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConcluir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConcluir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnConcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnConcluir.Image")));
+            this.btnConcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConcluir.Location = new System.Drawing.Point(671, 534);
+            this.btnConcluir.Name = "btnConcluir";
+            this.btnConcluir.Size = new System.Drawing.Size(176, 39);
+            this.btnConcluir.TabIndex = 8;
+            this.btnConcluir.Text = "Concluir";
+            this.btnConcluir.UseVisualStyleBackColor = false;
+            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
             // 
             // btnVoltar
             // 
@@ -79,6 +79,7 @@
             this.dtgQuestoes.Name = "dtgQuestoes";
             this.dtgQuestoes.Size = new System.Drawing.Size(631, 506);
             this.dtgQuestoes.TabIndex = 10;
+            this.dtgQuestoes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // btnAdicionar
             // 
@@ -102,7 +103,7 @@
             this.ClientSize = new System.Drawing.Size(859, 585);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.dtgQuestoes);
-            this.Controls.Add(this.btnAvancar);
+            this.Controls.Add(this.btnConcluir);
             this.Controls.Add(this.btnVoltar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "fmrAdicionarQuestionario2ListaQuestoes";
@@ -115,7 +116,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAvancar;
+        private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridView dtgQuestoes;
         private System.Windows.Forms.Button btnAdicionar;

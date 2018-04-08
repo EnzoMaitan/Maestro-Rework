@@ -22,6 +22,7 @@ namespace Maestro_Rework.Forms
         public fmrAdicionarConteudo1Titulo()
         {
             InitializeComponent();
+            lblErro.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
             ConfigurarFileDialog();
         }
@@ -30,6 +31,7 @@ namespace Maestro_Rework.Forms
         {         
             InitializeComponent();
 
+            lblErro.Visible = false;
 
             this.anexoConteudoConstrutor = anexoConteudoConstrutor;
             this.conteudoConstrutor = conteudoConstrutor;
@@ -44,17 +46,38 @@ namespace Maestro_Rework.Forms
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            conteudoConstrutor = new ConteudoConstrutor();
-            anexoConteudoConstrutor = new AnexoConteudoConstrutor();
+            try
+            {
+                CamposPreenchidos();
 
-            conteudoConstrutor.ParaNome(txtTitulo.Text);
-            conteudoConstrutor.ParaTema(cboTema.Text);
-            var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, anexoConteudoConstrutor);
-            show.MdiParent = ActiveForm;
-            show.Dock = DockStyle.Fill;
-            show.Show();
-            Close();
+                conteudoConstrutor = new ConteudoConstrutor();
+                anexoConteudoConstrutor = new AnexoConteudoConstrutor();
 
+                conteudoConstrutor.ParaNome(txtTitulo.Text);
+                conteudoConstrutor.ParaTema(cboTema.Text);
+                var show = new fmrAdicionarConteudo2Texto(conteudoConstrutor, anexoConteudoConstrutor);
+                show.MdiParent = ActiveForm;
+                show.Dock = DockStyle.Fill;
+                show.Show();
+                Close();
+            }
+            catch (ArgumentNullException ex) when (ex.Message.Contains("Titulo"))
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+            catch (ArgumentNullException ex) when (ex.Message.Contains("Tema"))
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+        }
+
+        private bool CamposPreenchidos()
+        {
+            if (string.IsNullOrWhiteSpace(txtTitulo.Text))
+                throw new ArgumentNullException("Titulo", "Campo Invalido");
+            else if (string.IsNullOrWhiteSpace(cboTema.Text))
+                throw new ArgumentNullException("Tema", "Campo Invalido");
+            else return true;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -80,10 +103,8 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private void ConfigurarFileDialog()
-        {
-            ofdImagemDeCapa.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";
-        }
+        private void ConfigurarFileDialog() =>
+            ofdImagemDeCapa.Filter = "Images(*.JPG;*PNG;*.IMG)|*.JPG;*PNG;*.IMG";       
 
         private void MostrarNomeDoArquivo()
         {
