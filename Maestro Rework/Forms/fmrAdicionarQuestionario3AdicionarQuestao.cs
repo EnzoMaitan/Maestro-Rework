@@ -16,14 +16,40 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarQuestionario3AdicionarQuestao : Form
     {
+        private Questao questao;
         private QuestionarioConstrutor questionarioConstrutor;
 
         public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor)
         {
             this.questionarioConstrutor = questionarioConstrutor;
             InitializeComponent();
-
+            lblQuestaoAdicionada.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
+        }
+
+        public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor, Questao questao)
+        {
+            this.questao = questao;
+            this.questionarioConstrutor = questionarioConstrutor;
+            InitializeComponent();
+
+            lblQuestaoAdicionada.Visible = false;
+            lblQuestaoAdicionada.Text = "Questão Alterada";
+            FormBorderStyle = FormBorderStyle.None;
+
+            MostrarQuestaoSelecionada();
+
+            btnAdicionar.Text = "Alterar";
+        }
+
+        private void AlterarQuestao(Questao questaoSelecionada)
+        {
+            double valorPergunta = Convert.ToDouble(updValor.Value);
+
+            var pergunta = questaoSelecionada.Pergunta;
+
+            questaoSelecionada.AlterarPergunta(txtPergunta.Text);
+            questaoSelecionada.AlterarValor(valorPergunta);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -52,7 +78,7 @@ namespace Maestro_Rework.Forms
                 .Constroi();
 
             fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
-
+            lblQuestaoAdicionada.Visible = true;
             LimparCampos();
 
         }
@@ -66,6 +92,18 @@ namespace Maestro_Rework.Forms
             txtE.Clear();
             txtPergunta.Clear();
             updValor.Value = 0;
+            rdbA.Checked = false;
+            rdbB.Checked = false;
+            rdbC.Checked = false;
+            rdbD.Checked = false;
+            rdbE.Checked = false;
+        }
+
+        private void MostrarQuestaoSelecionada()
+        {
+            txtPergunta.Text = questao.Pergunta;
+            updValor.Value = Convert.ToDecimal(questao.Valor);
+            //todo mostrar questoes;
         }
 
         private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)

@@ -54,6 +54,7 @@
             this.btnVisualizarImagem = new System.Windows.Forms.Button();
             this.updValor = new System.Windows.Forms.NumericUpDown();
             this.ofdImagemDaQuestao = new System.Windows.Forms.OpenFileDialog();
+            this.lblQuestaoAdicionada = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.updValor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -319,12 +320,23 @@
             // 
             this.ofdImagemDaQuestao.FileName = "openFileDialog1";
             // 
+            // lblQuestaoAdicionada
+            // 
+            this.lblQuestaoAdicionada.AutoSize = true;
+            this.lblQuestaoAdicionada.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblQuestaoAdicionada.Location = new System.Drawing.Point(269, 120);
+            this.lblQuestaoAdicionada.Name = "lblQuestaoAdicionada";
+            this.lblQuestaoAdicionada.Size = new System.Drawing.Size(288, 32);
+            this.lblQuestaoAdicionada.TabIndex = 19;
+            this.lblQuestaoAdicionada.Text = "Questão Adicionada";
+            // 
             // fmrAdicionarQuestionario3AdicionarQuestao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblQuestaoAdicionada);
             this.Controls.Add(this.updValor);
             this.Controls.Add(this.btnVisualizarImagem);
             this.Controls.Add(this.btnAdicionarImagem);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.Button btnVisualizarImagem;
         private System.Windows.Forms.NumericUpDown updValor;
         private System.Windows.Forms.OpenFileDialog ofdImagemDaQuestao;
+        private System.Windows.Forms.Label lblQuestaoAdicionada;
     }
 }

@@ -33,6 +33,7 @@ namespace Maestro_Rework.Forms
             FormBorderStyle = FormBorderStyle.None;
         }
 
+
         private void PreencherDataGrid()
         {
             foreach (var questao in questoes)
@@ -58,7 +59,6 @@ namespace Maestro_Rework.Forms
                 .ParaQuestoes(questoes)
                 .ParaUsuario(fmrLogin.usuarioLogado)
                 .Constroi();
-
             questionarioDAO.Adicionar(questionario);
             return questionario;
         }
@@ -108,30 +108,68 @@ namespace Maestro_Rework.Forms
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            //if (e.ColumnIndex == 1 && e.RowIndex >= 0)
-            //{
-            //    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+            string imgEditar = "Maestro_Rework.Imagens.editar.ico";
+            string imgExcluir = "Maestro_Rework.Imagens.deletar.ico";
 
-            //    string resource = "Maestro_Rework/Imagens/editar.ico";
-            //    Stream fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+            bool ehBotaoEditar = e.ColumnIndex == 1 && e.RowIndex >= 0;
+            bool ehBotaoExcluir = e.ColumnIndex == 2 && e.RowIndex >= 0;
 
-            //    Icon ico = new Icon(fontStream, 10, 10);
-            //    int x = (e.CellBounds.X + (e.CellBounds.Width / 2)) - 10;
-            //    int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
-            //    e.Graphics.DrawIcon(ico, x, y);
-            //    e.Handled = true;
-            //}
-            //if (e.ColumnIndex == 2 && e.RowIndex >= 0)
-            //{
-            //    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+            if (ehBotaoEditar)
+            {
+                DesenharIconeNoBotao(e, imgEditar);
+            }
+            
+            if (ehBotaoExcluir)
+            {
+                DesenharIconeNoBotao(e, imgExcluir);
+            }
+        }
 
-            //    Icon ico = new Icon("Maestro_Rework.Imagens.deletar.ico", 10,10);
+        private static void DesenharIconeNoBotao(DataGridViewCellPaintingEventArgs e, string caminhoImagem)
+        {
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-            //    int x = (e.CellBounds.X + (e.CellBounds.Width / 2)) - 10;
-            //    int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
-            //    e.Graphics.DrawIcon(ico, x, y);
-            //    e.Handled = true;
-            //}
+            Assembly assembly;
+            Stream imageStream;
+
+            assembly = Assembly.GetExecutingAssembly();
+            imageStream = assembly.GetManifestResourceStream(caminhoImagem);
+
+             Icon ico = new Icon(imageStream, 10, 10);
+            int x = (e.CellBounds.X + (e.CellBounds.Width / 2)) - 10;
+            int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
+            e.Graphics.DrawIcon(ico, x, y);
+            e.Handled = true;
+
+            ico.Dispose();
+            imageStream.Dispose();
+        }
+
+        void grd_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool ehBotaoEditar = e.ColumnIndex == 1 && e.RowIndex >= 0;
+            bool ehBotaoExcluir = e.ColumnIndex == 2 && e.RowIndex >= 0;
+            string nomeDaPergunta = "";
+            if(e.RowIndex>0 && e.ColumnIndex>0)
+                nomeDaPergunta = dtgQuestoes.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            if (ehBotaoEditar)
+            {
+
+                var questaoSelecionada = questoes.First(x => x.Pergunta == nomeDaPergunta);
+
+                var show = new fmrAdicionarQuestionario3AdicionarQuestao(questionarioConstrutor, questaoSelecionada);
+                show.MdiParent = ActiveForm;
+                show.Dock = DockStyle.Fill;
+                show.Show();
+                Close();
+            }
+            if (ehBotaoExcluir)
+            {
+                if (MessageBox.Show("Deseja Mesmo Remover?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    dtgQuestoes.Rows.RemoveAt(e.RowIndex);
+                questoes.RemoveAll( x=> x.Pergunta == nomeDaPergunta);
+            }
         }
     }
 }

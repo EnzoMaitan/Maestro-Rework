@@ -79,6 +79,7 @@
             this.dtgQuestoes.Name = "dtgQuestoes";
             this.dtgQuestoes.Size = new System.Drawing.Size(631, 506);
             this.dtgQuestoes.TabIndex = 10;
+            this.dtgQuestoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_CellClick);
             this.dtgQuestoes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // btnAdicionar
