@@ -151,5 +151,10 @@ namespace Maestro_Rework.Forms
             show.Show();
             Close();
         }
+
+        private void updValor_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

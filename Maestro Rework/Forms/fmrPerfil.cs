@@ -63,7 +63,10 @@ namespace Maestro_Rework.Forms
             {
                 lblErro.Visible = true;
                 lblErro.Text = ex.Message;
-                if(ex.Message.Contains("Email Não Confirmado"))chkAlterarSenha.Enabled = false;             
+                if (ex.Message.Contains("Email Não Confirmado"))
+                {
+                    chkAlterarSenha.Enabled =  false;
+                }
             }
         }
       
@@ -102,7 +105,7 @@ namespace Maestro_Rework.Forms
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

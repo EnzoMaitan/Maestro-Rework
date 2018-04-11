@@ -12,23 +12,23 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrAdicionarAtividadeCodigo : Form
     {
-        public fmrAdicionarAtividadeCodigo(string codigoAcesso, object tipoDeAtividade)
+        public fmrAdicionarAtividadeCodigo(string codigoAcesso, Form formAtividade)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             lblCodigo.Text = codigoAcesso;
-            MostrarTipoDeAtividade(tipoDeAtividade);
+            MostrarTipoDeAtividade(formAtividade);
         }
 
-        private void MostrarTipoDeAtividade(object tipoDeAtividade)
+        private void MostrarTipoDeAtividade(Form formAtividade)
         {
-            if (tipoDeAtividade is fmrAdicionarConteudo3Anexos)
+            if (formAtividade is fmrAdicionarConteudo3Anexos)
             {
                 lblAtividadeAdicionada.Text = "Conteúdo adicionado!";
             }
-            if (tipoDeAtividade is fmrAdicionarQuestionario3AdicionarQuestao)
+            else if (formAtividade is fmrAdicionarQuestionario2ListaQuestoes)
             {
-                lblAtividadeAdicionada.Text = "Questionario adicionado!";
+                lblAtividadeAdicionada.Text = "Questionário adicionado!";
             }
         }
 

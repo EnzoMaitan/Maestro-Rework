@@ -84,7 +84,7 @@ namespace Maestro_Rework.Forms
         }
 
         private void FormatarDatagrid()
-        {    
+        {
             DataGridViewButtonColumn botaoExcluir = new DataGridViewButtonColumn();
             botaoExcluir.Width = 100;
             DataGridViewButtonColumn botaoAlterar = new DataGridViewButtonColumn();
@@ -92,7 +92,6 @@ namespace Maestro_Rework.Forms
             DataGridViewTextBoxColumn dtgNomeQuestao = new DataGridViewTextBoxColumn();
 
             dtgNomeQuestao.Width = dtgQuestoes.Width - (botaoAlterar.Width + botaoExcluir.Width) - 20;
-
             dtgQuestoes.ScrollBars = ScrollBars.Vertical;
             dtgQuestoes.AllowUserToAddRows = false;
             dtgQuestoes.AllowUserToResizeRows = false;
@@ -129,29 +128,34 @@ namespace Maestro_Rework.Forms
         {
             e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
+            using (Stream imageStream = GetImagem(caminhoImagem))
+            {
+
+                Icon ico = new Icon(imageStream, 10, 10);
+                int x = (e.CellBounds.X + (e.CellBounds.Width / 2)) - 10;
+                int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
+                e.Graphics.DrawIcon(ico, x, y);
+                e.Handled = true;
+                ico.Dispose();
+            }
+        }
+
+        private static Stream GetImagem(string caminhoImagem)
+        {
             Assembly assembly;
             Stream imageStream;
 
             assembly = Assembly.GetExecutingAssembly();
             imageStream = assembly.GetManifestResourceStream(caminhoImagem);
-
-             Icon ico = new Icon(imageStream, 10, 10);
-            int x = (e.CellBounds.X + (e.CellBounds.Width / 2)) - 10;
-            int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
-            e.Graphics.DrawIcon(ico, x, y);
-            e.Handled = true;
-
-            ico.Dispose();
-            imageStream.Dispose();
+            return imageStream;
         }
 
         void grd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             bool ehBotaoEditar = e.ColumnIndex == 1 && e.RowIndex >= 0;
             bool ehBotaoExcluir = e.ColumnIndex == 2 && e.RowIndex >= 0;
-            string nomeDaPergunta = "";
-            if(e.ColumnIndex>0)
-                nomeDaPergunta = dtgQuestoes.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            string nomeDaPergunta = GetNomeDaPerguntaDaCell(e);
 
             if (ehBotaoEditar)
             {
@@ -166,10 +170,23 @@ namespace Maestro_Rework.Forms
             }
             if (ehBotaoExcluir)
             {
-                if (MessageBox.Show("Deseja Mesmo Remover?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    dtgQuestoes.Rows.RemoveAt(e.RowIndex);
-                questoes.RemoveAll( x=> x.Pergunta == nomeDaPergunta);
+                RemoverQuestao(e, nomeDaPergunta);
             }
+        }
+
+        private string GetNomeDaPerguntaDaCell(DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex > 0)
+                return dtgQuestoes.Rows[e.RowIndex].Cells[0].Value.ToString();
+            else
+                return "";
+        }
+
+        private void RemoverQuestao(DataGridViewCellEventArgs e, string nomeDaPergunta)
+        {
+            if (MessageBox.Show("Deseja Mesmo Remover?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                dtgQuestoes.Rows.RemoveAt(e.RowIndex);
+            questoes.RemoveAll(x => x.Pergunta == nomeDaPergunta);
         }
     }
 }

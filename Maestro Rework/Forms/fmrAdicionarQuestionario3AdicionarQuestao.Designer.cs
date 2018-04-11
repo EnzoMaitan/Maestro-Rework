@@ -101,7 +101,7 @@
             this.txtPergunta.Location = new System.Drawing.Point(256, 79);
             this.txtPergunta.Name = "txtPergunta";
             this.txtPergunta.Size = new System.Drawing.Size(315, 38);
-            this.txtPergunta.TabIndex = 13;
+            this.txtPergunta.TabIndex = 0;
             // 
             // lblQuestao
             // 
@@ -170,7 +170,7 @@
             this.txtA.Location = new System.Drawing.Point(256, 187);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(315, 29);
-            this.txtA.TabIndex = 13;
+            this.txtA.TabIndex = 1;
             // 
             // txtB
             // 
@@ -179,7 +179,7 @@
             this.txtB.Location = new System.Drawing.Point(256, 223);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(315, 29);
-            this.txtB.TabIndex = 13;
+            this.txtB.TabIndex = 2;
             // 
             // txtC
             // 
@@ -188,7 +188,7 @@
             this.txtC.Location = new System.Drawing.Point(256, 258);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(315, 29);
-            this.txtC.TabIndex = 13;
+            this.txtC.TabIndex = 3;
             // 
             // txtD
             // 
@@ -197,7 +197,7 @@
             this.txtD.Location = new System.Drawing.Point(256, 293);
             this.txtD.Name = "txtD";
             this.txtD.Size = new System.Drawing.Size(315, 29);
-            this.txtD.TabIndex = 13;
+            this.txtD.TabIndex = 4;
             // 
             // txtE
             // 
@@ -206,7 +206,7 @@
             this.txtE.Location = new System.Drawing.Point(256, 328);
             this.txtE.Name = "txtE";
             this.txtE.Size = new System.Drawing.Size(315, 29);
-            this.txtE.TabIndex = 13;
+            this.txtE.TabIndex = 5;
             // 
             // rdbA
             // 
@@ -311,10 +311,12 @@
             // 
             // updValor
             // 
-            this.updValor.Location = new System.Drawing.Point(370, 435);
+            this.updValor.Font = new System.Drawing.Font("Century Gothic", 15.25F);
+            this.updValor.Location = new System.Drawing.Point(381, 422);
             this.updValor.Name = "updValor";
-            this.updValor.Size = new System.Drawing.Size(120, 20);
-            this.updValor.TabIndex = 18;
+            this.updValor.Size = new System.Drawing.Size(120, 32);
+            this.updValor.TabIndex = 6;
+            this.updValor.ValueChanged += new System.EventHandler(this.updValor_ValueChanged);
             // 
             // ofdImagemDaQuestao
             // 
@@ -324,11 +326,12 @@
             // 
             this.lblQuestaoAdicionada.AutoSize = true;
             this.lblQuestaoAdicionada.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblQuestaoAdicionada.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblQuestaoAdicionada.Location = new System.Drawing.Point(269, 120);
             this.lblQuestaoAdicionada.Name = "lblQuestaoAdicionada";
-            this.lblQuestaoAdicionada.Size = new System.Drawing.Size(288, 32);
+            this.lblQuestaoAdicionada.Size = new System.Drawing.Size(296, 32);
             this.lblQuestaoAdicionada.TabIndex = 19;
-            this.lblQuestaoAdicionada.Text = "Questão Adicionada";
+            this.lblQuestaoAdicionada.Text = "Questão Adicionada!";
             // 
             // fmrAdicionarQuestionario3AdicionarQuestao
             // 

@@ -39,7 +39,6 @@ namespace Maestro_Rework.Forms
 
                 AdicionarImagemDeCapa(conteudo);
                 
-
                 var show = new fmrAdicionarAtividadeCodigo(conteudo.CodigoAcesso, this);
                 show.MdiParent = ActiveForm;
                 show.Dock = DockStyle.Fill;
