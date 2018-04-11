@@ -19,6 +19,10 @@ namespace Maestro_Rework.Forms
             _tipoDeAtividade = tipoDeAtividade;
             FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
+            if (_tipoDeAtividade.Equals("CONTEUDO"))
+                lblTipoDeAtividade.Text = "Conteudo";
+            else if (_tipoDeAtividade.Equals("QUESTIONARIO"))
+                lblTipoDeAtividade.Text = "Questionario";
         }
 
         private void fmrGerencia_Load(object sender, EventArgs e)
@@ -35,7 +39,7 @@ namespace Maestro_Rework.Forms
                 show.Dock = DockStyle.Fill;
                 show.Show();
             }
-            else if (_tipoDeAtividade == "QUESTIONARIO")
+            else if (_tipoDeAtividade.Equals("QUESTIONARIO"))
             {
                 fmrAdicionarQuestionario2ListaQuestoes.questoes.Clear();
                 var show = new fmrAdicionarQuestionario1Titulo();
@@ -43,6 +47,11 @@ namespace Maestro_Rework.Forms
                 show.Dock = DockStyle.Fill;
                 show.Show();
             }
+        }
+
+        private void btnGerenciar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

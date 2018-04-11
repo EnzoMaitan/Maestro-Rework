@@ -59,7 +59,7 @@
             this.txtTitulo.Location = new System.Drawing.Point(274, 120);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(315, 38);
-            this.txtTitulo.TabIndex = 1;
+            this.txtTitulo.TabIndex = 0;
             // 
             // lblImg
             // 
@@ -80,6 +80,7 @@
             this.txtImagemDeCapa.ReadOnly = true;
             this.txtImagemDeCapa.Size = new System.Drawing.Size(315, 31);
             this.txtImagemDeCapa.TabIndex = 1;
+            this.txtImagemDeCapa.TabStop = false;
             // 
             // btnAdicionarImagem
             // 
@@ -91,7 +92,7 @@
             this.btnAdicionarImagem.Location = new System.Drawing.Point(219, 347);
             this.btnAdicionarImagem.Name = "btnAdicionarImagem";
             this.btnAdicionarImagem.Size = new System.Drawing.Size(38, 38);
-            this.btnAdicionarImagem.TabIndex = 3;
+            this.btnAdicionarImagem.TabIndex = 2;
             this.btnAdicionarImagem.UseVisualStyleBackColor = true;
             this.btnAdicionarImagem.Click += new System.EventHandler(this.btnAdicionarImagem_Click);
             // 
@@ -148,7 +149,7 @@
             this.cboTema.Location = new System.Drawing.Point(274, 230);
             this.cboTema.Name = "cboTema";
             this.cboTema.Size = new System.Drawing.Size(315, 39);
-            this.cboTema.TabIndex = 6;
+            this.cboTema.TabIndex = 1;
             // 
             // lblErro
             // 

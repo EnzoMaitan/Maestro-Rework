@@ -16,7 +16,10 @@ namespace Maestro_Rework.Classes
             Valor = valor;
             Imagem = imagem;
         }
+        public Questao()
+        {
 
+        }
         public int Id { get; private set; }
         public Questionario Questionario { get; private set; }
         public int QuestionarioID { get; private set; }

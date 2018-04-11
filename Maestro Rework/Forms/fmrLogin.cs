@@ -19,6 +19,7 @@ namespace Maestro_Rework.Forms
         {
             InitializeComponent();
             lblErro.Visible = false;
+            this.AcceptButton = btnLogin;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

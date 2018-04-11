@@ -22,6 +22,7 @@ namespace Maestro_Rework.Forms
         public fmrAdicionarConteudo1Titulo()
         {
             InitializeComponent();
+            this.AcceptButton = btnAvancar;
             lblErro.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
             ConfigurarFileDialog();
@@ -30,6 +31,7 @@ namespace Maestro_Rework.Forms
         public fmrAdicionarConteudo1Titulo(ConteudoConstrutor conteudoConstrutor, AnexoConteudoConstrutor anexoConteudoConstrutor)
         {         
             InitializeComponent();
+            this.AcceptButton = btnAvancar;
 
             lblErro.Visible = false;
 
@@ -97,7 +99,6 @@ namespace Maestro_Rework.Forms
             if (possuiArquivoAdicionado)
             {
                 var addAnexo = new ConversorDeAnexos();
-
                 anexoConteudoConstrutor.ParaImagem(AdicionarImagem(addAnexo));
                 MostrarNomeDoArquivo();
             }

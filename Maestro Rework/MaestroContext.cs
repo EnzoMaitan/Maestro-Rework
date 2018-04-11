@@ -43,7 +43,7 @@ namespace Maestro_Rework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maita\Documents\MaestroDB.mdf;Integrated Security=True;Connect Timeout=30");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Enzo\Documents\MaestroDB.mdf;Integrated Security=True;Connect Timeout=30");
         }
     }
 }

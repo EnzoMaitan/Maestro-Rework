@@ -59,7 +59,7 @@
             this.btnLogin.Location = new System.Drawing.Point(391, 406);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(104, 28);
-            this.btnLogin.TabIndex = 10;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -71,7 +71,7 @@
             this.lblRecSenha.Location = new System.Drawing.Point(219, 421);
             this.lblRecSenha.Name = "lblRecSenha";
             this.lblRecSenha.Size = new System.Drawing.Size(116, 13);
-            this.lblRecSenha.TabIndex = 14;
+            this.lblRecSenha.TabIndex = 4;
             this.lblRecSenha.Text = "Esqueceu sua senha ?";
             // 
             // lblCadastrar
@@ -81,7 +81,7 @@
             this.lblCadastrar.Location = new System.Drawing.Point(248, 399);
             this.lblCadastrar.Name = "lblCadastrar";
             this.lblCadastrar.Size = new System.Drawing.Size(52, 13);
-            this.lblCadastrar.TabIndex = 13;
+            this.lblCadastrar.TabIndex = 3;
             this.lblCadastrar.Text = "Cadastrar";
             this.lblCadastrar.Click += new System.EventHandler(this.lblCadastrar_Click);
             // 
@@ -113,7 +113,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(274, 20);
-            this.txtSenha.TabIndex = 9;
+            this.txtSenha.TabIndex = 1;
             // 
             // txtLogin
             // 
@@ -121,7 +121,7 @@
             this.txtLogin.Location = new System.Drawing.Point(221, 292);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(274, 20);
-            this.txtLogin.TabIndex = 8;
+            this.txtLogin.TabIndex = 0;
             // 
             // lblErro
             // 

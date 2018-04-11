@@ -104,7 +104,7 @@ namespace Maestro_Rework.Forms
         private void AdicionarAnexos(Conteudo conteudoCriado)
         {
             bool possuiArquivoAdicionado =
-                (ofdArquivosAnexo.FileName.Length > 0);
+                (ofdArquivosAnexo.FileNames != null);
 
             if (possuiArquivoAdicionado)
             {

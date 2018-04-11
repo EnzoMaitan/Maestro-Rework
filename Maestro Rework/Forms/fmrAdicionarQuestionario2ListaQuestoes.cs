@@ -84,7 +84,7 @@ namespace Maestro_Rework.Forms
         }
 
         private void FormatarDatagrid()
-        {
+        {    
             DataGridViewButtonColumn botaoExcluir = new DataGridViewButtonColumn();
             botaoExcluir.Width = 100;
             DataGridViewButtonColumn botaoAlterar = new DataGridViewButtonColumn();
@@ -150,13 +150,13 @@ namespace Maestro_Rework.Forms
             bool ehBotaoEditar = e.ColumnIndex == 1 && e.RowIndex >= 0;
             bool ehBotaoExcluir = e.ColumnIndex == 2 && e.RowIndex >= 0;
             string nomeDaPergunta = "";
-            if(e.RowIndex>0 && e.ColumnIndex>0)
+            if(e.ColumnIndex>0)
                 nomeDaPergunta = dtgQuestoes.Rows[e.RowIndex].Cells[0].Value.ToString();
 
             if (ehBotaoEditar)
             {
-
-                var questaoSelecionada = questoes.First(x => x.Pergunta == nomeDaPergunta);
+                MessageBox.Show(nomeDaPergunta);
+                var questaoSelecionada = questoes.FirstOrDefault(x => x.Pergunta == nomeDaPergunta);
 
                 var show = new fmrAdicionarQuestionario3AdicionarQuestao(questionarioConstrutor, questaoSelecionada);
                 show.MdiParent = ActiveForm;

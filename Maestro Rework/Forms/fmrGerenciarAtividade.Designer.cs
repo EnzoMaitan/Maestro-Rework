@@ -32,6 +32,7 @@
             this.btnAdicionarNovo = new System.Windows.Forms.Button();
             this.btnGerenciar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.lblTipoDeAtividade = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdicionarNovo
@@ -66,6 +67,7 @@
             this.btnGerenciar.TabIndex = 1;
             this.btnGerenciar.Text = "Gerenciar";
             this.btnGerenciar.UseVisualStyleBackColor = false;
+            this.btnGerenciar.Click += new System.EventHandler(this.btnGerenciar_Click);
             // 
             // btnVoltar
             // 
@@ -84,12 +86,23 @@
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
             // 
+            // lblTipoDeAtividade
+            // 
+            this.lblTipoDeAtividade.AutoSize = true;
+            this.lblTipoDeAtividade.Font = new System.Drawing.Font("Century Gothic", 20.25F);
+            this.lblTipoDeAtividade.Location = new System.Drawing.Point(312, 94);
+            this.lblTipoDeAtividade.Name = "lblTipoDeAtividade";
+            this.lblTipoDeAtividade.Size = new System.Drawing.Size(239, 33);
+            this.lblTipoDeAtividade.TabIndex = 2;
+            this.lblTipoDeAtividade.Text = "TIPODEATIVIDADE";
+            // 
             // fmrGerenciarAtividade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblTipoDeAtividade);
             this.Controls.Add(this.btnGerenciar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnAdicionarNovo);
@@ -97,6 +110,7 @@
             this.Text = "Gerenciar";
             this.Load += new System.EventHandler(this.fmrGerencia_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,5 +119,6 @@
         private System.Windows.Forms.Button btnAdicionarNovo;
         private System.Windows.Forms.Button btnGerenciar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Label lblTipoDeAtividade;
     }
 }

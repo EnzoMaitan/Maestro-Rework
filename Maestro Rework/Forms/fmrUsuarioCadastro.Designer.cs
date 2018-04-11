@@ -87,7 +87,7 @@
             this.cboSelecionar.Location = new System.Drawing.Point(14, 62);
             this.cboSelecionar.Name = "cboSelecionar";
             this.cboSelecionar.Size = new System.Drawing.Size(174, 30);
-            this.cboSelecionar.TabIndex = 59;
+            this.cboSelecionar.TabIndex = 8;
             this.cboSelecionar.Text = " ";
             // 
             // btnSair
@@ -98,7 +98,7 @@
             this.btnSair.Location = new System.Drawing.Point(598, 478);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
-            this.btnSair.TabIndex = 58;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Cancelar";
             this.btnSair.UseVisualStyleBackColor = false;
             // 
@@ -110,7 +110,7 @@
             this.btnAcao.Location = new System.Drawing.Point(724, 478);
             this.btnAcao.Name = "btnAcao";
             this.btnAcao.Size = new System.Drawing.Size(131, 40);
-            this.btnAcao.TabIndex = 57;
+            this.btnAcao.TabIndex = 5;
             this.btnAcao.Text = "Cadastrar";
             this.btnAcao.UseVisualStyleBackColor = false;
             this.btnAcao.Click += new System.EventHandler(this.BtnAcao_Click);
@@ -122,7 +122,7 @@
             this.txtConf.Name = "txtConf";
             this.txtConf.PasswordChar = '*';
             this.txtConf.Size = new System.Drawing.Size(174, 29);
-            this.txtConf.TabIndex = 56;
+            this.txtConf.TabIndex = 4;
             // 
             // txtSenha
             // 
@@ -131,7 +131,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(174, 29);
-            this.txtSenha.TabIndex = 55;
+            this.txtSenha.TabIndex = 3;
             // 
             // txtEmail
             // 
@@ -139,7 +139,7 @@
             this.txtEmail.Location = new System.Drawing.Point(362, 246);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(174, 29);
-            this.txtEmail.TabIndex = 54;
+            this.txtEmail.TabIndex = 2;
             // 
             // txtNome
             // 
@@ -147,7 +147,7 @@
             this.txtNome.Location = new System.Drawing.Point(362, 185);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(174, 29);
-            this.txtNome.TabIndex = 53;
+            this.txtNome.TabIndex = 1;
             // 
             // txtLogin
             // 
@@ -155,7 +155,7 @@
             this.txtLogin.Location = new System.Drawing.Point(362, 119);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(174, 29);
-            this.txtLogin.TabIndex = 52;
+            this.txtLogin.TabIndex = 0;
             // 
             // label5
             // 

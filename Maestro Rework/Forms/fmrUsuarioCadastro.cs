@@ -17,6 +17,7 @@ namespace Maestro_Rework.Forms
             lblUsuarioCadastrado.Visible = false;
             lblUsuario.Visible = false;
             cboSelecionar.Visible = false;
+            this.AcceptButton = btnAcao;
         }
 
         private void BtnAcao_Click(object sender, EventArgs e)
