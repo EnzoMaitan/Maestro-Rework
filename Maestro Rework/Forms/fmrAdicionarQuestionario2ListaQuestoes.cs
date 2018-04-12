@@ -159,7 +159,6 @@ namespace Maestro_Rework.Forms
 
             if (ehBotaoEditar)
             {
-                MessageBox.Show(nomeDaPergunta);
                 var questaoSelecionada = questoes.FirstOrDefault(x => x.Pergunta == nomeDaPergunta);
 
                 var show = new fmrAdicionarQuestionario3AdicionarQuestao(questionarioConstrutor, questaoSelecionada);

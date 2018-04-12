@@ -17,10 +17,13 @@ namespace Maestro_Rework.Forms
     public partial class fmrAdicionarQuestionario3AdicionarQuestao : Form
     {
         private Questao questao;
+        private Questao questaoParaAlterar;
         private QuestionarioConstrutor questionarioConstrutor;
+        private bool registrarQuestao;
 
         public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor)
         {
+            registrarQuestao = true;
             this.questionarioConstrutor = questionarioConstrutor;
             InitializeComponent();
             lblQuestaoAdicionada.Visible = false;
@@ -29,6 +32,9 @@ namespace Maestro_Rework.Forms
 
         public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor, Questao questao)
         {
+            registrarQuestao = false;
+            this.questaoParaAlterar = new Questao();
+            this.questaoParaAlterar = questao;
             this.questao = questao;
             this.questionarioConstrutor = questionarioConstrutor;
             InitializeComponent();
@@ -42,15 +48,15 @@ namespace Maestro_Rework.Forms
             btnAdicionar.Text = "Alterar";
         }
 
-        private void AlterarQuestao(Questao questaoSelecionada)
-        {
-            double valorPergunta = Convert.ToDouble(updValor.Value);
+        //private void AlterarQuestao(Questao questaoSelecionada)
+        //{
+        //    double valorPergunta = Convert.ToDouble(updValor.Value);
 
-            var pergunta = questaoSelecionada.Pergunta;
+        //    var pergunta = questaoSelecionada.Pergunta;
 
-            questaoSelecionada.AlterarPergunta(txtPergunta.Text);
-            questaoSelecionada.AlterarValor(valorPergunta);
-        }
+        //    questaoSelecionada.AlterarPergunta(txtPergunta.Text);
+        //    questaoSelecionada.AlterarValor(valorPergunta);
+        //}
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -77,10 +83,23 @@ namespace Maestro_Rework.Forms
                 .ParaAlternativas(alternativas)
                 .Constroi();
 
-            fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
-            lblQuestaoAdicionada.Visible = true;
-            LimparCampos();
+            if (registrarQuestao)
+            {
+                fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
+                LimparCampos();
+            }
+            else
+            {
+                AlterarQuestao(questao);
+            }
 
+            lblQuestaoAdicionada.Visible = true;
+        }
+
+        private void AlterarQuestao(Questao questao)
+        {
+                fmrAdicionarQuestionario2ListaQuestoes.questoes.Remove(questaoParaAlterar);
+                fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
         }
 
         private void LimparCampos()

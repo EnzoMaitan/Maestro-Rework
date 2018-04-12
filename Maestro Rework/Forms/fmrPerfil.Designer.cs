@@ -50,9 +50,9 @@
             this.btnVoltar.BackColor = System.Drawing.Color.Coral;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVoltar.Location = new System.Drawing.Point(746, 488);
+            this.btnVoltar.Location = new System.Drawing.Point(12, 534);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(94, 30);
+            this.btnVoltar.Size = new System.Drawing.Size(154, 39);
             this.btnVoltar.TabIndex = 36;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
@@ -215,7 +215,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(858, 530);
+            this.ClientSize = new System.Drawing.Size(859, 585);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.lblErro);
             this.Controls.Add(this.label10);

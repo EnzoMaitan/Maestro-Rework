@@ -97,10 +97,6 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // ofdArquivosAnexo
-            // 
-            this.ofdArquivosAnexo.FileName = "openFileDialog1";
-            // 
             // lstAnexoAdicionados
             // 
             this.lstAnexoAdicionados.FormattingEnabled = true;

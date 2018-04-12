@@ -22,6 +22,7 @@ namespace Maestro_Rework.Forms
         public fmrAdicionarConteudo1Titulo()
         {
             InitializeComponent();
+            anexoConteudoConstrutor = new AnexoConteudoConstrutor();
             this.AcceptButton = btnAvancar;
             lblErro.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
