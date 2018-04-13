@@ -55,6 +55,7 @@
             this.updValor = new System.Windows.Forms.NumericUpDown();
             this.ofdImagemDaQuestao = new System.Windows.Forms.OpenFileDialog();
             this.lblQuestaoAdicionada = new System.Windows.Forms.Label();
+            this.lblErro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.updValor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -330,12 +331,24 @@
             this.lblQuestaoAdicionada.TabIndex = 19;
             this.lblQuestaoAdicionada.Text = "Questão Adicionada!";
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblErro.ForeColor = System.Drawing.Color.Coral;
+            this.lblErro.Location = new System.Drawing.Point(358, 378);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(70, 21);
+            this.lblErro.TabIndex = 20;
+            this.lblErro.Text = "lblERRO";
+            // 
             // fmrAdicionarQuestionario3AdicionarQuestao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.lblQuestaoAdicionada);
             this.Controls.Add(this.updValor);
             this.Controls.Add(this.btnVisualizarImagem);
@@ -397,5 +410,6 @@
         private System.Windows.Forms.NumericUpDown updValor;
         private System.Windows.Forms.OpenFileDialog ofdImagemDaQuestao;
         private System.Windows.Forms.Label lblQuestaoAdicionada;
+        private System.Windows.Forms.Label lblErro;
     }
 }

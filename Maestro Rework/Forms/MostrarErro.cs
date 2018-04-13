@@ -9,7 +9,7 @@ namespace Maestro_Rework.Forms
 {
     public static class MostrarErro
     {
-        public static void DeixarLabelVisivelMostrarErro(Label lblErro, ArgumentException ex)
+        public static void DeixarLabelVisivelMostrarErro(Label lblErro, Exception ex)
         {
             lblErro.Visible = true;
             lblErro.Text = ex.Message;

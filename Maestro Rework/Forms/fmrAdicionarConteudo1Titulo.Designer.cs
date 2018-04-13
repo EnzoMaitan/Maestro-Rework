@@ -154,9 +154,11 @@
             // lblErro
             // 
             this.lblErro.AutoSize = true;
+            this.lblErro.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblErro.ForeColor = System.Drawing.Color.Coral;
             this.lblErro.Location = new System.Drawing.Point(414, 388);
             this.lblErro.Name = "lblErro";
-            this.lblErro.Size = new System.Drawing.Size(48, 13);
+            this.lblErro.Size = new System.Drawing.Size(70, 21);
             this.lblErro.TabIndex = 7;
             this.lblErro.Text = "lblERRO";
             // 

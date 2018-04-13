@@ -55,36 +55,56 @@ namespace Maestro_Rework.Forms
 
             var questaoConstrutor = new QuestaoConstrutor();
 
-            var questao = questaoConstrutor
-                .ParaPergunta(txtPergunta.Text)
-                .ParaValor(Convert.ToDouble(updValor.Value))
-                .ParaImagem(ConversorDeAnexos.ConverterImagem(ofdImagemDaQuestao))
-                .Constroi();
+            try
+            {
+                var questao = questaoConstrutor
+                    .ParaPergunta(txtPergunta.Text)
+                    .ParaValor(Convert.ToDouble(updValor.Value))
+                    .ParaImagem(ConversorDeAnexos.ConverterImagem(ofdImagemDaQuestao))
+                    .Constroi();
 
-            alternativas = new List<Alternativa>
+                alternativas = new List<Alternativa>
+                    {
+                        AdicionaAlternativa(questao, txtA.Text, rdbA.Checked),
+                        AdicionaAlternativa(questao, txtB.Text, rdbB.Checked),
+                        AdicionaAlternativa(questao, txtC.Text, rdbC.Checked),
+                        AdicionaAlternativa(questao, txtD.Text, rdbD.Checked),
+                        AdicionaAlternativa(questao, txtE.Text, rdbE.Checked),
+                    };
+
+                questao = questaoConstrutor
+                    .ParaAlternativas(alternativas)
+                    .Constroi();
+
+                if (registrarQuestao)
                 {
-                    AdicionaAlternativa(questao, txtA.Text, rdbA.Checked),
-                    AdicionaAlternativa(questao, txtB.Text, rdbB.Checked),
-                    AdicionaAlternativa(questao, txtC.Text, rdbC.Checked),
-                    AdicionaAlternativa(questao, txtD.Text, rdbD.Checked),
-                    AdicionaAlternativa(questao, txtE.Text, rdbE.Checked),
-                };
+                    fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
+                    LimparCampos();
+                }
+                else
+                {
+                    AlterarQuestao(questao);
+                }
 
-            questao = questaoConstrutor
-                .ParaAlternativas(alternativas)
-                .Constroi();
+                lblQuestaoAdicionada.Visible = true;
 
-            if (registrarQuestao)
-            {
-                fmrAdicionarQuestionario2ListaQuestoes.questoes.Add(questao);
-                LimparCampos();
             }
-            else
+            catch (ArgumentNullException ex) when (ex.Message.Contains("Pergunta"))
             {
-                AlterarQuestao(questao);
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
             }
-
-            lblQuestaoAdicionada.Visible = true;
+            catch (ArgumentNullException ex) when (ex.Message.Contains("Alternativa"))
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
         }
 
         private void AlterarQuestao(Questao questao)

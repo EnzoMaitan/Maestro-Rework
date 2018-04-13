@@ -10,6 +10,11 @@ namespace Maestro_Rework.Classes
     {
         public Questao(int questionarioID, IList<Alternativa> alternativas, string pergunta, double valor, byte[] imagem)
         {
+            if (string.IsNullOrWhiteSpace(pergunta))
+                throw new ArgumentNullException("","Preencha o campo da Pergunta");
+            if (valor <= 0)
+                throw new ArgumentOutOfRangeException();
+
             QuestionarioID = questionarioID;
             Alternativas = alternativas;
             Pergunta = pergunta;

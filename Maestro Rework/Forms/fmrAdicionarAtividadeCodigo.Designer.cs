@@ -60,9 +60,9 @@
             this.lblAtividadeAdicionada.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblAtividadeAdicionada.Location = new System.Drawing.Point(213, 244);
             this.lblAtividadeAdicionada.Name = "lblAtividadeAdicionada";
-            this.lblAtividadeAdicionada.Size = new System.Drawing.Size(428, 44);
+            this.lblAtividadeAdicionada.Size = new System.Drawing.Size(421, 44);
             this.lblAtividadeAdicionada.TabIndex = 10;
-            this.lblAtividadeAdicionada.Text = "Conteúdo adicionado!";
+            this.lblAtividadeAdicionada.Text = "Atividade adicionada!";
             // 
             // label2
             // 
@@ -86,7 +86,7 @@
             this.lblCodigo.TabIndex = 10;
             this.lblCodigo.Text = "G0392";
             // 
-            // fmrAdicionarConteudo3
+            // fmrAdicionarAtividadeCodigo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,7 +96,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAtividadeAdicionada);
             this.Controls.Add(this.btnConcluir);
-            this.Name = "fmrAdicionarConteudo3";
+            this.Name = "fmrAdicionarAtividadeCodigo";
             this.Text = "frmAdicionarConteudo";
             this.ResumeLayout(false);
             this.PerformLayout();

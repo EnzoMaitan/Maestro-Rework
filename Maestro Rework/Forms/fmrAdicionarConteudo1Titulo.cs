@@ -93,14 +93,7 @@ namespace Maestro_Rework.Forms
             if (ofdImagemDeCapa.ShowDialog() == DialogResult.OK)
             {
                 ofdImagemDeCapa.OpenFile();
-            }
-
-            bool possuiArquivoAdicionado = ofdImagemDeCapa.FileName.Length > 0;
-
-            if (possuiArquivoAdicionado)
-            {
-                var addAnexo = new ConversorDeAnexos();
-                anexoConteudoConstrutor.ParaImagem(AdicionarImagem(addAnexo));
+                anexoConteudoConstrutor.ParaImagem(ConversorDeAnexos.ConverterImagem(ofdImagemDeCapa));
                 MostrarNomeDoArquivo();
             }
         }
@@ -115,9 +108,6 @@ namespace Maestro_Rework.Forms
                 anexoConteudoConstrutor.ParaNome(ofdImagemDeCapa.SafeFileName.ToString());
                 txtImagemDeCapa.Text = anexoConteudoConstrutor.Nome;
             }
-        }
-
-        private byte[] AdicionarImagem(ConversorDeAnexos addAnexo) =>
-             addAnexo.DatabaseFilePut(Path.GetFullPath(ofdImagemDeCapa.FileName));           
+        }          
     }
 }

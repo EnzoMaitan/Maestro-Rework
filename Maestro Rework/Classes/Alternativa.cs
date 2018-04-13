@@ -10,6 +10,8 @@ namespace Maestro_Rework.Classes
     {
         public Alternativa(int questaoID, string texto, bool correta)
         {
+            if (string.IsNullOrWhiteSpace(texto))
+                throw new ArgumentNullException("", "Preencha o campo da Alternativa");
             QuestaoID = questaoID;
             Texto = texto;
             Correta = correta;
