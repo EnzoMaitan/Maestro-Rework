@@ -295,6 +295,7 @@
             this.btnAdicionarImagem.Size = new System.Drawing.Size(38, 38);
             this.btnAdicionarImagem.TabIndex = 17;
             this.btnAdicionarImagem.UseVisualStyleBackColor = true;
+            this.btnAdicionarImagem.Click += new System.EventHandler(this.btnAdicionarImagem_Click);
             // 
             // btnVisualizarImagem
             // 
@@ -317,10 +318,6 @@
             this.updValor.Size = new System.Drawing.Size(120, 32);
             this.updValor.TabIndex = 6;
             this.updValor.ValueChanged += new System.EventHandler(this.updValor_ValueChanged);
-            // 
-            // ofdImagemDaQuestao
-            // 
-            this.ofdImagemDaQuestao.FileName = "openFileDialog1";
             // 
             // lblQuestaoAdicionada
             // 

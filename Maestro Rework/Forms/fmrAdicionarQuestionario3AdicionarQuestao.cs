@@ -44,19 +44,10 @@ namespace Maestro_Rework.Forms
             FormBorderStyle = FormBorderStyle.None;
 
             MostrarQuestaoSelecionada();
+            MostrarAlternativasDaQuestaoSelecionada();
 
             btnAdicionar.Text = "Alterar";
         }
-
-        //private void AlterarQuestao(Questao questaoSelecionada)
-        //{
-        //    double valorPergunta = Convert.ToDouble(updValor.Value);
-
-        //    var pergunta = questaoSelecionada.Pergunta;
-
-        //    questaoSelecionada.AlterarPergunta(txtPergunta.Text);
-        //    questaoSelecionada.AlterarValor(valorPergunta);
-        //}
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -67,7 +58,7 @@ namespace Maestro_Rework.Forms
             var questao = questaoConstrutor
                 .ParaPergunta(txtPergunta.Text)
                 .ParaValor(Convert.ToDouble(updValor.Value))
-                .ParaImagem(ConverterFoto(ofdImagemDaQuestao))
+                .ParaImagem(ConversorDeAnexos.ConverterImagem(ofdImagemDaQuestao))
                 .Constroi();
 
             alternativas = new List<Alternativa>
@@ -122,7 +113,21 @@ namespace Maestro_Rework.Forms
         {
             txtPergunta.Text = questao.Pergunta;
             updValor.Value = Convert.ToDecimal(questao.Valor);
-            //todo mostrar questoes;
+        }
+
+        private void MostrarAlternativasDaQuestaoSelecionada()
+        {
+            txtA.Text = questao.Alternativas[0].Texto;
+            txtB.Text = questao.Alternativas[1].Texto;
+            txtC.Text = questao.Alternativas[2].Texto;
+            txtD.Text = questao.Alternativas[3].Texto;
+            txtE.Text = questao.Alternativas[4].Texto;
+
+            rdbA.Checked = questao.Alternativas[0].Correta;
+            rdbB.Checked = questao.Alternativas[1].Correta;
+            rdbC.Checked = questao.Alternativas[2].Correta;
+            rdbD.Checked = questao.Alternativas[3].Correta;
+            rdbE.Checked = questao.Alternativas[4].Correta;
         }
 
         private Alternativa AdicionaAlternativa(Questao questaoAtual, string texto, bool correta)
@@ -134,19 +139,6 @@ namespace Maestro_Rework.Forms
                     .ParaCorreta(correta)
                     .ParaQuestao(questaoAtual)
                     .Constroi();
-        }
-
-        private byte[] ConverterFoto(OpenFileDialog ofd)
-        {
-            //using (var stream = new MemoryStream())
-            //{
-            //    pictureBox.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-            //    stream.Seek(0, SeekOrigin.Begin);
-            //    byte[] bArray = new byte[stream.Length];
-            //    stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
-            //    return bArray;
-            //}
-            return null;
         }
 
         private void btnImg_Click(object sender, EventArgs e)
@@ -174,6 +166,14 @@ namespace Maestro_Rework.Forms
         private void updValor_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdicionarImagem_Click(object sender, EventArgs e)
+        {
+            if (ofdImagemDaQuestao.ShowDialog() == DialogResult.OK)
+            {
+                ofdImagemDaQuestao.OpenFile();
+            }
         }
     }
 }
