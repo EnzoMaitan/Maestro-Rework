@@ -8,7 +8,7 @@ namespace Maestro_Rework.IDAO
         void Adicionar(Usuario usuario);
         void Atualizar(Usuario usuario);
         bool LoginDisponivel(string login);
-        bool ValidarLogin(string login, string senha);
+        string PegarHashSalvo(string login);
         Usuario GetUsuarioLogado(string login, string senha);
         IList<Usuario> Usuario();
     }

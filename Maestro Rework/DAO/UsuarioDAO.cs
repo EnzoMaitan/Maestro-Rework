@@ -12,13 +12,13 @@ namespace Maestro_Rework.DAO
     {
         private MaestroContext contexto;
 
-        public bool ValidarLogin(string login, string senha)
+        public string PegarHashSalvo(string login)
         {
             using (var contexto = new MaestroContext())
             {
-                var query = contexto.Usuarios.Where(x => x.Login.Equals(login) && x.Senha.Equals(senha));
+                var query = contexto.Usuarios.Where(x => x.Login.Equals(login));
                 if (query.FirstOrDefault() != null)
-                    return true;
+                    return query.FirstOrDefault().Senha;
                 else throw new Exception("Usuario Invalido");
             }
         }

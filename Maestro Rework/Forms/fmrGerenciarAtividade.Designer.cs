@@ -109,7 +109,6 @@
             this.Controls.Add(this.btnAdicionarNovo);
             this.Name = "fmrGerenciarAtividade";
             this.Text = "Gerenciar";
-            this.Load += new System.EventHandler(this.fmrGerencia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

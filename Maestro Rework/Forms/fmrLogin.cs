@@ -26,10 +26,9 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                var usuarioDAO = new UsuarioDAO();
-
-                if (CamposPreenchidos()&&usuarioDAO.ValidarLogin(txtLogin.Text, txtSenha.Text))
+                if (CamposPreenchidos()&& Usuario.ValidarLogin(txtLogin.Text, txtSenha.Text))
                 {
+                    var usuarioDAO = new UsuarioDAO();
                     usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);
                     fmrMenu fmr = new fmrMenu();
                     fmr.Show();

@@ -25,11 +25,6 @@ namespace Maestro_Rework.Forms
                 lblTipoDeAtividade.Text = "Questionario";
         }
 
-        private void fmrGerencia_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAdicionarNovo_Click(object sender, EventArgs e)
         {
             if (_tipoDeAtividade.Equals("CONTEUDO"))

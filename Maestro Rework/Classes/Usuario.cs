@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Maestro_Rework.DAO;
+using BCrypt;
 
 namespace Maestro_Rework.Classes
 {
@@ -33,5 +35,13 @@ namespace Maestro_Rework.Classes
             Senha = senha;
         }
 
+        public static bool ValidarLogin(string login, string senha)
+        {         
+            UsuarioDAO dao = new UsuarioDAO();
+            var hashSalvo = dao.PegarHashSalvo(login);
+            if(BCrypt.Net.BCrypt.Verify(senha, hashSalvo))
+                return true;
+            else throw new Exception("Usuario Invalido");
+        }
     }
 }

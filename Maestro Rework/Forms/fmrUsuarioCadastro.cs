@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Maestro_Rework.Classes.Construtores;
 using Maestro_Rework.DAO;
-
+using BCrypt;
 
 namespace Maestro_Rework.Forms
 {
@@ -53,7 +53,7 @@ namespace Maestro_Rework.Forms
 
             var aluno = usuarioConstrutor.ParaNome(txtNome.Text)
                     .ParaLogin(txtLogin.Text)
-                    .ParaSenha(txtSenha.Text)
+                    .ParaSenha(BCrypt.Net.BCrypt.HashPassword(txtSenha.Text))
                     .ParaEmail(txtEmail.Text)
                     .ConstroiAluno();
 
