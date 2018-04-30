@@ -12,6 +12,7 @@ using Maestro_Rework.DAO;
 using Maestro_Rework.Classes;
 namespace Maestro_Rework.Forms
 {
+   // public delegate void esconde(object sender, EventHandler e);
     public partial class fmrLogin : Form
     {
         public static Usuario usuarioLogado;
@@ -20,8 +21,13 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
             lblErro.Visible = false;
             this.AcceptButton = btnLogin;
+            IsMdiContainer = true;
+            AlterarEstiloDoBackground.CarregarBackGroundColourDoMDIContainer(this);
+            MdiChildActivate += EsconderElementosDoFormLogin;
         }
-
+        private void Mdicolor_Load(object sender, EventArgs e)
+        {
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -53,6 +59,41 @@ namespace Maestro_Rework.Forms
         {
             fmrUsuarioCadastro fmr = new fmrUsuarioCadastro();
             fmr.Show();
+        }
+
+        private void lblRecSenha_Click(object sender, EventArgs e)
+        {
+            var show = new fmrRecuperarSenha1();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+        }
+
+        private void EsconderElementosDoFormLogin(object sender, EventArgs e)
+        {
+            AlterarVisibilidadeDosElementos(false);
+        }
+        public void MostrarElementosDoFormLogin()
+        {
+            ActiveMdiChild.Close();
+            AlterarVisibilidadeDosElementos(true);
+        }
+        private void AlterarVisibilidadeDosElementos(bool visivel)
+        {
+            this.txtLogin.Visible = visivel;
+            this.txtSenha.Visible = visivel;
+            this.btnLogin.Visible = visivel;
+            this.lblCadastrar.Visible = visivel;
+            this.lblErro.Visible = visivel;
+            this.lblRecSenha.Visible = visivel;
+            this.pictureBox1.Visible = visivel;
+            this.label2.Visible = visivel;
+            this.label3.Visible = visivel;
+        }
+
+        private void fmrLogin_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

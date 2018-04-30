@@ -92,5 +92,10 @@ namespace Maestro_Rework.Forms
             show.Dock = DockStyle.Fill;
             show.Show();
         }
+
+        private void fmrMenu_Load(object sender, EventArgs e)
+        {
+           AlterarEstiloDoBackground.CarregarBackGroundColourDoMDIContainer(this);
+        }
     }
 }

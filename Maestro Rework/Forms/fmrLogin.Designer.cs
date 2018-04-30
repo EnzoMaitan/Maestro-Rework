@@ -73,6 +73,7 @@
             this.lblRecSenha.Size = new System.Drawing.Size(116, 13);
             this.lblRecSenha.TabIndex = 4;
             this.lblRecSenha.Text = "Esqueceu sua senha ?";
+            this.lblRecSenha.Click += new System.EventHandler(this.lblRecSenha_Click);
             // 
             // lblCadastrar
             // 
@@ -150,6 +151,7 @@
             this.Controls.Add(this.txtLogin);
             this.Name = "fmrLogin";
             this.Text = "fmrLogin";
+            this.Load += new System.EventHandler(this.fmrLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

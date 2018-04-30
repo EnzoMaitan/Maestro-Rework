@@ -137,6 +137,7 @@
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Forms\CarregarBackground.cs" />
     <Compile Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +179,18 @@
     </Compile>
     <Compile Include="Forms\fmrPerfil.Designer.cs">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrRecuperarSenha1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrRecuperarSenha1.Designer.cs">
+      <DependentUpon>fmrRecuperarSenha1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrRecuperarSenha2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrRecuperarSenha2.Designer.cs">
+      <DependentUpon>fmrRecuperarSenha2.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrUsuarioCadastro.cs">
       <SubType>Form</SubType>
@@ -254,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrPerfil.resx">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrRecuperarSenha1.resx">
+      <DependentUpon>fmrRecuperarSenha1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrRecuperarSenha2.resx">
+      <DependentUpon>fmrRecuperarSenha2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrUsuarioCadastro.resx">
       <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>
