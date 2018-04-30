@@ -33,11 +33,5 @@ namespace Maestro_Rework.Forms
             formLogin.MostrarElementosDoFormLogin();
             Close();
         }
-
-        private void fmrRecuperarSenha1_Load(object sender, EventArgs e)
-        {
-            
-
-        }
     }
 }

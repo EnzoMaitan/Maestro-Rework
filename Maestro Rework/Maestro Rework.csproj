@@ -223,6 +223,7 @@
       <DependentUpon>fmrAdicionarConteudo3Anexos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MostrarErro.cs" />
+    <Compile Include="Forms\TipoDeAtividade.cs" />
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />

@@ -18,16 +18,16 @@ namespace Maestro_Rework.Forms
             FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void fmrRecuperarSenha2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             fmrLogin formLogin = (fmrLogin)ActiveForm;
             formLogin.MostrarElementosDoFormLogin();
             Close();
+        }
+
+        private void lblAlterarSenha_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

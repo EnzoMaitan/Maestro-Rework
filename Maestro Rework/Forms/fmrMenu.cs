@@ -38,24 +38,6 @@ namespace Maestro_Rework.Forms
                 ActiveMdiChild.Close();
         }
 
-        //private void tsCadastrarConteudo_Click(object sender, EventArgs e)
-        //{
-        //    LimparMdiContainer();
-        //    fmrAdicionarConteudo show = new fmrAdicionarConteudo();
-        //    show.MdiParent = this;
-        //    show.Dock = DockStyle.Fill;
-        //    show.Show();
-        //}
-
-        //private void tsCadastrarQuestionario_Click(object sender, EventArgs e)
-        //{
-        //    LimparMdiContainer();
-        //    fmrAdicionarQuestionario show = new fmrAdicionarQuestionario();
-        //    show.MdiParent = this;
-        //    show.Dock = DockStyle.Fill;
-        //    show.Show();
-        //}
-
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             LimparMdiContainer();
@@ -75,9 +57,8 @@ namespace Maestro_Rework.Forms
 
         private void btnQuestionario_Click(object sender, EventArgs e)
         {
-            const string tipoDeAtividade = "QUESTIONARIO";
             LimparMdiContainer();
-            var show = new fmrGerenciarAtividade(tipoDeAtividade);
+            var show = new fmrGerenciarAtividade(TipoDeAtividade.Questionario);
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -85,9 +66,8 @@ namespace Maestro_Rework.Forms
 
         private void btnConteudo_Click(object sender, EventArgs e)
         {
-            const string tipoDeAtividade = "CONTEUDO";
             LimparMdiContainer();
-            var show = new fmrGerenciarAtividade(tipoDeAtividade);
+            var show = new fmrGerenciarAtividade(TipoDeAtividade.Conteudo);
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();
