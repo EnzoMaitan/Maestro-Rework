@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Maestro_Rework.Classes;
 
 namespace Maestro_Rework.Forms
 {
@@ -32,6 +33,11 @@ namespace Maestro_Rework.Forms
             fmrLogin formLogin = (fmrLogin)ActiveForm;
             formLogin.MostrarElementosDoFormLogin();
             Close();
+        }
+
+        private void btnEnviarEmail_Click(object sender, EventArgs e)
+        {
+            EnviadorDeEmail.Enviar_Rec_Senha(txtEmail.Text);
         }
     }
 }

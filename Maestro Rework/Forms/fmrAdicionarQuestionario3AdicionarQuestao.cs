@@ -10,7 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Maestro_Rework.Classes;
+using Maestro_Rework.Classes.Entidades;
 using Maestro_Rework.Classes.Construtores;
+
 
 namespace Maestro_Rework.Forms
 {

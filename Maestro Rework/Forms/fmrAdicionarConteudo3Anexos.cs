@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Maestro_Rework.Classes;
 using Maestro_Rework.Classes.Construtores;
 using Maestro_Rework.DAO;
+using Maestro_Rework.Classes.Entidades;
 
 namespace Maestro_Rework.Forms
 {

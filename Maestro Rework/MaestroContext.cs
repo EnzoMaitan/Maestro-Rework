@@ -1,4 +1,4 @@
-﻿using Maestro_Rework.Classes;
+﻿using Maestro_Rework.Classes.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace Maestro_Rework

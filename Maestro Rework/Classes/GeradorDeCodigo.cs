@@ -9,6 +9,9 @@ namespace Maestro_Rework.Classes
 {
     public static class GeradorDeCodigo
     {
+        public static string GerarCodigoRecuperacaoSenha() {
+            return "codigo";
+        }
         public static string GerarCodigoAcesso()
         {
             char[] chars = new char[62];

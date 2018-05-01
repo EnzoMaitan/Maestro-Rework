@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maestro_Rework.Classes
+namespace Maestro_Rework.Classes.Entidades
 {
     public  class QuestionarioUsuario
     {

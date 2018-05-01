@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Maestro_Rework.DAO;
 using BCrypt;
 
-namespace Maestro_Rework.Classes
+namespace Maestro_Rework.Classes.Entidades
 {
     public abstract class Usuario
     {
@@ -20,7 +20,7 @@ namespace Maestro_Rework.Classes
         public string Email { get; protected set; }
         public int Nivel { get; protected set; }
         public bool Ativo { get; protected set; }
-        public string CodigoSenha { get; protected set; }
+        public string CodigoSenha { get; set; }
         public string Cargo { get; protected set; }
         public bool Verificado { get; protected set; }
         public DateTime DataCriacao { get; protected set; }

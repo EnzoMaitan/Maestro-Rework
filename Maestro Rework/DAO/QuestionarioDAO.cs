@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Maestro_Rework.Classes;
 using Maestro_Rework.IDAO;
+using Maestro_Rework.Classes.Entidades;
 
 namespace Maestro_Rework.DAO
 {

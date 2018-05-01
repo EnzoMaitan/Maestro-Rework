@@ -12,6 +12,7 @@ using Maestro_Rework.Classes;
 using System.Reflection;
 using System.IO;
 using Maestro_Rework.DAO;
+using Maestro_Rework.Classes.Entidades;
 
 namespace Maestro_Rework.Forms
 {

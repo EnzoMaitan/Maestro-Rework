@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Maestro_Rework.Classes;
+using Maestro_Rework.Classes.Entidades;
 
 namespace Maestro_Rework.IDAO
 {

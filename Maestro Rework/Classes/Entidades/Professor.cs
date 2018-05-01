@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maestro_Rework.Classes
+namespace Maestro_Rework.Classes.Entidades
 {
-    public class Aluno : Usuario
+    public class Professor : Usuario
     {
-        public Aluno()
+        public Professor()
         {
                 
         }
-        public Aluno(string login, string nome, string senha, string email)
+        public Professor(string login, string nome, string senha, string email)
         {
             if (string.IsNullOrWhiteSpace(login)) throw new ArgumentNullException(nameof(login));
             if (string.IsNullOrWhiteSpace(nome)) throw new ArgumentNullException(nameof(nome));
@@ -23,9 +23,10 @@ namespace Maestro_Rework.Classes
             Nome = nome;
             Senha = senha;
             Email = email;
-            Nivel = 1;
+            Nivel = 3;
+            Nivel = 2;
             CodigoSenha = null;
-            Cargo = "Aluno";
+            Cargo = "Professor";
             DataCriacao = DateTime.Now;
             Ativo = true;
             Verificado = false;

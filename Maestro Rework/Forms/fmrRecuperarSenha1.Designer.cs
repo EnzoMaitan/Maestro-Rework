@@ -66,6 +66,7 @@
             this.btnEnviarEmail.TabIndex = 1;
             this.btnEnviarEmail.Text = "Enviar Email";
             this.btnEnviarEmail.UseVisualStyleBackColor = true;
+            this.btnEnviarEmail.Click += new System.EventHandler(this.btnEnviarEmail_Click);
             // 
             // btnVoltar
             // 
