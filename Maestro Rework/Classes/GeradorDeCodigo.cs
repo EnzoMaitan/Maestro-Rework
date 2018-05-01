@@ -27,7 +27,7 @@ namespace Maestro_Rework.Classes
             StringBuilder resultado = new StringBuilder(5);
             foreach (byte b in data)
             {
-                resultado.Append(chars[b % (chars.Length)]);
+                resultado.Append(chars[b % (chars.Length)]);    
             }
             return resultado.ToString();
         }

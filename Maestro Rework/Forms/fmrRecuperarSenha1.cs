@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Maestro_Rework.Classes;
+using Maestro_Rework.Classes.Entidades;
+using Maestro_Rework.DAO;
 
 namespace Maestro_Rework.Forms
 {
@@ -17,11 +19,40 @@ namespace Maestro_Rework.Forms
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
+            lblErro.Visible = false;
         }
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            var show = new fmrRecuperarSenha2();
+            try
+            {
+                var usuario = PesquisarUsuarioPorEmail(txtEmail.Text);
+
+                if (txtCodigo.Text == usuario.CodigoSenha)
+                {
+                    MostrarFormularioDeAlterarSenha(usuario);
+                }
+                else throw new ArgumentException("O Codigo não é valido");
+            }
+            catch (ArgumentException ex)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro,ex);
+            }
+        }
+
+        private Usuario PesquisarUsuarioPorEmail(string email)
+        {
+            using (var contexto = new MaestroContext())
+            {
+                var query = contexto.Usuarios.Where(x => x.Email == email);
+                if (query.FirstOrDefault() != null)
+                    return query.FirstOrDefault();
+                else throw new ArgumentException("Email Invalido");
+            }
+        }
+        private void MostrarFormularioDeAlterarSenha(Usuario usuario)
+        {
+            var show = new fmrRecuperarSenha2(usuario);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();
@@ -37,7 +68,7 @@ namespace Maestro_Rework.Forms
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            EnviadorDeEmail.Enviar_Rec_Senha(txtEmail.Text);
+            EnviadorDeEmail.EnviarEmailDeRecuperacaoDeSenha(txtEmail.Text);
         }
     }
 }

@@ -30,9 +30,10 @@ namespace Maestro_Rework.Classes.Entidades
             if (Verificado) return true;
             else throw new Exception("Email Não Confirmado");
         }
+
         public void AtualizarSenha(string senha)
         {
-            Senha = senha;
+            Senha = BCrypt.Net.BCrypt.HashPassword(senha);
         }
 
         public static bool ValidarLogin(string login, string senha)

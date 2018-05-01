@@ -110,7 +110,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdicionarAnexos.cs" />
+    <Compile Include="Classes\AdicionarAnexos.cs" />
     <Compile Include="Classes\Entidades\Administrador.cs" />
     <Compile Include="Classes\Entidades\Alternativa.cs" />
     <Compile Include="Classes\Entidades\AlternativaCorreta.cs" />
@@ -299,6 +299,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

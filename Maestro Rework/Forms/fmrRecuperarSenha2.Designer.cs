@@ -70,6 +70,7 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -118,7 +119,6 @@
             this.lblAlterarSenha.Size = new System.Drawing.Size(381, 65);
             this.lblAlterarSenha.TabIndex = 15;
             this.lblAlterarSenha.Text = "Alterar Senha";
-            this.lblAlterarSenha.Click += new System.EventHandler(this.lblAlterarSenha_Click);
             // 
             // fmrRecuperarSenha2
             // 

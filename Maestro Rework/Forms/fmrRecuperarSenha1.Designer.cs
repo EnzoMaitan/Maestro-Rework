@@ -37,6 +37,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAlterarSenha = new System.Windows.Forms.Label();
+            this.lblErro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,12 +134,24 @@
             this.lblAlterarSenha.TabIndex = 0;
             this.lblAlterarSenha.Text = "Alterar Senha";
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblErro.ForeColor = System.Drawing.Color.Coral;
+            this.lblErro.Location = new System.Drawing.Point(270, 344);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(70, 21);
+            this.lblErro.TabIndex = 16;
+            this.lblErro.Text = "lblERRO";
+            // 
             // fmrRecuperarSenha1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(728, 545);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblEmail);
@@ -168,5 +181,6 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblAlterarSenha;
+        private System.Windows.Forms.Label lblErro;
     }
 }

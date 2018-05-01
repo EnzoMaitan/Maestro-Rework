@@ -11,16 +11,12 @@ namespace Maestro_Rework.Classes
 {
     public static class EnviadorDeEmail
     {
-        public static void Enviar_Rec_Senha(string emailAlvo)
+        public static void EnviarEmailDeRecuperacaoDeSenha(string emailAlvo)
         {
             var usuarioDAO = new UsuarioDAO();
 
-            var usuario = usuarioDAO.Usuario().FirstOrDefault(x=>x.Email == emailAlvo)
-                ?? throw new ArgumentNullException("", "Email Invalido");
-
-            usuario.CodigoSenha = GeradorDeCodigo.GerarCodigoRecuperacaoSenha();
-
-            usuarioDAO.Atualizar(usuario);
+            Usuario usuario = PesquisarUsuarioPorEmail(emailAlvo, usuarioDAO);
+            InserirOCodigoDeRecuperacaoNoBanco(usuarioDAO, usuario);
 
             SmtpClient client = new SmtpClient
             {
@@ -39,6 +35,19 @@ namespace Maestro_Rework.Classes
             objeto_mail.To.Add(new MailAddress(emailAlvo));
             CriarCorpoDoEmail(usuario, objeto_mail);
             client.Send(objeto_mail);
+        }
+
+        private static void InserirOCodigoDeRecuperacaoNoBanco(UsuarioDAO usuarioDAO, Usuario usuario)
+        {
+            usuario.CodigoSenha = GeradorDeCodigo.GerarCodigoRecuperacaoSenha();
+
+            usuarioDAO.Atualizar(usuario);
+        }
+
+        private static Usuario PesquisarUsuarioPorEmail(string emailAlvo, UsuarioDAO usuarioDAO)
+        {
+            return usuarioDAO.Usuario().FirstOrDefault(x => x.Email == emailAlvo)
+                ?? throw new ArgumentNullException("", "Email Invalido");
         }
 
         private static void CriarCorpoDoEmail(Usuario usuario, MailMessage objeto_mail)
