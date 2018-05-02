@@ -53,7 +53,7 @@ namespace Maestro_Rework.Classes
         private static void CriarCorpoDoEmail(Usuario usuario, MailMessage objeto_mail)
         {
             objeto_mail.Subject = "Recuperar a senha";
-            objeto_mail.Body = "Seu código se recuperação é:" + usuario.CodigoSenha;
+            objeto_mail.Body = "Seu código se recuperação é:  " + usuario.CodigoSenha;
         }
     }
 }

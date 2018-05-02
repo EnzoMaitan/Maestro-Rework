@@ -20,10 +20,13 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
             this.usuario = usuario;
             FormBorderStyle = FormBorderStyle.None;
+            AcceptButton = btnAlterar;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            var usuarioDAO = new UsuarioDAO();
+            RemoverCodigoDeRecuperacaoAntigo(usuarioDAO);
             fmrLogin formLogin = (fmrLogin)ActiveForm;
             formLogin.MostrarElementosDoFormLogin();
             Close();
@@ -33,8 +36,13 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                if(txtSenha.Text == txtConfimarSenha.Text)
-                   AlterarSenhaNoBanco();
+                var usuarioDAO = new UsuarioDAO();
+
+                if (txtSenha.Text == txtConfimarSenha.Text)
+                {
+                    AlterarSenhaNoBanco(usuarioDAO);
+                    RemoverCodigoDeRecuperacaoAntigo(usuarioDAO);
+                }
             }
             catch (Exception)
             {
@@ -42,9 +50,14 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private void AlterarSenhaNoBanco()
+        private void RemoverCodigoDeRecuperacaoAntigo(UsuarioDAO usuarioDAO)
         {
-            var usuarioDAO = new UsuarioDAO();
+            usuario.CodigoSenha = null;
+            usuarioDAO.Atualizar(usuario);
+        }
+
+        private void AlterarSenhaNoBanco(UsuarioDAO usuarioDAO)
+        {
             this.usuario.AtualizarSenha(txtSenha.Text);
             usuarioDAO.Atualizar(usuario);
         }

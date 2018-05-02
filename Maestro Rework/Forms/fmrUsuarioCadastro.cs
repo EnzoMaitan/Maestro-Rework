@@ -15,9 +15,10 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
             lblErro.Visible = false;
             lblUsuarioCadastrado.Visible = false;
-            lblUsuario.Visible = false;
-            cboSelecionar.Visible = false;
             this.AcceptButton = btnAcao;
+
+            FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void BtnAcao_Click(object sender, EventArgs e)
@@ -37,13 +38,11 @@ namespace Maestro_Rework.Forms
             }
             catch (ArgumentNullException ex)
             {
-                lblErro.Visible = true;
-                lblErro.Text = $"Preencha o campo de {ex.ParamName}";
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
             }
             catch (Exception ex)
             {
-                lblErro.Visible = true;
-                lblErro.Text = ex.Message;
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
             }
         }
         private void CadastrarAluno()
@@ -53,7 +52,7 @@ namespace Maestro_Rework.Forms
 
             var aluno = usuarioConstrutor.ParaNome(txtNome.Text)
                     .ParaLogin(txtLogin.Text)
-                    .ParaSenha(BCrypt.Net.BCrypt.HashPassword(txtSenha.Text))
+                    .ParaSenha(txtSenha.Text)
                     .ParaEmail(txtEmail.Text)
                     .ConstroiAluno();
 
@@ -73,6 +72,18 @@ namespace Maestro_Rework.Forms
         {
             if (txtSenha.Text == txtConf.Text) return true;
             else throw new ArgumentException("Senhas Não Coincidem");
+        }
+
+        private void fmrUsuarioCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            fmrLogin formLogin = (fmrLogin)ActiveForm;
+            formLogin.MostrarElementosDoFormLogin();
+            Close();
         }
     }
 }

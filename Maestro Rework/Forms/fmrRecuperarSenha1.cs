@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,7 +69,14 @@ namespace Maestro_Rework.Forms
 
         private void btnEnviarEmail_Click(object sender, EventArgs e)
         {
-            EnviadorDeEmail.EnviarEmailDeRecuperacaoDeSenha(txtEmail.Text);
+            try
+            {
+                EnviadorDeEmail.EnviarEmailDeRecuperacaoDeSenha(txtEmail.Text);
+            }
+            catch (SmtpException ex)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+            }
         }
     }
 }

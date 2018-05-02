@@ -25,15 +25,7 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                if (SenhaCoincide())
-                {
-                    var usuario = GetUsuarioAtualizado(fmrLogin.usuarioLogado);
-                    usuario.AtualizarSenha(txtSenha.Text);
-
-                    var usuarioDAO = new UsuarioDAO();
-                    usuarioDAO.Atualizar(usuario);
-                    usuarioDAO.Dispose();
-                }
+                AtualizarSenhaNoBanco();
             }
             catch (Exception ex)
             {
@@ -42,10 +34,14 @@ namespace Maestro_Rework.Forms
             }
         }
 
-        private bool SenhaCoincide()
+        private void AtualizarSenhaNoBanco()
         {
-            if (txtSenha.Text == txtSenhaConf.Text) return true;
-            else throw new Exception("Senhas Não Coincidem");
+            var usuario = GetUsuarioAtualizado(fmrLogin.usuarioLogado);
+            usuario.AtualizarSenha(txtSenha.Text);
+
+            var usuarioDAO = new UsuarioDAO();
+            usuarioDAO.Atualizar(usuario);
+            usuarioDAO.Dispose();
         }
 
         private void CarregarInformacoes()

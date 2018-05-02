@@ -30,17 +30,27 @@ namespace Maestro_Rework.Forms
             InitializeComponent();
             lblQuestaoAdicionada.Visible = false;
             FormBorderStyle = FormBorderStyle.None;
+            lblErro.Visible = false;
+            txtA.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
+            txtB.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
+            txtC.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
+            txtD.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
+            txtE.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
+            txtPergunta.TextChanged += DeixarInvisivelAsLabelsDeMensagemAoDigitar;
         }
 
+        private void DeixarInvisivelAsLabelsDeMensagemAoDigitar(object sender, EventArgs e){
+            lblErro.Visible = false;
+            lblQuestaoAdicionada.Visible = false;
+        }
         public fmrAdicionarQuestionario3AdicionarQuestao(QuestionarioConstrutor questionarioConstrutor, Questao questao)
         {
             registrarQuestao = false;
-            this.questaoParaAlterar = new Questao();
-            this.questaoParaAlterar = questao;
-            this.questao = questao;
-            this.questionarioConstrutor = questionarioConstrutor;
+
+            CarregarQuestao(questionarioConstrutor, questao);
             InitializeComponent();
 
+            lblErro.Visible = false;
             lblQuestaoAdicionada.Visible = false;
             lblQuestaoAdicionada.Text = "Questão Alterada";
             FormBorderStyle = FormBorderStyle.None;
@@ -51,14 +61,22 @@ namespace Maestro_Rework.Forms
             btnAdicionar.Text = "Alterar";
         }
 
+        private void CarregarQuestao(QuestionarioConstrutor questionarioConstrutor, Questao questao)
+        {
+            this.questaoParaAlterar = new Questao();
+            this.questaoParaAlterar = questao;
+            this.questao = questao;
+            this.questionarioConstrutor = questionarioConstrutor;
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             IList<Alternativa> alternativas;
 
-            var questaoConstrutor = new QuestaoConstrutor();
 
             try
             {
+                var questaoConstrutor = new QuestaoConstrutor();
                 var questao = questaoConstrutor
                     .ParaPergunta(txtPergunta.Text)
                     .ParaValor(Convert.ToDouble(updValor.Value))

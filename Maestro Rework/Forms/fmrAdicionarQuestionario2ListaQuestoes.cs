@@ -137,7 +137,6 @@ namespace Maestro_Rework.Forms
                 int y = (e.CellBounds.Y + (e.CellBounds.Height / 2)) - 10;
                 e.Graphics.DrawIcon(ico, x, y);
                 e.Handled = true;
-                ico.Dispose();
             }
         }
 

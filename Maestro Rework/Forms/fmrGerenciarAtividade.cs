@@ -42,6 +42,7 @@ namespace Maestro_Rework.Forms
                 show.MdiParent = ActiveForm;
                 show.Dock = DockStyle.Fill;
                 show.Show();
+                Close();
             }
             else if (_tipoDeAtividade == TipoDeAtividade.Questionario)
             {

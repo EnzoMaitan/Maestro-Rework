@@ -14,7 +14,6 @@ using Maestro_Rework.Classes.Entidades;
 
 namespace Maestro_Rework.Forms
 {
-   // public delegate void esconde(object sender, EventHandler e);
     public partial class fmrLogin : Form
     {
         public static Usuario usuarioLogado;
@@ -26,9 +25,6 @@ namespace Maestro_Rework.Forms
             IsMdiContainer = true;
             AlterarEstiloDoBackground.CarregarBackGroundColourDoMDIContainer(this);
             MdiChildActivate += EsconderElementosDoFormLogin;
-        }
-        private void Mdicolor_Load(object sender, EventArgs e)
-        {
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -45,8 +41,7 @@ namespace Maestro_Rework.Forms
             }
             catch (Exception ex)
             {
-                lblErro.Visible = true;
-                lblErro.Text = ex.Message;
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
             }
         }
 
@@ -59,8 +54,10 @@ namespace Maestro_Rework.Forms
 
         private void lblCadastrar_Click(object sender, EventArgs e)
         {
-            fmrUsuarioCadastro fmr = new fmrUsuarioCadastro();
-            fmr.Show();
+            fmrUsuarioCadastro show = new fmrUsuarioCadastro();
+            show.MdiParent = this;
+            show.Dock = DockStyle.Fill;
+            show.Show();
         }
 
         private void lblRecSenha_Click(object sender, EventArgs e)
@@ -86,16 +83,10 @@ namespace Maestro_Rework.Forms
             this.txtSenha.Visible = visivel;
             this.btnLogin.Visible = visivel;
             this.lblCadastrar.Visible = visivel;
-            this.lblErro.Visible = visivel;
             this.lblRecSenha.Visible = visivel;
             this.pictureBox1.Visible = visivel;
             this.label2.Visible = visivel;
             this.label3.Visible = visivel;
-        }
-
-        private void fmrLogin_Load(object sender, EventArgs e)
-        {
-          
         }
     }
 }
