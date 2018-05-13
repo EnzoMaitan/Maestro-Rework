@@ -26,11 +26,15 @@ namespace Maestro_Rework.Forms
         private void OcultarFuncionalidadesPorNivel()
         {
             if (fmrLogin.usuarioLogado is Aluno)
-            { }
-            if (fmrLogin.usuarioLogado is Professor)
-            { }
-            if (fmrLogin.usuarioLogado is Administrador)
-            { }
+            {
+
+            }
+            else if (fmrLogin.usuarioLogado is Professor)
+            {
+            }
+            else if (fmrLogin.usuarioLogado is Administrador)
+            {
+            }
         }
 
         private void LimparMdiContainer()
@@ -58,17 +62,41 @@ namespace Maestro_Rework.Forms
 
         private void btnQuestionario_Click(object sender, EventArgs e)
         {
+            if (fmrLogin.usuarioLogado is Professor)
+            {
+                MostrarFormGerenciarAtividade(TipoDeAtividade.Questionario);
+            }
+            if (fmrLogin.usuarioLogado is Aluno)
+            {
+                MostrarFormMenuAcessoAtividade(TipoDeAtividade.Questionario);
+            }
+        }
+
+        private void btnConteudo_Click(object sender, EventArgs e)
+        {
+            if (fmrLogin.usuarioLogado is Professor)
+            {
+                MostrarFormGerenciarAtividade(TipoDeAtividade.Conteudo);
+            }        
+            else if (fmrLogin.usuarioLogado is Aluno)
+            {
+                MostrarFormMenuAcessoAtividade(TipoDeAtividade.Conteudo);
+            }
+        }
+
+        private void MostrarFormGerenciarAtividade(TipoDeAtividade tipoDeAtividade)
+        {
             LimparMdiContainer();
-            var show = new fmrGerenciarAtividade(TipoDeAtividade.Questionario);
+            var show = new fmrGerenciarAtividade(tipoDeAtividade);
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();
         }
 
-        private void btnConteudo_Click(object sender, EventArgs e)
+        private void MostrarFormMenuAcessoAtividade(TipoDeAtividade tipoDeAtividade)
         {
             LimparMdiContainer();
-            var show = new fmrGerenciarAtividade(TipoDeAtividade.Conteudo);
+            var show = new fmrMenuAcessoAtividade(tipoDeAtividade);
             show.MdiParent = this;
             show.Dock = DockStyle.Fill;
             show.Show();

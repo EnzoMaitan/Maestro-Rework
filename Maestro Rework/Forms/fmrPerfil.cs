@@ -25,7 +25,12 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                AtualizarSenhaNoBanco();
+                bool senhaCoincideComAtual = BCrypt.Net.BCrypt.Verify(txtSenha.Text, fmrLogin.usuarioLogado.Senha);
+
+                if (senhaCoincideComAtual)
+                {
+                    AtualizarSenhaNoBanco();
+                }
             }
             catch (Exception ex)
             {
@@ -37,11 +42,10 @@ namespace Maestro_Rework.Forms
         private void AtualizarSenhaNoBanco()
         {
             var usuario = GetUsuarioAtualizado(fmrLogin.usuarioLogado);
-            usuario.AtualizarSenha(txtSenha.Text);
+            usuario.AtualizarSenha(txtSenhaConf.Text);
 
             var usuarioDAO = new UsuarioDAO();
             usuarioDAO.Atualizar(usuario);
-            usuarioDAO.Dispose();
         }
 
         private void CarregarInformacoes()

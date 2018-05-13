@@ -175,6 +175,12 @@
     <Compile Include="Forms\fmrMenu.Designer.cs">
       <DependentUpon>fmrMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmrMenuAcessoAtividade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrMenuAcessoAtividade.Designer.cs">
+      <DependentUpon>fmrMenuAcessoAtividade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmrPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     <EmbeddedResource Include="Forms\fmrMenu.resx">
       <DependentUpon>fmrMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrMenuAcessoAtividade.resx">
+      <DependentUpon>fmrMenuAcessoAtividade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrPerfil.resx">
       <DependentUpon>fmrPerfil.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Imagens\deletar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

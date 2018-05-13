@@ -43,7 +43,7 @@
             this.lblNome.BackColor = System.Drawing.Color.Transparent;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblNome.Location = new System.Drawing.Point(69, 9);
+            this.lblNome.Location = new System.Drawing.Point(41, 9);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(62, 24);
             this.lblNome.TabIndex = 14;
@@ -136,6 +136,7 @@
             this.ClientSize = new System.Drawing.Size(1059, 585);
             this.Controls.Add(this.panel1);
             this.Name = "fmrMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.fmrMenu_Load);
             this.panel1.ResumeLayout(false);

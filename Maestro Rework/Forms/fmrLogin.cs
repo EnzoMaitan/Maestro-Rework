@@ -88,5 +88,15 @@ namespace Maestro_Rework.Forms
             this.label2.Visible = visivel;
             this.label3.Visible = visivel;
         }
+
+        private void fmrLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
