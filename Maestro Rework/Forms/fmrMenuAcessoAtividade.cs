@@ -18,10 +18,10 @@ namespace Maestro_Rework.Forms
 
         public fmrMenuAcessoAtividade(TipoDeAtividade tipoDeAtividade)
         {
+            FormBorderStyle = FormBorderStyle.None;
             this.tipoDeAtividade = tipoDeAtividade;
             InitializeComponent();
             AlterarTextoDaTextBox(tipoDeAtividade);
-            FormBorderStyle = FormBorderStyle.None;
             AtualizarListBox();
         }
 
@@ -67,13 +67,24 @@ namespace Maestro_Rework.Forms
         {
             if (tipoDeAtividade == TipoDeAtividade.Conteudo)
             {
-                lblAtividadesDesponiveis.Text = "Conteudo";
+                lblAtividadesDesponiveis.Text = "Conteúdos disponiveis";
+                lbl2.Text = "Anexos Disponíveis";
             }
             else if (tipoDeAtividade == TipoDeAtividade.Questionario)
             {
-                lblAtividadesDesponiveis.Text = "Questionario";
+                lblAtividadesDesponiveis.Text = "Questionario disponiveis";
+                lbl2.Text = "Informações";
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void fmrMenuAcessoAtividade_Load(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.None;
+        }
     }
 }

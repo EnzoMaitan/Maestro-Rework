@@ -135,6 +135,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1059, 585);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "fmrMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

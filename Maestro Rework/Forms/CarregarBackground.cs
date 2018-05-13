@@ -18,10 +18,8 @@ namespace Maestro_Rework.Forms
                 try
                 {
                     chld = (MdiClient)ctrl;
-
                     chld.BackColor = form.BackColor;
                 }
-
                 catch (Exception){}
             }
         }
