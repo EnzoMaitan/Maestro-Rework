@@ -137,6 +137,7 @@
     <Compile Include="DAO\AnexoConteudoDAO.cs" />
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
+    <Compile Include="DAO\UsuarioConteudoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Forms\CarregarBackground.cs" />
     <Compile Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.cs">
@@ -234,6 +235,7 @@
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />
+    <Compile Include="IDAO\IUsuarioConteudoDAO.cs" />
     <Compile Include="IDAO\IUsuarioDAO.cs" />
     <Compile Include="MaestroContext.cs" />
     <Compile Include="Migrations\20180212021306_Inicial.cs" />

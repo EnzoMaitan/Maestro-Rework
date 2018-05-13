@@ -111,8 +111,9 @@
             this.btnDestravar.TabIndex = 9;
             this.btnDestravar.Text = "Destravar";
             this.btnDestravar.UseVisualStyleBackColor = false;
+            this.btnDestravar.Click += new System.EventHandler(this.btnDestravar_Click);
             // 
-            // fmrMenuAtividade
+            // fmrMenuAcessoAtividade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,7 +125,7 @@
             this.Controls.Add(this.lblAtividadesDesponiveis);
             this.Controls.Add(this.txtCodigoAcesso);
             this.Controls.Add(this.btnDestravar);
-            this.Name = "fmrMenuAtividade";
+            this.Name = "fmrMenuAcessoAtividade";
             this.Text = "fmrMenuAtividade";
             this.ResumeLayout(false);
             this.PerformLayout();
