@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Maestro_Rework.Forms
             FormBorderStyle = FormBorderStyle.None;
             this.tipoDeAtividade = tipoDeAtividade;
             InitializeComponent();
+            lblErro.Visible = false;
             AlterarTextoDaTextBox(tipoDeAtividade);
             AtualizarListBox();
         }
@@ -34,33 +36,88 @@ namespace Maestro_Rework.Forms
         {
             if (tipoDeAtividade == TipoDeAtividade.Conteudo)
             {
-                var usuarioConteudo = new UsuarioConteudo(fmrLogin.usuarioLogado, txtCodigoAcesso.Text);
-                usuarioConteudo.DestravarConteudo();
+                try
+                {
+                    var usuarioConteudo = new UsuarioConteudo(fmrLogin.usuarioLogado, txtCodigoAcesso.Text);
+                    usuarioConteudo.DestravarConteudo();
+                }
+                catch (ArgumentException ex) when (ex.Message.Contains("invalido"))
+                {
+                    MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+                }
+                catch (Microsoft.EntityFrameworkCore.DbUpdateException)
+                {
+                    MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, "Conteudo já destravado");
+                }
             }
             else if (tipoDeAtividade == TipoDeAtividade.Questionario)
             {
+                try
+                {
+                    var questionarioUsuario = new QuestionarioUsuario(fmrLogin.usuarioLogado, txtCodigoAcesso.Text);
+                    questionarioUsuario.DestravarQuestionario();
+                }
+                catch (ArgumentException ex) when (ex.Message.Contains("invalido"))
+                {
+                    MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+                }
+                catch (Exception ex) when (ex.Message.Contains("destravado"))
+                {
+                    MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex);
+                }
             }
             AtualizarListBox();
         }
 
         private void AtualizarListBox()
         {
+            lstAtividadesDisponiveis.Items.Clear();
             if (tipoDeAtividade == TipoDeAtividade.Conteudo)
             {
-                var usuarioConteudoDAO = new UsuarioConteudoDAO();
-                var conteudoDisponiveis = usuarioConteudoDAO.UsuarioConteudos().ToList();
+                IEnumerable<UsuarioConteudo> conteudoDisponiveis = PesquisarConteudosDestravados();
 
-                foreach (var conteudo in conteudoDisponiveis)
-                {
-                    var conteudoDAO = new ConteudoDAO();
-                    var conteudoAtual = conteudoDAO.Conteudo().FirstOrDefault(x => x.Id == conteudo.ConteudoID);
-                    lstAtividadesDisponiveis.Items.Add(conteudoAtual.Nome);
-                }
+                AdicionarNaListBoxONomeDoConteudo(conteudoDisponiveis);
             }
             else if (tipoDeAtividade == TipoDeAtividade.Questionario)
             {
+                IEnumerable<QuestionarioUsuario> questionariosDisponiveis = PesquisarQuestionariosDestravados();
 
+                AdicionarNaListBoxONomeDoQuestionario(questionariosDisponiveis);
             }
+        }
+
+        private void AdicionarNaListBoxONomeDoQuestionario(IEnumerable<QuestionarioUsuario> questionariosDisponiveis)
+        {
+            foreach (var questionario in questionariosDisponiveis)
+            {
+                var questionarioDAO = new QuestionarioDAO();
+                var questionarioAtual = questionarioDAO.Questionario().FirstOrDefault(x => x.Id == questionario.QuestionarioID);
+                lstAtividadesDisponiveis.Items.Add(questionarioAtual.Nome);
+            }
+        }
+
+        private void AdicionarNaListBoxONomeDoConteudo(IEnumerable<UsuarioConteudo> conteudoDisponiveis)
+        {
+            foreach (var conteudo in conteudoDisponiveis)
+            {
+                var conteudoDAO = new ConteudoDAO();
+                var conteudoAtual = conteudoDAO.Conteudo().FirstOrDefault(x => x.Id == conteudo.ConteudoID);
+                lstAtividadesDisponiveis.Items.Add(conteudoAtual.Nome);
+            }
+        }
+
+        private static IEnumerable<UsuarioConteudo> PesquisarConteudosDestravados()
+        {
+            var usuarioConteudoDAO = new UsuarioConteudoDAO();
+            var conteudoDisponiveis = usuarioConteudoDAO.UsuarioConteudos().Where(x => x.UsuarioID == fmrLogin.usuarioLogado.Id);
+            return conteudoDisponiveis;
+        }
+
+        private static IEnumerable<QuestionarioUsuario> PesquisarQuestionariosDestravados()
+        {
+            var questionarioUsuarioDAO = new QuestionarioUsuarioDAO();
+            var questionariosDisponiveis = questionarioUsuarioDAO.QuestionarioUsuario().Where(x => x.UsuarioID == fmrLogin.usuarioLogado.Id);
+            return questionariosDisponiveis;
         }
 
         private void AlterarTextoDaTextBox(TipoDeAtividade tipoDeAtividade)

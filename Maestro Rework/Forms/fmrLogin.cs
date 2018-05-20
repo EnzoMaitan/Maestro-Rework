@@ -30,7 +30,9 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                if (CamposPreenchidos()&& Usuario.ValidarLogin(txtLogin.Text, txtSenha.Text))
+                Task<bool> t = Task<bool>.Factory.StartNew(() => Usuario.ValidarLogin(txtLogin.Text, txtSenha.Text));
+                
+                if (CamposPreenchidos()&& t.Result)
                 {
                     var usuarioDAO = new UsuarioDAO();
                     usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);

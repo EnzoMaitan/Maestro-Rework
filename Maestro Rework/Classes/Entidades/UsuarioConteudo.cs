@@ -27,7 +27,7 @@ namespace Maestro_Rework.Classes.Entidades
                 this.ConteudoID = conteudo.Id;
             }
             else
-                throw new ArgumentNullException("", "Código de acesso invalido");
+                throw new ArgumentException("", "Código de acesso invalido");
         }
 
         public void DestravarConteudo()

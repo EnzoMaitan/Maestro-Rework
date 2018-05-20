@@ -112,7 +112,8 @@ namespace Maestro_Rework.Forms
             {
                 MdiParent = this,
                 Dock = DockStyle.Fill,
-                FormBorderStyle = FormBorderStyle.None                
+                FormBorderStyle = FormBorderStyle.None,
+                StartPosition = FormStartPosition.CenterParent
             };
             show.Show();
         }

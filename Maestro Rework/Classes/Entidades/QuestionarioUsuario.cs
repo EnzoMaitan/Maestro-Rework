@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Maestro_Rework.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,38 @@ namespace Maestro_Rework.Classes.Entidades
         public bool Refez { get; private set; }
 
         public IList<AlternativaCorreta> AlternativaCorretas { get; private set; }
+
+        public QuestionarioUsuario() { }
+
+        public QuestionarioUsuario(Usuario usuario,string codigoDoQuestionario)
+        {
+            this.UsuarioID = usuario.Id;
+            var questionarioDAO = new QuestionarioDAO();
+            var questionario = questionarioDAO.Questionario().FirstOrDefault(x => x.CodigoAcesso == codigoDoQuestionario.ToUpper());
+            if (questionario != null)
+            {
+                this.QuestionarioID = questionario.Id;
+            }
+            else
+                throw new ArgumentException("", "Código de acesso invalido");
+        }
+        public void DestravarQuestionario()
+        {
+
+            this.Acesso = true;
+            this.Refez = false;
+            var questionarioUsuarioDAO = new QuestionarioUsuarioDAO();
+
+            if(VerificarSeJaFoiDestravado(questionarioUsuarioDAO))
+                questionarioUsuarioDAO.Adicionar(this);
+        }
+
+        private bool VerificarSeJaFoiDestravado(QuestionarioUsuarioDAO questionarioUsuarioDAO)
+        {
+            var query = questionarioUsuarioDAO.QuestionarioUsuario().FirstOrDefault(x => x.UsuarioID == x.UsuarioID && x.QuestionarioID == QuestionarioID);
+            if (query != null)
+                throw new Exception("Questionario já destravado");
+            else return true;
+        }
     }
 }

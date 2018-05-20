@@ -51,7 +51,7 @@ namespace Maestro_Rework.Forms
         {
             try
             {
-                CamposPreenchidos();
+                    CamposPreenchidos();
 
                 conteudoConstrutor = new ConteudoConstrutor();
                 anexoConteudoConstrutor = new AnexoConteudoConstrutor();

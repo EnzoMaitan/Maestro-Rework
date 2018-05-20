@@ -14,5 +14,10 @@ namespace Maestro_Rework.Forms
             lblErro.Visible = true;
             lblErro.Text = ex.Message;
         }
+        public static void DeixarLabelVisivelMostrarErro(Label lblErro, string mensagem)
+        {
+            lblErro.Visible = true;
+            lblErro.Text = mensagem;
+        }
     }
 }

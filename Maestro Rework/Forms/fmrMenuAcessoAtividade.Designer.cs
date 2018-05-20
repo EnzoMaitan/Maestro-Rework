@@ -38,6 +38,7 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lstInformacoes = new System.Windows.Forms.ListBox();
+            this.lblErro = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -148,6 +149,17 @@
             this.lstInformacoes.Size = new System.Drawing.Size(313, 173);
             this.lstInformacoes.TabIndex = 19;
             // 
+            // lblErro
+            // 
+            this.lblErro.AutoSize = true;
+            this.lblErro.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblErro.ForeColor = System.Drawing.Color.Coral;
+            this.lblErro.Location = new System.Drawing.Point(43, 240);
+            this.lblErro.Name = "lblErro";
+            this.lblErro.Size = new System.Drawing.Size(56, 21);
+            this.lblErro.TabIndex = 20;
+            this.lblErro.Text = "lblErro";
+            // 
             // fmrMenuAcessoAtividade
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -155,6 +167,7 @@
             this.BackgroundImage = global::Maestro_Rework.Properties.Resources.a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblErro);
             this.Controls.Add(this.lstInformacoes);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
@@ -167,6 +180,7 @@
             this.Controls.Add(this.btnDestravar);
             this.DoubleBuffered = true;
             this.Name = "fmrMenuAcessoAtividade";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "fmrMenuAtividade";
             this.Load += new System.EventHandler(this.fmrMenuAcessoAtividade_Load);
             this.ResumeLayout(false);
@@ -186,5 +200,6 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.ListBox lstInformacoes;
+        private System.Windows.Forms.Label lblErro;
     }
 }
