@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Maestro_Rework.Classes.Entidades
 {
-    public  class QuestionarioUsuario
+    public class QuestionarioUsuario
     {
         public int Id { get; private set; }
 
@@ -17,13 +17,13 @@ namespace Maestro_Rework.Classes.Entidades
         public int QuestionarioID { get; private set; }
 
         public bool Acesso { get; private set; }
-        public bool Refez { get; private set; }
+        public bool? Refez { get; set; }
 
         public IList<AlternativaCorreta> AlternativaCorretas { get; private set; }
 
         public QuestionarioUsuario() { }
 
-        public QuestionarioUsuario(Usuario usuario,string codigoDoQuestionario)
+        public QuestionarioUsuario(Usuario usuario, string codigoDoQuestionario)
         {
             this.UsuarioID = usuario.Id;
             var questionarioDAO = new QuestionarioDAO();
@@ -39,11 +39,27 @@ namespace Maestro_Rework.Classes.Entidades
         {
 
             this.Acesso = true;
-            this.Refez = false;
+            this.Refez = null;
             var questionarioUsuarioDAO = new QuestionarioUsuarioDAO();
 
-            if(VerificarSeJaFoiDestravado(questionarioUsuarioDAO))
+            if (VerificarSeJaFoiDestravado(questionarioUsuarioDAO))
                 questionarioUsuarioDAO.Adicionar(this);
+        }
+
+        public int GetNumeroDeTentativasRestantes()
+        {
+            if (Refez == null)
+            {
+                return 2;
+            }
+            else if (Refez == false)
+            {
+                return 1;
+            }
+            else
+            {
+                throw new Exception("Limite de tentativas atingido");
+            }
         }
 
         private bool VerificarSeJaFoiDestravado(QuestionarioUsuarioDAO questionarioUsuarioDAO)

@@ -21,7 +21,10 @@ namespace Maestro_Rework.Forms
             IsMdiContainer = true;
 
             OcultarFuncionalidadesPorNivel();
-            lblNome.Text = $"Olá, {fmrLogin.usuarioLogado.Nome}";
+            if(fmrLogin.usuarioLogado.Nome.Length >=10)
+                lblNome.Text = $"Olá, \n {fmrLogin.usuarioLogado.Nome}";
+            else
+                lblNome.Text = $"Olá, {fmrLogin.usuarioLogado.Nome}";
 
             panel1.BorderStyle = BorderStyle.None;
         }

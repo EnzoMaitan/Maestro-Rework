@@ -12,9 +12,10 @@ using System;
 namespace Maestro_Rework.Migrations
 {
     [DbContext(typeof(MaestroContext))]
-    partial class MaestroContextModelSnapshot : ModelSnapshot
+    [Migration("20180521152528_Adicionando nullable ao refez")]
+    partial class Adicionandonullableaorefez
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -59,6 +59,8 @@
             this.lstAtividadesDisponiveis.Name = "lstAtividadesDisponiveis";
             this.lstAtividadesDisponiveis.Size = new System.Drawing.Size(409, 381);
             this.lstAtividadesDisponiveis.TabIndex = 14;
+            this.lstAtividadesDisponiveis.Click += new System.EventHandler(this.lstAtividadesDisponiveis_Click);
+            this.lstAtividadesDisponiveis.SelectedIndexChanged += new System.EventHandler(this.lstAtividadesDisponiveis_SelectedIndexChanged);
             // 
             // btnCancelar
             // 

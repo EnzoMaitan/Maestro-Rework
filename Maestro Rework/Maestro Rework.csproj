@@ -165,6 +165,12 @@
     <Compile Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.Designer.cs">
       <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmrConfirmarAcessoQuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrConfirmarAcessoQuestionario.Designer.cs">
+      <DependentUpon>fmrConfirmarAcessoQuestionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmrLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,12 @@
     </Compile>
     <Compile Include="Forms\fmrRecuperarSenha2.Designer.cs">
       <DependentUpon>fmrRecuperarSenha2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrResponderQuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrResponderQuestionario.Designer.cs">
+      <DependentUpon>fmrResponderQuestionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrUsuarioCadastro.cs">
       <SubType>Form</SubType>
@@ -256,6 +268,10 @@
     <Compile Include="Migrations\20180317234216_RemovendoPrazoConteudo.designer.cs">
       <DependentUpon>20180317234216_RemovendoPrazoConteudo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180521152528_Adicionando nullable ao refez.cs" />
+    <Compile Include="Migrations\20180521152528_Adicionando nullable ao refez.designer.cs">
+      <DependentUpon>20180521152528_Adicionando nullable ao refez.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.resx">
       <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrConfirmarAcessoQuestionario.resx">
+      <DependentUpon>fmrConfirmarAcessoQuestionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrLogin.resx">
       <DependentUpon>fmrLogin.cs</DependentUpon>
@@ -288,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrRecuperarSenha2.resx">
       <DependentUpon>fmrRecuperarSenha2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrResponderQuestionario.resx">
+      <DependentUpon>fmrResponderQuestionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrUsuarioCadastro.resx">
       <DependentUpon>fmrUsuarioCadastro.cs</DependentUpon>

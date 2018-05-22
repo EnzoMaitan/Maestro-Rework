@@ -29,7 +29,40 @@ namespace Maestro_Rework.Forms
 
         private void btnAcessar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (tipoDeAtividade == TipoDeAtividade.Conteudo)
+                {
+                }
+                else if (tipoDeAtividade == TipoDeAtividade.Questionario)
+                {
+                    var questionario = PesquisarQuestionario();
 
+                    CarregarFormDeConfirmarAcesso(questionario);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, "Selecione uma Atividade");
+            }
+        }
+
+        private void CarregarFormDeConfirmarAcesso(Questionario questionario)
+        {
+            var show = new fmrConfirmarAcessoQuestionario(questionario);
+            show.MdiParent = ActiveForm;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+            Close();
+        }
+
+        private Questionario PesquisarQuestionario()
+        {
+            var nomeQuestionarioSelecionado = lstAtividadesDisponiveis.SelectedItem.ToString();
+
+            var questionarioDAO = new QuestionarioDAO();
+            var questionario = questionarioDAO.Questionario().First(x => x.Nome == nomeQuestionarioSelecionado);
+            return questionario;
         }
 
         private void btnDestravar_Click(object sender, EventArgs e)
@@ -142,6 +175,35 @@ namespace Maestro_Rework.Forms
         private void fmrMenuAcessoAtividade_Load(object sender, EventArgs e)
         {
             FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void lstAtividadesDisponiveis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstInformacoes.Items.Clear();
+            try
+            {
+                MostrarAsInformacoesDoQuestionario();
+            }
+            catch (Exception){}
+        }
+
+        private void lstAtividadesDisponiveis_Click(object sender, EventArgs e)
+        {
+            lstInformacoes.Items.Clear();
+            try
+            {
+                MostrarAsInformacoesDoQuestionario();
+            }
+            catch (Exception){}
+        }
+
+        private void MostrarAsInformacoesDoQuestionario()
+        {
+            var questionario = PesquisarQuestionario();
+            lstInformacoes.Items.Add($"Nome do questionario: {questionario.Nome}");
+            lstInformacoes.Items.Add($"Data de criação:  {questionario.DataCriacao}");
+            lstInformacoes.Items.Add($"Código de acesso: {questionario.CodigoAcesso}");
+            lstInformacoes.Items.Add($"Data Limite:      {questionario.DataFim}");
         }
     }
 }
