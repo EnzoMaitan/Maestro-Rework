@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Maestro_Rework.Classes;
 using Maestro_Rework.IDAO;
 using Maestro_Rework.Classes.Entidades;
+using Microsoft.EntityFrameworkCore;
 
 namespace Maestro_Rework.DAO
 {
@@ -35,6 +36,14 @@ namespace Maestro_Rework.DAO
             ((IDisposable)contexto).Dispose();
         }
 
-        public IList<Questionario> Questionario() => contexto.Questionarios.ToList();
+        public IList<Questionario> Questionario()
+        {
+            return contexto.Questionarios.ToList();
+        }
+
+        public IList<Questionario> CarregarQuestionarioComQuestoesEAlternativas()
+        {
+            return contexto.Questionarios.Include(x => x.Questoes).ThenInclude(q => q.Alternativas).ToList();
+        }
     }
 }

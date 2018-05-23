@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPergunta = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnImg = new System.Windows.Forms.Button();
@@ -41,15 +41,15 @@
             this.btnAvancar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblPergunta
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20F);
-            this.label1.Location = new System.Drawing.Point(52, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PERGUNTA";
+            this.lblPergunta.AutoSize = true;
+            this.lblPergunta.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.lblPergunta.Location = new System.Drawing.Point(52, 36);
+            this.lblPergunta.Name = "lblPergunta";
+            this.lblPergunta.Size = new System.Drawing.Size(152, 33);
+            this.lblPergunta.TabIndex = 0;
+            this.lblPergunta.Text = "PERGUNTA";
             // 
             // label2
             // 
@@ -181,7 +181,7 @@
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPergunta);
             this.Name = "fmrResponderQuestionario";
             this.Text = "fmrResponderQuestionario";
             this.ResumeLayout(false);
@@ -191,7 +191,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPergunta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnImg;

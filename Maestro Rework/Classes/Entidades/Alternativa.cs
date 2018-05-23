@@ -17,6 +17,8 @@ namespace Maestro_Rework.Classes.Entidades
             Correta = correta;
         }
 
+        public Alternativa() { }
+
         public int Id { get; private set; }
         public Questao Questao { get; private set; }
         public int QuestaoID { get; private set; }

@@ -59,9 +59,8 @@ namespace Maestro_Rework.Forms
         private Questionario PesquisarQuestionario()
         {
             var nomeQuestionarioSelecionado = lstAtividadesDisponiveis.SelectedItem.ToString();
-
             var questionarioDAO = new QuestionarioDAO();
-            var questionario = questionarioDAO.Questionario().First(x => x.Nome == nomeQuestionarioSelecionado);
+            Questionario questionario = questionarioDAO.CarregarQuestionarioComQuestoesEAlternativas().First(x => x.Nome == nomeQuestionarioSelecionado);
             return questionario;
         }
 

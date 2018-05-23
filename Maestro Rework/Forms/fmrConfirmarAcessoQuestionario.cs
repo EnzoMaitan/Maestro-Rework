@@ -57,7 +57,12 @@ namespace Maestro_Rework.Forms
             var questionarioUsuarioDAO = new QuestionarioUsuarioDAO();
             var QU = questionarioUsuarioDAO.QuestionarioUsuario().First(x => x.UsuarioID == fmrLogin.usuarioLogado.Id && x.QuestionarioID == questionario.Id);
 
-            if (QU.Refez == null)
+            if (QU.Refez == null && questionario.Refazer == false)
+            {
+                lblTentativasRestantes.Text = "Tentativas Restantes: 1";
+                lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
+            }
+            else if (QU.Refez == null)
             {
                 lblTentativasRestantes.Text = "Tentativas Restantes: 2";
                 lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";

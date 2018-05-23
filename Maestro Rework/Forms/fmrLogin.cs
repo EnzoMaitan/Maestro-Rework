@@ -29,10 +29,8 @@ namespace Maestro_Rework.Forms
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
-            {
-                Task<bool> t = Task<bool>.Factory.StartNew(() => Usuario.ValidarLogin(txtLogin.Text, txtSenha.Text));
-                
-                if (CamposPreenchidos()&& t.Result)
+            {               
+                if (CamposPreenchidos() && Usuario.ValidarLogin(txtLogin.Text, txtSenha.Text))
                 {
                     var usuarioDAO = new UsuarioDAO();
                     usuarioLogado = usuarioDAO.GetUsuarioLogado(txtLogin.Text, txtSenha.Text);
