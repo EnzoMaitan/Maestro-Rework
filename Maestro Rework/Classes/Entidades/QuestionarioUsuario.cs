@@ -19,7 +19,7 @@ namespace Maestro_Rework.Classes.Entidades
         public bool Acesso { get; private set; }
         public bool? Refez { get; set; }
 
-        public IList<AlternativaCorreta> AlternativaCorretas { get; private set; }
+        public virtual IList<AlternativaCorreta> AlternativaCorretas { get; private set; }
 
         public QuestionarioUsuario() { }
 
@@ -48,7 +48,18 @@ namespace Maestro_Rework.Classes.Entidades
 
         public int GetNumeroDeTentativasRestantes()
         {
-            if (Refez == null)
+            var questionarioDAO = new QuestionarioDAO();
+            var podeRefazer = questionarioDAO.Questionario().First(x => x.Id == this.QuestionarioID).Refazer;
+
+            if (Refez == null && podeRefazer)
+            {
+                return 1;
+            }
+            else if (Refez == false && podeRefazer)
+            {
+                throw new Exception("Limite de tentativas atingido");
+            }
+            else if (Refez == null)
             {
                 return 2;
             }

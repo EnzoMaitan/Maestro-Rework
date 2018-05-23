@@ -134,6 +134,8 @@
     <Compile Include="Classes\Entidades\Usuario.cs" />
     <Compile Include="Classes\Construtores\UsuarioConstrutor.cs" />
     <Compile Include="Classes\Entidades\UsuarioConteudo.cs" />
+    <Compile Include="DAO\AlternativaCorretaDAO.cs" />
+    <Compile Include="DAO\AlternativaDAO.cs" />
     <Compile Include="DAO\AnexoConteudoDAO.cs" />
     <Compile Include="DAO\ConteudoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
@@ -245,6 +247,8 @@
     </Compile>
     <Compile Include="Forms\MostrarErro.cs" />
     <Compile Include="Forms\TipoDeAtividade.cs" />
+    <Compile Include="IDAO\IAlternativaCorretaDAO.cs" />
+    <Compile Include="IDAO\IAlternativaDAO.cs" />
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />

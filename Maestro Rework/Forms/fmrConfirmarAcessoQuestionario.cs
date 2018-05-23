@@ -62,6 +62,11 @@ namespace Maestro_Rework.Forms
                 lblTentativasRestantes.Text = "Tentativas Restantes: 1";
                 lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
             }
+            else if (QU.Refez == false && questionario.Refazer == false)
+            {
+                lblTentativasRestantes.Text = "Tentativas Restantes: 0";
+                //lblNotaAnterior.Text = "Nota Anterior: {}";
+            }
             else if (QU.Refez == null)
             {
                 lblTentativasRestantes.Text = "Tentativas Restantes: 2";
@@ -87,13 +92,13 @@ namespace Maestro_Rework.Forms
                 if(tentativasRestantes == 2)
                 {
                     QU.Refez = false;
-                    CarregarOFormDeResponderQuestionario();
+                    CarregarOFormDeResponderQuestionario(numeroDaTentativa: 1, QU: QU);
                     questionarioUsuarioDAO.Atualizar(QU);
                 }
                 else if (tentativasRestantes == 1)
                 {
                     QU.Refez = true;
-                    CarregarOFormDeResponderQuestionario();
+                    CarregarOFormDeResponderQuestionario(numeroDaTentativa: 2, QU: QU);
                     questionarioUsuarioDAO.Atualizar(QU);
                 }
 
@@ -105,9 +110,9 @@ namespace Maestro_Rework.Forms
             
         }
 
-        private void CarregarOFormDeResponderQuestionario()
+        private void CarregarOFormDeResponderQuestionario(int numeroDaTentativa, QuestionarioUsuario QU)
         {
-            var show = new fmrResponderQuestionario(questionario);
+            var show = new fmrResponderQuestionario(questionario, numeroDaTentativa, QU);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
             show.Show();

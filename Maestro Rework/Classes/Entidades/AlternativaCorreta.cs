@@ -8,10 +8,10 @@ namespace Maestro_Rework.Classes.Entidades
 {
     public class AlternativaCorreta
     {
-        public int AlternativaID { get; private set; }
-        public int Tentativa { get; private set; }
+        public int AlternativaID { get;  set; }
+        public int Tentativa { get;  set; }
 
-        public virtual QuestionarioUsuario QuestionarioUsuario { get; private set; }
-        public int QuestionarioUsuarioID { get; private set; }  
+        public virtual QuestionarioUsuario QuestionarioUsuario { get;  set; }
+        public int QuestionarioUsuarioID { get;  set; }  
     }
 }
