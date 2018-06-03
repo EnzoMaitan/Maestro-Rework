@@ -25,6 +25,29 @@ namespace Maestro_Rework.Classes.Entidades
         public bool Verificado { get; protected set; }
         public DateTime DataCriacao { get; protected set; }
 
+        public Usuario() { }
+
+        public Usuario(string login, string nome, string senha, string email)
+        {
+            CheckarNull(login, nome, senha, email);
+            Login = login;
+            Nome = nome;
+            Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+            Email = email;
+            CodigoSenha = null;
+            DataCriacao = DateTime.Now;
+            Ativo = true;
+            Verificado = false;
+        }
+
+        private static void CheckarNull(string login, string nome, string senha, string email)
+        {
+            if (string.IsNullOrWhiteSpace(login)) throw new ArgumentNullException(nameof(login));
+            if (string.IsNullOrWhiteSpace(nome)) throw new ArgumentNullException(nameof(nome));
+            if (string.IsNullOrWhiteSpace(senha)) throw new ArgumentNullException(nameof(senha));
+            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentNullException(nameof(email));
+        }
+
         public bool CheckarEmailConfirmado()
         {
             if (Verificado) return true;

@@ -14,13 +14,16 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrResponderQuestionario : Form
     {
+        private int numeroDaTentativa;
         private Questionario questionario;
-        private Questao questaoAtual;
+
         private IList<Questao> questoesRestantes;
         private IList<AlternativaCorreta> questoesAcertadas;
-        private int numeroDaTentativa;
+
         private QuestionarioUsuario questionarioUsuario;
+        private Questao questaoAtual;
         private IList<Alternativa> alternativasAtual;
+
         public fmrResponderQuestionario(Questionario questionario, int tentativa, QuestionarioUsuario questionarioUsuario)
         {
             this.questionario = questionario;
@@ -45,13 +48,26 @@ namespace Maestro_Rework.Forms
                 lblPergunta.Text = questaoAtual.Pergunta;
                 CarregarAlternativas(questaoAtual);
             }
-            else {MessageBox.Show("That's All Folks!"); }
+            else
+            {
+                MessageBox.Show("That's All Folks!");
+                SalvarRespostasNoBanco();
+            }
+        }
+
+        private void SalvarRespostasNoBanco()
+        {
+            var alternativaCorretaDAO = new AlternativaCorretaDAO();
+
+            foreach (var resposta in questoesAcertadas)
+            {
+                alternativaCorretaDAO.Adicionar(resposta);
+            }
         }
 
         private void CarregarAlternativas(Questao questao)
         {
-            Random random = new Random();
-            alternativasAtual = questao.Alternativas.OrderBy(x => random.Next()).ToArray();
+            RandomizarAlternativas(questao);
 
             rdbAlternativa1.Text = alternativasAtual[0].Texto;
             rdbAlternativa2.Text = alternativasAtual[1].Texto;
@@ -59,6 +75,12 @@ namespace Maestro_Rework.Forms
             rdbAlternativa4.Text = alternativasAtual[3].Texto;
             rdbAlternativa5.Text = alternativasAtual[4].Texto;
 
+        }
+
+        private void RandomizarAlternativas(Questao questao)
+        {
+            Random random = new Random();
+            alternativasAtual = questao.Alternativas.OrderBy(x => random.Next()).ToArray();
         }
 
         private Questao RandomizaQuestaoDaLista()
@@ -87,14 +109,12 @@ namespace Maestro_Rework.Forms
 
         private void SalvarAlternativaCorreta(int idAlternativa)
         {
-            var alternativaCorretaDAO = new AlternativaCorretaDAO();
-
             var alternativaCorreta = new AlternativaCorreta();
 
             alternativaCorreta.Tentativa = numeroDaTentativa;
             alternativaCorreta.AlternativaID = idAlternativa;
             alternativaCorreta.QuestionarioUsuarioID = questionarioUsuario.Id;
-            alternativaCorretaDAO.Adicionar(alternativaCorreta);
+            questoesAcertadas.Add(alternativaCorreta);
         }
 
         private bool CheckarSeAcertouERetornarIdDaAlternativaCorreta(out int idAlternativa)
@@ -127,6 +147,14 @@ namespace Maestro_Rework.Forms
             else
                 idAlternativa = 0;
                 return false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Tem Certeza que deseja cancelar o questionario ?", "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
