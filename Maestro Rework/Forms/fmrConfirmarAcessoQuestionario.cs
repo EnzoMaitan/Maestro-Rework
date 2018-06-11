@@ -54,30 +54,39 @@ namespace Maestro_Rework.Forms
         private void MostrarTentativasRestantesENotaAnterior()
         {
             var questionarioUsuarioDAO = new QuestionarioUsuarioDAO();
+
             var QU = questionarioUsuarioDAO.QuestionarioUsuario().First(x => x.UsuarioID == fmrLogin.usuarioLogado.Id && x.QuestionarioID == questionario.Id);
 
-            if (QU.Refez == null && questionario.Refazer == false)
+            try
             {
-                lblTentativasRestantes.Text = "Tentativas Restantes: 1";
-                lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
+                var tentativasRestantes = QU.GetNumeroDeTentativasRestantes();
+
+                if (tentativasRestantes == 1 && questionario.Refazer == false)
+                {
+                    lblTentativasRestantes.Text = "Tentativas Restantes: 1";
+                    lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
+                }
+           
+                else if (tentativasRestantes == 2 && questionario.Refazer == true)
+                {
+                    lblTentativasRestantes.Text = "Tentativas Restantes: 2";
+                    lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
+                }
+                else if (tentativasRestantes == 1 && questionario.Refazer == true)
+                {
+                    lblTentativasRestantes.Text = "Tentativas Restantes: 1";
+                    //lblNotaAnterior.Text = $"Nota Anterior: {}";
+                }
+                else if (tentativasRestantes == 0 && questionario.Refazer == true)
+                    lblTentativasRestantes.Text = "Tentativas Restantes: 0";
+                //lblNotaAnterior.Text = $"Nota Anterior: {}";
             }
-            else if (QU.Refez == false && questionario.Refazer == false)
-            {
+            catch (Exception ex) when (ex.Message.Contains("Limite de tentativas atingido"))
+            {     
                 lblTentativasRestantes.Text = "Tentativas Restantes: 0";
                 //lblNotaAnterior.Text = "Nota Anterior: {}";
             }
-            else if (QU.Refez == null)
-            {
-                lblTentativasRestantes.Text = "Tentativas Restantes: 2";
-                lblNotaAnterior.Text = "Nota Anterior: Nenhuma nota registrada";
-            }
-            else if (QU.Refez == false)
-            {
-                lblTentativasRestantes.Text = "Tentativas Restantes: 1";
-                //lblNotaAnterior.Text = $"Nota Anterior: {}";
-            }
-            else if (QU.Refez == true)
-                lblTentativasRestantes.Text = "Tentativas Restantes: 0";
+
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)

@@ -134,10 +134,12 @@
     <Compile Include="Classes\Entidades\Usuario.cs" />
     <Compile Include="Classes\Construtores\UsuarioConstrutor.cs" />
     <Compile Include="Classes\Entidades\UsuarioConteudo.cs" />
+    <Compile Include="Classes\ResultadoQuestionario.cs" />
     <Compile Include="DAO\AlternativaCorretaDAO.cs" />
     <Compile Include="DAO\AlternativaDAO.cs" />
     <Compile Include="DAO\AnexoConteudoDAO.cs" />
     <Compile Include="DAO\ConteudoDAO.cs" />
+    <Compile Include="DAO\QuestaoDAO.cs" />
     <Compile Include="DAO\QuestionarioDAO.cs" />
     <Compile Include="DAO\QuestionarioUsuarioDAO.cs" />
     <Compile Include="DAO\UsuarioConteudoDAO.cs" />
@@ -166,6 +168,12 @@
     </Compile>
     <Compile Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.Designer.cs">
       <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fmrConcluirQuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrConcluirQuestionario.Designer.cs">
+      <DependentUpon>fmrConcluirQuestionario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\fmrConfirmarAcessoQuestionario.cs">
       <SubType>Form</SubType>
@@ -251,6 +259,7 @@
     <Compile Include="IDAO\IAlternativaDAO.cs" />
     <Compile Include="IDAO\IAnexoConteudoDAO.cs" />
     <Compile Include="IDAO\IConteudoDAO.cs" />
+    <Compile Include="IDAO\IQuestaoDAO.cs" />
     <Compile Include="IDAO\IQuestionarioDAO.cs" />
     <Compile Include="IDAO\IQuestionarioUsuarioDAO.cs" />
     <Compile Include="IDAO\IUsuarioConteudoDAO.cs" />
@@ -290,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrAdicionarQuestionario2ListaQuestoes.resx">
       <DependentUpon>fmrAdicionarQuestionario2ListaQuestoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmrConcluirQuestionario.resx">
+      <DependentUpon>fmrConcluirQuestionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrConfirmarAcessoQuestionario.resx">
       <DependentUpon>fmrConfirmarAcessoQuestionario.cs</DependentUpon>

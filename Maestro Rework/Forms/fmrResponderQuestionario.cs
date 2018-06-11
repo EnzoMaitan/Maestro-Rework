@@ -50,8 +50,13 @@ namespace Maestro_Rework.Forms
             }
             else
             {
-                MessageBox.Show("That's All Folks!");
                 SalvarRespostasNoBanco();
+
+                var show = new fmrConcluirQuestionario(questionario);
+                show.MdiParent = ActiveForm;
+                show.Dock = DockStyle.Fill;
+                show.Show();
+                Close();
             }
         }
 

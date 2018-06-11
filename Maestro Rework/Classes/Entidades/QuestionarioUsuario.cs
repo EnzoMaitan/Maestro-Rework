@@ -53,17 +53,13 @@ namespace Maestro_Rework.Classes.Entidades
 
             if (Refez == null && podeRefazer)
             {
-                return 1;
+                return 2;
             }
             else if (Refez == false && podeRefazer)
             {
-                throw new Exception("Limite de tentativas atingido");
+                return 1;
             }
-            else if (Refez == null)
-            {
-                return 2;
-            }
-            else if (Refez == false)
+            else if (Refez == null && !podeRefazer)
             {
                 return 1;
             }
