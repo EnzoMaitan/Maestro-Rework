@@ -54,10 +54,12 @@
             // 
             // lstAtividadesDisponiveis
             // 
+            this.lstAtividadesDisponiveis.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lstAtividadesDisponiveis.FormattingEnabled = true;
+            this.lstAtividadesDisponiveis.ItemHeight = 22;
             this.lstAtividadesDisponiveis.Location = new System.Drawing.Point(438, 121);
             this.lstAtividadesDisponiveis.Name = "lstAtividadesDisponiveis";
-            this.lstAtividadesDisponiveis.Size = new System.Drawing.Size(409, 381);
+            this.lstAtividadesDisponiveis.Size = new System.Drawing.Size(409, 378);
             this.lstAtividadesDisponiveis.TabIndex = 14;
             this.lstAtividadesDisponiveis.Click += new System.EventHandler(this.lstAtividadesDisponiveis_Click);
             this.lstAtividadesDisponiveis.SelectedIndexChanged += new System.EventHandler(this.lstAtividadesDisponiveis_SelectedIndexChanged);
@@ -145,10 +147,12 @@
             // 
             // lstInformacoes
             // 
+            this.lstInformacoes.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.lstInformacoes.FormattingEnabled = true;
+            this.lstInformacoes.ItemHeight = 17;
             this.lstInformacoes.Location = new System.Drawing.Point(12, 312);
             this.lstInformacoes.Name = "lstInformacoes";
-            this.lstInformacoes.Size = new System.Drawing.Size(313, 173);
+            this.lstInformacoes.Size = new System.Drawing.Size(313, 157);
             this.lstInformacoes.TabIndex = 19;
             // 
             // lblErro

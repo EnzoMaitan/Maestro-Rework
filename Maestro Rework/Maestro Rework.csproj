@@ -145,6 +145,12 @@
     <Compile Include="DAO\UsuarioConteudoDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Forms\CarregarBackground.cs" />
+    <Compile Include="Forms\fmrAcessarConteudo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmrAcessarConteudo.Designer.cs">
+      <DependentUpon>fmrAcessarConteudo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     <Compile Include="Migrations\MaestroContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\fmrAcessarConteudo.resx">
+      <DependentUpon>fmrAcessarConteudo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmrAdicionarQuestionario3AdicionarQuestao.resx">
       <DependentUpon>fmrAdicionarQuestionario3AdicionarQuestao.cs</DependentUpon>
     </EmbeddedResource>

@@ -55,7 +55,6 @@ namespace Maestro_Rework.Classes
             var alternativas = new List<Alternativa>();
             var alternativaDAO = new AlternativaDAO();
 
-
             foreach (var questao in questoesCorretas)
             {
                 alternativas.Add(alternativaDAO.Alternativas().FirstOrDefault(x => x.Id == questao.AlternativaID));

@@ -33,6 +33,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.dtgQuestoes = new System.Windows.Forms.DataGridView();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.lblCliqueAdicionar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgQuestoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,9 +76,9 @@
             // dtgQuestoes
             // 
             this.dtgQuestoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgQuestoes.Location = new System.Drawing.Point(102, 22);
+            this.dtgQuestoes.Location = new System.Drawing.Point(102, 47);
             this.dtgQuestoes.Name = "dtgQuestoes";
-            this.dtgQuestoes.Size = new System.Drawing.Size(631, 506);
+            this.dtgQuestoes.Size = new System.Drawing.Size(631, 481);
             this.dtgQuestoes.TabIndex = 10;
             this.dtgQuestoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_CellClick);
             this.dtgQuestoes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
@@ -86,15 +87,27 @@
             // 
             this.btnAdicionar.AutoSize = true;
             this.btnAdicionar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAdicionar.BackColor = System.Drawing.Color.Transparent;
             this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionar.Image")));
-            this.btnAdicionar.Location = new System.Drawing.Point(739, 22);
+            this.btnAdicionar.Location = new System.Drawing.Point(128, 3);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(38, 38);
             this.btnAdicionar.TabIndex = 12;
-            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // lblCliqueAdicionar
+            // 
+            this.lblCliqueAdicionar.AutoSize = true;
+            this.lblCliqueAdicionar.Font = new System.Drawing.Font("Century Gothic", 16F);
+            this.lblCliqueAdicionar.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblCliqueAdicionar.Location = new System.Drawing.Point(176, 9);
+            this.lblCliqueAdicionar.Name = "lblCliqueAdicionar";
+            this.lblCliqueAdicionar.Size = new System.Drawing.Size(521, 25);
+            this.lblCliqueAdicionar.TabIndex = 13;
+            this.lblCliqueAdicionar.Text = "Clique Aqui para Adicionar uma nova questão!";
             // 
             // fmrAdicionarQuestionario2ListaQuestoes
             // 
@@ -102,6 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblCliqueAdicionar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.dtgQuestoes);
             this.Controls.Add(this.btnConcluir);
@@ -121,5 +135,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridView dtgQuestoes;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Label lblCliqueAdicionar;
     }
 }

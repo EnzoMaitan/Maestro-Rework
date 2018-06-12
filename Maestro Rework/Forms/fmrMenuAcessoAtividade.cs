@@ -33,6 +33,9 @@ namespace Maestro_Rework.Forms
             {
                 if (tipoDeAtividade == TipoDeAtividade.Conteudo)
                 {
+                    var conteudo = PesquisarConteudo();
+
+                    CarregarFormDeConteudo(conteudo);
                 }
                 else if (tipoDeAtividade == TipoDeAtividade.Questionario)
                 {
@@ -45,6 +48,22 @@ namespace Maestro_Rework.Forms
             {
                 MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, "Selecione uma Atividade");
             }
+        }
+
+        private void CarregarFormDeConteudo(Conteudo conteudo)
+        {
+            var show = new fmrAcessarConteudo(conteudo);
+            show.MdiParent = ActiveForm;
+            show.Dock = DockStyle.Fill;
+            show.Show();
+            Close();
+        }
+
+        private Conteudo PesquisarConteudo()
+        {
+            var nomeConteudoSelecionado = lstAtividadesDisponiveis.SelectedItem.ToString();
+            var conteudoDAO = new ConteudoDAO();
+            return conteudoDAO.Conteudo().FirstOrDefault(x=> x.Nome == nomeConteudoSelecionado);
         }
 
         private void CarregarFormDeConfirmarAcesso(Questionario questionario)
@@ -60,8 +79,7 @@ namespace Maestro_Rework.Forms
         {
             var nomeQuestionarioSelecionado = lstAtividadesDisponiveis.SelectedItem.ToString();
             var questionarioDAO = new QuestionarioDAO();
-            Questionario questionario = questionarioDAO.CarregarQuestionarioComQuestoesEAlternativas().First(x => x.Nome == nomeQuestionarioSelecionado);
-            return questionario;
+            return questionarioDAO.CarregarQuestionarioComQuestoesEAlternativas().First(x => x.Nome == nomeQuestionarioSelecionado);
         }
 
         private void btnDestravar_Click(object sender, EventArgs e)
@@ -202,7 +220,11 @@ namespace Maestro_Rework.Forms
             lstInformacoes.Items.Add($"Nome do questionario: {questionario.Nome}");
             lstInformacoes.Items.Add($"Data de criação:  {questionario.DataCriacao}");
             lstInformacoes.Items.Add($"Código de acesso: {questionario.CodigoAcesso}");
-            lstInformacoes.Items.Add($"Data Limite:      {questionario.DataFim}");
+            if (questionario.DataFim != null)
+                lstInformacoes.Items.Add($"Data Limite:      {questionario.DataFim}");
+            else
+                lstInformacoes.Items.Add("Data Limite: Não há data limite");
+
         }
     }
 }

@@ -27,7 +27,12 @@ namespace Maestro_Rework.Forms
             this.questionarioConstrutor = questionarioConstrutor;
        
             InitializeComponent();
-
+            if (dtgQuestoes.Rows.Count < 1)
+            {
+                lblCliqueAdicionar.Visible = true;
+            }
+            else
+                lblCliqueAdicionar.Visible = false;
             FormatarDatagrid();
             PreencherDataGrid();
 
