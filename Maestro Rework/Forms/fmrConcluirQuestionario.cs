@@ -14,10 +14,12 @@ namespace Maestro_Rework.Forms
 {
     public partial class fmrConcluirQuestionario : Form
     {
-        Questionario questionario;
+        private Questionario questionario;
+        private int tempoGasto;
 
-        public fmrConcluirQuestionario(Questionario questionario)
+        public fmrConcluirQuestionario(Questionario questionario, int tempoGasto)
         {
+            this.tempoGasto = tempoGasto;
             this.questionario = questionario;
             FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace Maestro_Rework.Forms
             
             lblNota.Text = $"Nota: {RQ.GetNota()}";
             lblAcertos.Text = $"Acertos: {RQ.GetAcertos()}";
-            lblTempoGasto.Text = $"Tempo Gasto: ";
+            lblTempoGasto.Text = $"Tempo Gasto: {(tempoGasto/10)} segundo(s)";
         }
 
         private void btnConcluir_Click(object sender, EventArgs e)

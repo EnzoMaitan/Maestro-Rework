@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblPergunta = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.rdbAlternativa5 = new System.Windows.Forms.RadioButton();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAvancar = new System.Windows.Forms.Button();
+            this.timerTempoDecorrido = new System.Windows.Forms.Timer(this.components);
+            this.lblTempoDecorrido = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPergunta
@@ -166,12 +169,27 @@
             this.btnAvancar.UseVisualStyleBackColor = false;
             this.btnAvancar.Click += new System.EventHandler(this.btnAvancar_Click);
             // 
+            // timerTempoDecorrido
+            // 
+            this.timerTempoDecorrido.Tick += new System.EventHandler(this.timerTempoDecorrido_Tick);
+            // 
+            // lblTempoDecorrido
+            // 
+            this.lblTempoDecorrido.AutoSize = true;
+            this.lblTempoDecorrido.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblTempoDecorrido.Location = new System.Drawing.Point(334, 557);
+            this.lblTempoDecorrido.Name = "lblTempoDecorrido";
+            this.lblTempoDecorrido.Size = new System.Drawing.Size(52, 19);
+            this.lblTempoDecorrido.TabIndex = 13;
+            this.lblTempoDecorrido.Text = "label1";
+            // 
             // fmrResponderQuestionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(859, 585);
+            this.Controls.Add(this.lblTempoDecorrido);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAvancar);
             this.Controls.Add(this.rdbAlternativa5);
@@ -203,5 +221,7 @@
         private System.Windows.Forms.RadioButton rdbAlternativa5;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAvancar;
+        private System.Windows.Forms.Timer timerTempoDecorrido;
+        private System.Windows.Forms.Label lblTempoDecorrido;
     }
 }

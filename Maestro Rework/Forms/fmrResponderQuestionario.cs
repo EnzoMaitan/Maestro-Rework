@@ -15,6 +15,7 @@ namespace Maestro_Rework.Forms
     public partial class fmrResponderQuestionario : Form
     {
         private int numeroDaTentativa;
+        private int tempoGasto;
         private Questionario questionario;
 
         private IList<Questao> questoesRestantes;
@@ -35,7 +36,14 @@ namespace Maestro_Rework.Forms
             questoesRestantes = questionario.Questoes;
             questoesAcertadas = new List<AlternativaCorreta>();
 
+            IniciandoOTimer();
             CarregarQuestao();
+        }
+
+        private void IniciandoOTimer()
+        {
+            timerTempoDecorrido.Enabled = true;
+            timerTempoDecorrido.Interval = 100;
         }
 
         private void CarregarQuestao()
@@ -51,8 +59,8 @@ namespace Maestro_Rework.Forms
             else
             {
                 SalvarRespostasNoBanco();
-
-                var show = new fmrConcluirQuestionario(questionario);
+                timerTempoDecorrido.Enabled = false;
+                var show = new fmrConcluirQuestionario(questionario, tempoGasto);
                 show.MdiParent = ActiveForm;
                 show.Dock = DockStyle.Fill;
                 show.Show();
@@ -160,6 +168,12 @@ namespace Maestro_Rework.Forms
             {
                 Close();
             }
+        }
+
+        private void timerTempoDecorrido_Tick(object sender, EventArgs e)
+        {
+            tempoGasto++;
+            lblTempoDecorrido.Text = $"Tempo Decorrido: { (tempoGasto / 10).ToString()} segundo(s)";
         }
     }
 }

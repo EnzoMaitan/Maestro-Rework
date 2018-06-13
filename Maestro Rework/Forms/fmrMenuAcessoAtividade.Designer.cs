@@ -61,7 +61,6 @@
             this.lstAtividadesDisponiveis.Name = "lstAtividadesDisponiveis";
             this.lstAtividadesDisponiveis.Size = new System.Drawing.Size(409, 378);
             this.lstAtividadesDisponiveis.TabIndex = 14;
-            this.lstAtividadesDisponiveis.Click += new System.EventHandler(this.lstAtividadesDisponiveis_Click);
             this.lstAtividadesDisponiveis.SelectedIndexChanged += new System.EventHandler(this.lstAtividadesDisponiveis_SelectedIndexChanged);
             // 
             // btnCancelar
@@ -169,7 +168,7 @@
             // fmrMenuAcessoAtividade
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImage = global::Maestro_Rework.Properties.Resources.a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(859, 585);

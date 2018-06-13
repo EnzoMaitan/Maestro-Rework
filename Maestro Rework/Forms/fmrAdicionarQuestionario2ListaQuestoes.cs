@@ -82,6 +82,11 @@ namespace Maestro_Rework.Forms
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            CarregarFormAdicionarQuestao();
+        }
+
+        private void CarregarFormAdicionarQuestao()
+        {
             var show = new fmrAdicionarQuestionario3AdicionarQuestao(questionarioConstrutor);
             show.MdiParent = ActiveForm;
             show.Dock = DockStyle.Fill;
@@ -191,6 +196,11 @@ namespace Maestro_Rework.Forms
             if (MessageBox.Show("Deseja Mesmo Remover?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 dtgQuestoes.Rows.RemoveAt(e.RowIndex);
             questoes.RemoveAll(x => x.Pergunta == nomeDaPergunta);
+        }
+
+        private void lblCliqueAdicionar_Click(object sender, EventArgs e)
+        {
+            CarregarFormAdicionarQuestao();
         }
     }
 }

@@ -40,13 +40,21 @@ namespace Maestro_Rework.Forms
                 else if (tipoDeAtividade == TipoDeAtividade.Questionario)
                 {
                     var questionario = PesquisarQuestionario();
-
-                    CarregarFormDeConfirmarAcesso(questionario);
+                    if (questionario.DataFim < DateTime.Now)
+                    {
+                        throw new Exception("Data limite excedida");
+                    }
+                    else
+                        CarregarFormDeConfirmarAcesso(questionario);
                 }
             }
             catch (NullReferenceException)
             {
                 MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, "Selecione uma Atividade");
+            }
+            catch (Exception ex)
+            {
+                MostrarErro.DeixarLabelVisivelMostrarErro(lblErro, ex.Message);
             }
         }
 
@@ -199,19 +207,23 @@ namespace Maestro_Rework.Forms
             lstInformacoes.Items.Clear();
             try
             {
-                MostrarAsInformacoesDoQuestionario();
+                if (tipoDeAtividade == TipoDeAtividade.Conteudo)
+                {
+                    MostrarAsInformacoesDoConteudo();
+                }
+                else if (tipoDeAtividade == TipoDeAtividade.Questionario)
+                {
+                    MostrarAsInformacoesDoQuestionario();
+                }
             }
             catch (Exception){}
         }
 
-        private void lstAtividadesDisponiveis_Click(object sender, EventArgs e)
+        private void MostrarAsInformacoesDoConteudo()
         {
-            lstInformacoes.Items.Clear();
-            try
-            {
-                MostrarAsInformacoesDoQuestionario();
-            }
-            catch (Exception){}
+            var conteudo = PesquisarConteudo();
+            lstInformacoes.Items.Add($"Tema: { conteudo.Tema }");
+            lstInformacoes.Items.Add($"Data de criação: { conteudo.DataCriacao }");
         }
 
         private void MostrarAsInformacoesDoQuestionario()

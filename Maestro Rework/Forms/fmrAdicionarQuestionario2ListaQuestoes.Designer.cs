@@ -91,7 +91,7 @@
             this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionar.Image")));
-            this.btnAdicionar.Location = new System.Drawing.Point(128, 3);
+            this.btnAdicionar.Location = new System.Drawing.Point(695, 3);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(38, 38);
             this.btnAdicionar.TabIndex = 12;
@@ -102,12 +102,13 @@
             // 
             this.lblCliqueAdicionar.AutoSize = true;
             this.lblCliqueAdicionar.Font = new System.Drawing.Font("Century Gothic", 16F);
-            this.lblCliqueAdicionar.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblCliqueAdicionar.Location = new System.Drawing.Point(176, 9);
+            this.lblCliqueAdicionar.ForeColor = System.Drawing.Color.Black;
+            this.lblCliqueAdicionar.Location = new System.Drawing.Point(412, 9);
             this.lblCliqueAdicionar.Name = "lblCliqueAdicionar";
-            this.lblCliqueAdicionar.Size = new System.Drawing.Size(521, 25);
+            this.lblCliqueAdicionar.Size = new System.Drawing.Size(277, 25);
             this.lblCliqueAdicionar.TabIndex = 13;
-            this.lblCliqueAdicionar.Text = "Clique Aqui para Adicionar uma nova questão!";
+            this.lblCliqueAdicionar.Text = "Adicionar Nova Questão";
+            this.lblCliqueAdicionar.Click += new System.EventHandler(this.lblCliqueAdicionar_Click);
             // 
             // fmrAdicionarQuestionario2ListaQuestoes
             // 
