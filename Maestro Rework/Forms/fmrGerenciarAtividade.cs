@@ -56,7 +56,17 @@ namespace Maestro_Rework.Forms
 
         private void btnGerenciar_Click(object sender, EventArgs e)
         {
-
+            if (_tipoDeAtividade == TipoDeAtividade.Conteudo)
+            {
+            }
+            else if (_tipoDeAtividade == TipoDeAtividade.Questionario)
+            {
+                fmrAdicionarQuestionario2ListaQuestoes.questoes.Clear();
+                var show = new fmrGerenciarQuestionario();
+                show.MdiParent = ActiveForm;
+                show.Dock = DockStyle.Fill;
+                show.Show();
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace Maestro_Rework.Classes.Entidades
             if (string.IsNullOrWhiteSpace(pergunta))
                 throw new ArgumentNullException("","Preencha o campo da Pergunta");
             if (valor <= 0)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Valor da Questão", "Selecione o peso da questão");
 
             QuestionarioID = questionarioID;
             Alternativas = alternativas;

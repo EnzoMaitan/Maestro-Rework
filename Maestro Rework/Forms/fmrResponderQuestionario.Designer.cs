@@ -177,11 +177,11 @@
             // 
             this.lblTempoDecorrido.AutoSize = true;
             this.lblTempoDecorrido.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblTempoDecorrido.Location = new System.Drawing.Point(334, 557);
+            this.lblTempoDecorrido.Location = new System.Drawing.Point(308, 557);
             this.lblTempoDecorrido.Name = "lblTempoDecorrido";
-            this.lblTempoDecorrido.Size = new System.Drawing.Size(52, 19);
+            this.lblTempoDecorrido.Size = new System.Drawing.Size(221, 19);
             this.lblTempoDecorrido.TabIndex = 13;
-            this.lblTempoDecorrido.Text = "label1";
+            this.lblTempoDecorrido.Text = "Tempo Decorrido: 0 segundo(s)";
             // 
             // fmrResponderQuestionario
             // 

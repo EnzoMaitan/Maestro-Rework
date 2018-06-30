@@ -54,5 +54,15 @@ namespace Maestro_Rework.Classes.Entidades
 
         public IList<RegistraQuestionario> Registro { get; private set; }
         public IList<Questao> Questoes { get; private set; }
+
+        public double GetTotalDePontos()
+        {
+            double totalDePontos = 0.0;
+            foreach (var questao in Questoes)
+            {
+                totalDePontos = questao.Valor + totalDePontos;
+            }
+            return totalDePontos;
+        }
     }
 }

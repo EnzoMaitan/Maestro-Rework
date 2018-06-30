@@ -25,6 +25,8 @@ namespace Maestro_Rework.Forms
             lblErro.Visible = false;
             AlterarTextoDaTextBox(tipoDeAtividade);
             AtualizarListBox();
+
+            this.AcceptButton = btnAcessar;
         }
 
         private void btnAcessar_Click(object sender, EventArgs e)

@@ -36,6 +36,12 @@ namespace Maestro_Rework.DAO
             ((IDisposable)contexto).Dispose();
         }
 
+        internal void Remover(Questionario questionario)
+        {
+            contexto.Questionarios.Remove(questionario);
+            contexto.SaveChanges();
+        }
+
         public IList<Questionario> Questionario()
         {
             return contexto.Questionarios.ToList();
